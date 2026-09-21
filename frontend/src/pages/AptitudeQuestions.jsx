@@ -5,7 +5,7 @@ import axios from "axios";
 function AptitudeQuestions() {
   const [searchParams] = useSearchParams();
 
-  const topic = searchParams.get("topic");
+  const topic = searchParams.get("topic")?.trim().toLowerCase() || "";
 
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,39 +20,51 @@ function AptitudeQuestions() {
       try {
         setLoading(true);
         setError("");
+        setQuestions([]);
         setCurrentIndex(0);
         setSelectedAnswer(null);
         setAnswerResult(null);
 
-        const token = localStorage.getItem(
-          "placementproToken"
-        );
+        const token = localStorage.getItem("placementproToken");
 
         if (!token) {
           setError("Please login to practice aptitude.");
           return;
         }
 
-        let url =
-          "http://localhost:5000/api/aptitude/questions";
-
-        if (topic) {
-          url += `?topic=${encodeURIComponent(topic)}`;
+        if (!topic) {
+          setError("No aptitude topic was selected.");
+          return;
         }
 
-        const response = await axios.get(url, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        console.log("Selected topic:", topic);
+
+        const response = await axios.get(
+          "http://localhost:5000/api/aptitude/questions",
+          {
+            params: {
+              topic,
+            },
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        console.log("Aptitude API response:", response.data);
 
         if (response.data.success) {
-          setQuestions(response.data.questions);
+          setQuestions(response.data.questions || []);
+        } else {
+          setError(
+            response.data.message ||
+              "Unable to load aptitude questions."
+          );
         }
       } catch (error) {
         console.error(
           "Aptitude questions loading error:",
-          error
+          error.response?.data || error.message
         );
 
         if (error.response?.status === 401) {
@@ -61,7 +73,8 @@ function AptitudeQuestions() {
           );
         } else {
           setError(
-            "Unable to load aptitude questions."
+            error.response?.data?.message ||
+              "Unable to load aptitude questions."
           );
         }
       } finally {
@@ -84,15 +97,17 @@ function AptitudeQuestions() {
       setChecking(true);
       setError("");
 
-      const token = localStorage.getItem(
-        "placementproToken"
-      );
+      const token = localStorage.getItem("placementproToken");
+
+      if (!token) {
+        setError("Please login again.");
+        return;
+      }
 
       const response = await axios.post(
         "http://localhost:5000/api/aptitude/check",
         {
-          questionId:
-            questions[currentIndex].questionId,
+          questionId: questions[currentIndex].questionId,
           selectedAnswer,
         },
         {
@@ -108,7 +123,7 @@ function AptitudeQuestions() {
     } catch (error) {
       console.error(
         "Answer check error:",
-        error
+        error.response?.data || error.message
       );
 
       if (error.response?.status === 401) {
@@ -117,7 +132,8 @@ function AptitudeQuestions() {
         );
       } else {
         setError(
-          "Unable to check your answer."
+          error.response?.data?.message ||
+            "Unable to check your answer."
         );
       }
     } finally {
@@ -125,27 +141,23 @@ function AptitudeQuestions() {
     }
   };
 
+  const resetQuestionState = () => {
+    setSelectedAnswer(null);
+    setAnswerResult(null);
+    setError("");
+  };
+
   const handleNextQuestion = () => {
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex(
-        (previousIndex) => previousIndex + 1
-      );
-
-      setSelectedAnswer(null);
-      setAnswerResult(null);
-      setError("");
+      setCurrentIndex((previousIndex) => previousIndex + 1);
+      resetQuestionState();
     }
   };
 
   const handlePreviousQuestion = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(
-        (previousIndex) => previousIndex - 1
-      );
-
-      setSelectedAnswer(null);
-      setAnswerResult(null);
-      setError("");
+      setCurrentIndex((previousIndex) => previousIndex - 1);
+      resetQuestionState();
     }
   };
 
@@ -153,6 +165,32 @@ function AptitudeQuestions() {
     return (
       <div className="practice-page">
         <p>Loading aptitude questions...</p>
+      </div>
+    );
+  }
+
+  if (error && questions.length === 0) {
+    return (
+      <div className="practice-page">
+        <Link
+          to="/practice/aptitude"
+          className="aptitude-back-link"
+        >
+          ← Back to Aptitude
+        </Link>
+
+        <div className="aptitude-empty-state">
+          <h2>Unable to Load Questions</h2>
+
+          <p>{error}</p>
+
+          <Link
+            to="/practice/aptitude"
+            className="btn primary-btn"
+          >
+            Back to Aptitude
+          </Link>
+        </div>
       </div>
     );
   }
@@ -172,8 +210,7 @@ function AptitudeQuestions() {
 
           <p>
             We haven't added questions for{" "}
-            <strong>{topic || "this topic"}</strong>{" "}
-            yet.
+            <strong>{topic || "this topic"}</strong> yet.
           </p>
 
           <Link
@@ -187,13 +224,10 @@ function AptitudeQuestions() {
     );
   }
 
-  const currentQuestion =
-    questions[currentIndex];
+  const currentQuestion = questions[currentIndex];
 
   const progress =
-    ((currentIndex + 1) /
-      questions.length) *
-    100;
+    ((currentIndex + 1) / questions.length) * 100;
 
   return (
     <div className="practice-page aptitude-practice-page">
@@ -215,13 +249,9 @@ function AptitudeQuestions() {
           APTITUDE PRACTICE
         </p>
 
-        <h1>
-          {currentQuestion.topic}
-        </h1>
+        <h1>{currentQuestion.topic}</h1>
 
-        <p>
-          {currentQuestion.category}
-        </p>
+        <p>{currentQuestion.category}</p>
       </div>
 
       <div className="question-progress-container">
@@ -231,9 +261,7 @@ function AptitudeQuestions() {
             {questions.length}
           </span>
 
-          <span>
-            {Math.round(progress)}%
-          </span>
+          <span>{Math.round(progress)}%</span>
         </div>
 
         <div className="question-progress-track">
@@ -254,9 +282,7 @@ function AptitudeQuestions() {
 
       <div className="aptitude-question-card">
         <div className="aptitude-question-top">
-          <span>
-            Question {currentIndex + 1}
-          </span>
+          <span>Question {currentIndex + 1}</span>
 
           <span className="difficulty-badge">
             {currentQuestion.difficulty}
@@ -269,35 +295,28 @@ function AptitudeQuestions() {
           {currentQuestion.topic}
         </p>
 
-        <h2>
-          {currentQuestion.question}
-        </h2>
+        <h2>{currentQuestion.question}</h2>
 
         <div className="aptitude-options">
           {currentQuestion.options.map(
             (option, index) => {
-              let optionClass =
-                "aptitude-option";
+              let optionClass = "aptitude-option";
 
               if (answerResult) {
                 if (
-                  index ===
-                  answerResult.correctAnswer
+                  index === answerResult.correctAnswer
                 ) {
-                  optionClass +=
-                    " correct-option";
+                  optionClass += " correct-option";
                 } else if (
                   index === selectedAnswer &&
                   !answerResult.isCorrect
                 ) {
-                  optionClass +=
-                    " wrong-option";
+                  optionClass += " wrong-option";
                 }
               } else if (
                 selectedAnswer === index
               ) {
-                optionClass +=
-                  " selected-option";
+                optionClass += " selected-option";
               }
 
               return (
@@ -305,17 +324,13 @@ function AptitudeQuestions() {
                   type="button"
                   key={index}
                   className={optionClass}
-                  disabled={Boolean(
-                    answerResult
-                  )}
+                  disabled={Boolean(answerResult)}
                   onClick={() =>
                     setSelectedAnswer(index)
                   }
                 >
                   <span>
-                    {String.fromCharCode(
-                      65 + index
-                    )}
+                    {String.fromCharCode(65 + index)}
                   </span>
 
                   {option}
@@ -354,9 +369,7 @@ function AptitudeQuestions() {
             </h3>
 
             <p>
-              <strong>
-                Explanation:
-              </strong>{" "}
+              <strong>Explanation:</strong>{" "}
               {answerResult.explanation}
             </p>
           </div>
@@ -366,16 +379,13 @@ function AptitudeQuestions() {
           <button
             type="button"
             className="aptitude-secondary-btn"
-            onClick={
-              handlePreviousQuestion
-            }
+            onClick={handlePreviousQuestion}
             disabled={currentIndex === 0}
           >
             ← Previous
           </button>
 
-          {currentIndex <
-          questions.length - 1 ? (
+          {currentIndex < questions.length - 1 ? (
             <button
               type="button"
               className="btn primary-btn"

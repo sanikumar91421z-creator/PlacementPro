@@ -9,6 +9,7 @@ function Aptitude() {
       icon: "🧮",
       description:
         "Sharpen your numerical skills with topic-wise practice questions.",
+
       topics: [
         {
           name: "Percentage",
@@ -20,25 +21,13 @@ function Aptitude() {
           name: "Profit & Loss",
           icon: "📈",
           topic: "profit and loss",
-          description: "Solve profit and loss related questions.",
+          description: "Solve profit, loss and discount problems.",
         },
         {
           name: "Ratio & Proportion",
-          icon: "◔",
+          icon: "⚖",
           topic: "ratio and proportion",
           description: "Learn ratio and proportion concepts.",
-        },
-        {
-          name: "Time & Work",
-          icon: "◷",
-          topic: "time and work",
-          description: "Practice time and work problems.",
-        },
-        {
-          name: "Time, Speed & Distance",
-          icon: "🚗",
-          topic: "time speed and distance",
-          description: "Solve speed, time and distance questions.",
         },
         {
           name: "Average",
@@ -47,10 +36,46 @@ function Aptitude() {
           description: "Practice average based questions.",
         },
         {
+          name: "Time & Work",
+          icon: "◷",
+          topic: "time and work",
+          description: "Practice time, work and efficiency problems.",
+        },
+        {
+          name: "Time, Speed & Distance",
+          icon: "🚗",
+          topic: "time speed and distance",
+          description: "Solve speed, time and distance questions.",
+        },
+        {
           name: "Simple & Compound Interest",
           icon: "₹",
           topic: "simple and compound interest",
-          description: "Learn and practice interest problems.",
+          description: "Practice simple and compound interest.",
+        },
+        {
+          name: "Number System / HCF & LCM",
+          icon: "123",
+          topic: "number system",
+          description: "Practice numbers, divisibility, HCF and LCM.",
+        },
+        {
+          name: "Probability",
+          icon: "🎲",
+          topic: "probability",
+          description: "Solve probability based placement problems.",
+        },
+        {
+          name: "Permutation & Combination",
+          icon: "nPr",
+          topic: "permutation and combination",
+          description: "Practice arrangements and combinations.",
+        },
+        {
+          name: "Data Interpretation",
+          icon: "📊",
+          topic: "data interpretation",
+          description: "Analyse tables, charts and numerical data.",
         },
       ],
     },
@@ -58,14 +83,14 @@ function Aptitude() {
     {
       title: "Logical Reasoning",
       icon: "🧠",
-      description:
-        "Enhance your reasoning and analytical skills.",
+      description: "Enhance your reasoning and analytical skills.",
+
       topics: [
         {
           name: "Number Series",
           icon: "#",
           topic: "number series",
-          description: "Find the next number in the series.",
+          description: "Identify patterns and find missing numbers.",
         },
         {
           name: "Coding-Decoding",
@@ -77,7 +102,7 @@ function Aptitude() {
           name: "Blood Relations",
           icon: "👥",
           topic: "blood relations",
-          description: "Learn and practice blood relation questions.",
+          description: "Practice family and relationship problems.",
         },
         {
           name: "Direction Sense",
@@ -89,7 +114,19 @@ function Aptitude() {
           name: "Syllogism",
           icon: "▤",
           topic: "syllogism",
-          description: "Practice syllogism based questions.",
+          description: "Practice statement and conclusion problems.",
+        },
+        {
+          name: "Seating Arrangement",
+          icon: "◉",
+          topic: "seating arrangement",
+          description: "Solve linear and circular seating problems.",
+        },
+        {
+          name: "Logical / Analytical Reasoning",
+          icon: "🧩",
+          topic: "analytical reasoning",
+          description: "Practice puzzles and analytical reasoning.",
         },
       ],
     },
@@ -97,58 +134,58 @@ function Aptitude() {
     {
       title: "Verbal Ability",
       icon: "📖",
-      description:
-        "Build your English language and comprehension skills.",
+      description: "Build your English language and comprehension skills.",
+
       topics: [
         {
           name: "Grammar",
           icon: "📚",
           topic: "grammar",
-          description: "Improve your grammar skills.",
+          description: "Improve grammar and language fundamentals.",
         },
         {
           name: "Synonyms & Antonyms",
           icon: "A",
-          topic: "synonyms",
-          description: "Learn and practice synonyms and antonyms.",
+          topic: "synonyms and antonyms",
+          description: "Improve vocabulary with synonyms and antonyms.",
         },
         {
           name: "Sentence Correction",
           icon: "✎",
           topic: "sentence correction",
-          description: "Find and correct errors in sentences.",
+          description: "Identify and correct errors in sentences.",
+        },
+        {
+          name: "Fill in the Blanks",
+          icon: "___",
+          topic: "fill in the blanks",
+          description: "Choose suitable words to complete sentences.",
         },
         {
           name: "Reading Comprehension",
           icon: "📄",
           topic: "reading comprehension",
-          description: "Read passages and answer questions.",
+          description: "Read passages and answer comprehension questions.",
         },
       ],
     },
   ];
 
   const handlePractice = (topic) => {
-    navigate(
-      `/practice/aptitude/questions?topic=${encodeURIComponent(
-        topic
-      )}`
-    );
+    navigate(`/practice/aptitude/questions?topic=${encodeURIComponent(topic)}`);
   };
 
   return (
     <div className="aptitude-dashboard">
       <section className="aptitude-hero">
         <div className="aptitude-hero-content">
-          <p className="section-label">
-            APTITUDE PRACTICE
-          </p>
+          <p className="section-label">APTITUDE PRACTICE</p>
 
           <h1>Practice Aptitude</h1>
 
           <p className="aptitude-subtitle">
-            Improve your quantitative, logical and verbal skills
-            with carefully selected questions.
+            Improve your quantitative, logical and verbal skills with carefully
+            selected questions.
           </p>
 
           <div className="aptitude-highlights">
@@ -182,9 +219,7 @@ function Aptitude() {
         </div>
 
         <div className="aptitude-progress-card">
-          <div className="progress-card-icon">
-            ▥
-          </div>
+          <div className="progress-card-icon">▥</div>
 
           <div className="progress-card-content">
             <span>Your Progress</span>
@@ -199,9 +234,7 @@ function Aptitude() {
                 />
               </div>
 
-              <span className="aptitude-progress-percent">
-                0%
-              </span>
+              <span className="aptitude-progress-percent">0%</span>
             </div>
           </div>
         </div>
@@ -209,10 +242,7 @@ function Aptitude() {
 
       <div className="aptitude-sections">
         {sections.map((section) => (
-          <section
-            className="aptitude-topic-section"
-            key={section.title}
-          >
+          <section className="aptitude-topic-section" key={section.title}>
             <div className="aptitude-section-heading">
               <div className="aptitude-section-title">
                 <h2>
@@ -230,28 +260,19 @@ function Aptitude() {
 
             <div className="aptitude-topic-grid">
               {section.topics.map((topic) => (
-                <article
-                  className="aptitude-topic-card"
-                  key={topic.name}
-                >
-                  <div className="aptitude-topic-icon">
-                    {topic.icon}
-                  </div>
+                <article className="aptitude-topic-card" key={topic.name}>
+                  <div className="aptitude-topic-icon">{topic.icon}</div>
 
                   <h3>{topic.name}</h3>
 
                   <p>{topic.description}</p>
 
                   <div className="aptitude-card-footer">
-                    <span>
-                      Practice Questions
-                    </span>
+                    <span>Practice Questions</span>
 
                     <button
                       type="button"
-                      onClick={() =>
-                        handlePractice(topic.topic)
-                      }
+                      onClick={() => handlePractice(topic.topic)}
                     >
                       Practice →
                     </button>
