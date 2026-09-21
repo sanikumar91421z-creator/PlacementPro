@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #08090d;
+  color: #ffffff;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+button {
+  outline: none;
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media (max-width: 650px) {
+  body {
+    font-size: 15px;
+  }
+}
