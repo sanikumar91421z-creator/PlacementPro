@@ -1,7 +1,6 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-function Aptitude() {
-  const navigate = useNavigate();
+import axios from "axios";
 
   const sections = [
     {
@@ -170,6 +169,41 @@ function Aptitude() {
       ],
     },
   ];
+function Aptitude() {
+  const navigate = useNavigate();
+  const [progress, setProgress] = useState({
+    solvedCount: 0,
+    totalQuestions: 0,
+    progressPercentage: 0,
+  });
+  useEffect(() => {
+    const fetchProgress = async () => {
+      try {
+        const token = localStorage.getItem("placementproToken");
+
+        const response = await axios.get(
+          "http://localhost:5000/api/progress/aptitude",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+
+        if (response.data.success) {
+          setProgress(response.data);
+        }
+      } catch (error) {
+        console.error(
+          "Unable to load aptitude progress:",
+          error.response?.data?.message || error.message,
+        );
+      }
+    };
+
+    fetchProgress();
+  }, []);
+
 
   const handlePractice = (topic) => {
     navigate(`/practice/aptitude/questions?topic=${encodeURIComponent(topic)}`);
@@ -193,7 +227,7 @@ function Aptitude() {
               <span className="highlight-icon">◉</span>
 
               <div>
-                <strong>100+ Questions</strong>
+                <strong>{progress.totalQuestions || 230} Questions</strong>
                 <small>Across all topics</small>
               </div>
             </div>
@@ -224,17 +258,23 @@ function Aptitude() {
           <div className="progress-card-content">
             <span>Your Progress</span>
 
-            <strong>0 / 15 Solved</strong>
+            <strong>
+              {progress.solvedCount} / {progress.totalQuestions} Solved
+            </strong>
 
             <div className="aptitude-progress-row">
               <div className="aptitude-progress-track">
                 <div
                   className="aptitude-progress-value"
-                  style={{ width: "0%" }}
+                  style={{
+                    width: `${progress.progressPercentage}%`,
+                  }}
                 />
               </div>
 
-              <span className="aptitude-progress-percent">0%</span>
+              <span className="aptitude-progress-percent">
+                {progress.progressPercentage}%
+              </span>
             </div>
           </div>
         </div>

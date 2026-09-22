@@ -11,7 +11,7 @@ import {
 import { useEffect, useState } from "react";
 
 import "./App.css";
-
+import MockTestExam from "./pages/MockTestExam";
 import Home from "./pages/Home";
 import Practice from "./pages/Practice";
 import DSA from "./pages/DSA";
@@ -22,7 +22,7 @@ import Question from "./pages/Question";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AptitudeQuestions from "./pages/AptitudeQuestions";
-
+import MockTestResult from "./pages/MockTestResult";
 // ==========================================
 // NAVBAR
 // ==========================================
@@ -265,7 +265,22 @@ function App() {
             </ProtectedRoute>
           }
         />
-
+        <Route
+          path="/practice/mock-tests/result"
+          element={
+            <ProtectedRoute>
+              <MockTestResult />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/practice/mock-tests/:testId"
+          element={
+            <ProtectedRoute>
+              <MockTestExam />
+            </ProtectedRoute>
+          }
+        />
         {/* COMPANIES */}
 
         <Route

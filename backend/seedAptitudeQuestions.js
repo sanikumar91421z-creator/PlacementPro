@@ -1554,6 +1554,1344 @@ const aptitudeQuestions = [
       "Using opposite alphabet letters: C→X, O→L, D→W and E→V. Therefore, CODE becomes XLWV.",
     difficulty: "Hard",
   },
+  {
+    questionId: 131,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "Pointing to a boy, Riya said, 'He is the son of my mother's only son.' How is the boy related to Riya?",
+    options: ["Brother", "Son", "Nephew", "Cousin"],
+    correctAnswer: 2,
+    explanation:
+      "Riya's mother's only son is Riya's brother. The boy is her brother's son, so he is Riya's nephew.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 132,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "A is the father of B. B is the sister of C. How is A related to C?",
+    options: ["Brother", "Father", "Uncle", "Grandfather"],
+    correctAnswer: 1,
+    explanation:
+      "B and C are siblings. Since A is B's father, A is also C's father.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 133,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "P is the mother of Q. Q is the brother of R. How is P related to R?",
+    options: ["Sister", "Aunt", "Mother", "Grandmother"],
+    correctAnswer: 2,
+    explanation:
+      "Q and R are siblings. Since P is Q's mother, P is also R's mother.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 134,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "Rahul is the brother of Neha. Neha is the daughter of Amit. How is Rahul related to Amit?",
+    options: ["Son", "Brother", "Father", "Nephew"],
+    correctAnswer: 0,
+    explanation:
+      "Rahul and Neha are siblings. Neha is Amit's daughter, so Rahul is Amit's son.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 135,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "Pointing to a man, Priya said, 'He is the only son of my mother's father.' How is the man related to Priya?",
+    options: ["Brother", "Father", "Maternal Uncle", "Grandfather"],
+    correctAnswer: 2,
+    explanation:
+      "Priya's mother's father is her maternal grandfather. His only son is Priya's mother's brother, so the man is Priya's maternal uncle.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 136,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "A is B's sister. C is B's mother. D is C's father. How is A related to D?",
+    options: ["Daughter", "Granddaughter", "Sister", "Niece"],
+    correctAnswer: 1,
+    explanation:
+      "C is A's mother, and D is C's father. Therefore, D is A's maternal grandfather and A is D's granddaughter.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 137,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "M is the father of N. O is the wife of M. P is the brother of N. How is O related to P?",
+    options: ["Sister", "Aunt", "Mother", "Grandmother"],
+    correctAnswer: 2,
+    explanation:
+      "M is the father of N and P. O is M's wife, so O is P's mother.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 138,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "Introducing a woman, Raj said, 'She is the daughter of the only son of my grandfather.' How is the woman related to Raj, assuming Raj's father is his grandfather's only son?",
+    options: ["Mother", "Sister", "Aunt", "Cousin"],
+    correctAnswer: 1,
+    explanation:
+      "Raj's grandfather's only son is Raj's father. The woman is Raj's father's daughter, so she is Raj's sister.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 139,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "X is the brother of Y. Y is the mother of Z. How is X related to Z?",
+    options: ["Father", "Brother", "Maternal Uncle", "Grandfather"],
+    correctAnswer: 2,
+    explanation:
+      "X is the brother of Z's mother Y. Therefore, X is Z's maternal uncle.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 140,
+    category: "Logical Reasoning",
+    topic: "blood relations",
+    question:
+      "A is the mother of B. C is the father of A. D is the mother of C. How is D related to B?",
+    options: ["Grandmother", "Great-grandmother", "Aunt", "Mother"],
+    correctAnswer: 1,
+    explanation:
+      "C is B's maternal grandfather. D is C's mother, so D is B's great-grandmother.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 141,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "Ravi walks 10 metres north and then 10 metres east. In which direction is he from his starting point?",
+    options: ["North-West", "North-East", "South-East", "South-West"],
+    correctAnswer: 1,
+    explanation:
+      "Ravi moves north and then east, so his final position is north-east of the starting point.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 142,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "Aman is facing north. He turns right and then turns right again. Which direction is he facing now?",
+    options: ["North", "South", "East", "West"],
+    correctAnswer: 1,
+    explanation:
+      "From north, the first right turn makes him face east. The second right turn makes him face south.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 143,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "Priya is facing west. She turns left. Which direction is she facing now?",
+    options: ["North", "South", "East", "West"],
+    correctAnswer: 1,
+    explanation: "When facing west, a left turn points toward south.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 144,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "A boy walks 5 km east and then 3 km west. How far and in which direction is he from his starting point?",
+    options: ["2 km East", "2 km West", "8 km East", "8 km West"],
+    correctAnswer: 0,
+    explanation: "Net movement = 5 - 3 = 2 km toward the east.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 145,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "A person walks 6 km north and then 8 km east. What is the shortest distance from the starting point?",
+    options: ["10 km", "12 km", "14 km", "16 km"],
+    correctAnswer: 0,
+    explanation:
+      "Using the Pythagorean theorem, distance = √(6² + 8²) = √100 = 10 km.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 146,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "Rahul walks 10 metres north, turns right and walks 5 metres, then turns right and walks 10 metres. Where is he relative to his starting point?",
+    options: [
+      "5 metres East",
+      "5 metres West",
+      "10 metres North",
+      "10 metres South",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "He moves 10 metres north, 5 metres east and then 10 metres south. The north and south movements cancel, leaving him 5 metres east of the starting point.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 147,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "A man is facing south. He turns 90 degrees clockwise, then 180 degrees clockwise. Which direction is he facing?",
+    options: ["North", "South", "East", "West"],
+    correctAnswer: 2,
+    explanation:
+      "From south, a 90-degree clockwise turn makes him face west. Another 180-degree turn makes him face east.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 148,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "Neha walks 4 km south, then 3 km east, and finally 4 km north. How far and in which direction is she from the starting point?",
+    options: ["3 km East", "3 km West", "4 km North", "4 km South"],
+    correctAnswer: 0,
+    explanation:
+      "The 4 km south and 4 km north movements cancel each other. Neha remains 3 km east of her starting point.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 149,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "A person walks 5 km north, then 5 km east, then 5 km south, and finally 2 km west. How far and in which direction is the person from the starting point?",
+    options: ["2 km East", "3 km East", "3 km West", "5 km East"],
+    correctAnswer: 1,
+    explanation:
+      "The 5 km north and 5 km south movements cancel. East-west displacement = 5 - 2 = 3 km east.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 150,
+    category: "Logical Reasoning",
+    topic: "direction sense",
+    question:
+      "A person starts facing north. He turns 90 degrees clockwise, then 180 degrees anticlockwise, and finally 90 degrees clockwise. Which direction is he facing?",
+    options: ["North", "South", "East", "West"],
+    correctAnswer: 0,
+    explanation:
+      "North → 90° clockwise = East → 180° anticlockwise = West → 90° clockwise = North.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 151,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: All cats are animals. All animals are living beings. Conclusion: All cats are living beings.",
+    options: [
+      "Conclusion follows",
+      "Conclusion does not follow",
+      "Cannot be determined",
+      "Both follow and do not follow",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "All cats are animals and all animals are living beings. Therefore, every cat must be a living being.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 152,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: All roses are flowers. No flower is a stone. Conclusion: No rose is a stone.",
+    options: [
+      "Conclusion follows",
+      "Conclusion does not follow",
+      "Cannot be determined",
+      "Only sometimes follows",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Every rose is a flower, and no flower is a stone. Therefore, no rose can be a stone.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 153,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: Some students are athletes. All athletes are fit. Conclusion: Some students are fit.",
+    options: [
+      "Conclusion follows",
+      "Conclusion does not follow",
+      "Cannot be determined",
+      "None of these",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Some students are athletes, and every athlete is fit. Therefore, those students who are athletes are also fit.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 154,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: No doctor is a teacher. Ravi is a doctor. Conclusion: Ravi is not a teacher.",
+    options: [
+      "Conclusion follows",
+      "Conclusion does not follow",
+      "Cannot be determined",
+      "Statement is contradictory",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "No doctor can be a teacher. Since Ravi is a doctor, Ravi cannot be a teacher.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 155,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: All engineers are graduates. Some graduates are managers. Conclusion: Some engineers are managers.",
+    options: [
+      "Conclusion follows",
+      "Conclusion does not follow",
+      "Both statements are false",
+      "All engineers are managers",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The graduates who are managers are not necessarily engineers. Therefore, we cannot conclude that some engineers are managers.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 156,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: Some books are novels. No novel is a magazine. Conclusion: Some books are not magazines.",
+    options: [
+      "Conclusion follows",
+      "Conclusion does not follow",
+      "Cannot be determined",
+      "All books are magazines",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Some books are novels, and no novel is a magazine. Therefore, those books that are novels are not magazines.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 157,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: All pens are stationery items. Some stationery items are expensive. Conclusion: Some pens are expensive.",
+    options: [
+      "Conclusion follows",
+      "Conclusion does not follow",
+      "All pens are expensive",
+      "No pen is expensive",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The expensive stationery items are not necessarily pens. Therefore, the conclusion that some pens are expensive does not follow.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 158,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: Some cars are electric vehicles. All electric vehicles are eco-friendly. No eco-friendly vehicle is highly polluting. Conclusions: I. Some cars are eco-friendly. II. Some cars are not highly polluting.",
+    options: [
+      "Only conclusion I follows",
+      "Only conclusion II follows",
+      "Both conclusions I and II follow",
+      "Neither conclusion follows",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "The cars that are electric are eco-friendly, so conclusion I follows. No eco-friendly vehicle is highly polluting, so those electric cars are also not highly polluting. Therefore, conclusion II also follows.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 159,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: All programmers are logical thinkers. No logical thinker is careless. Some employees are programmers. Conclusions: I. Some employees are logical thinkers. II. Some employees are not careless.",
+    options: [
+      "Only conclusion I follows",
+      "Only conclusion II follows",
+      "Both conclusions I and II follow",
+      "Neither conclusion follows",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "Some employees are programmers, and all programmers are logical thinkers, so some employees are logical thinkers. Since no logical thinker is careless, those employees are also not careless. Both conclusions follow.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 160,
+    category: "Logical Reasoning",
+    topic: "syllogism",
+    question:
+      "Statements: Some teachers are writers. All writers are readers. No reader is illiterate. Conclusions: I. Some teachers are readers. II. Some teachers are not illiterate. III. No writer is illiterate.",
+    options: [
+      "Only I and II follow",
+      "Only II and III follow",
+      "Only I and III follow",
+      "I, II and III follow",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "Some teachers are writers and all writers are readers, so some teachers are readers. No reader is illiterate, so those teachers are not illiterate. Since every writer is a reader and no reader is illiterate, no writer can be illiterate. Therefore, all three conclusions follow.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 161,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Five people A, B, C, D and E are sitting in a row facing north. A sits at the extreme left. B sits immediately to the right of A. C sits immediately to the right of B. D sits immediately to the right of C. Who sits at the extreme right?",
+    options: ["B", "C", "D", "E"],
+    correctAnswer: 3,
+    explanation:
+      "The arrangement from left to right is A, B, C, D, E. Therefore, E sits at the extreme right.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 162,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Four people P, Q, R and S are sitting in a row facing north. P sits to the immediate left of Q. R sits to the immediate right of Q. S sits to the immediate right of R. Who sits second from the left?",
+    options: ["P", "Q", "R", "S"],
+    correctAnswer: 1,
+    explanation:
+      "The arrangement is P, Q, R, S. Therefore, Q sits second from the left.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 163,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Five people A, B, C, D and E are sitting in a row facing north. C is in the middle. A sits at the extreme left. B sits between A and C. D sits immediately to the right of C. Who sits at the extreme right?",
+    options: ["B", "C", "D", "E"],
+    correctAnswer: 3,
+    explanation:
+      "The arrangement is A, B, C, D, E. Therefore, E is at the extreme right.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 164,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Six people A, B, C, D, E and F are sitting in a row facing north. A sits at the extreme left and F at the extreme right. B sits immediately to the right of A. E sits immediately to the left of F. C sits immediately to the right of B. Who sits between C and E?",
+    options: ["A", "B", "D", "F"],
+    correctAnswer: 2,
+    explanation:
+      "The arrangement is A, B, C, D, E, F. Therefore, D sits between C and E.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 165,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Five people P, Q, R, S and T are sitting in a row facing north. R sits in the middle. P sits second to the left of R. Q sits immediately to the left of R. S sits immediately to the right of R. Who sits at the extreme right?",
+    options: ["P", "Q", "S", "T"],
+    correctAnswer: 3,
+    explanation:
+      "The arrangement is P, Q, R, S, T. Therefore, T sits at the extreme right.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 166,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Five friends A, B, C, D and E are sitting around a circular table facing the centre. B sits immediately clockwise from A. C sits immediately clockwise from B. D sits immediately clockwise from C. Who sits immediately clockwise from D?",
+    options: ["A", "B", "C", "E"],
+    correctAnswer: 3,
+    explanation:
+      "Moving clockwise, the arrangement is A, B, C, D, E. Therefore, E sits immediately clockwise from D.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 167,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Six people P, Q, R, S, T and U are sitting around a circular table facing the centre. Starting from P and moving clockwise, they are seated as P, Q, R, S, T and U. Who sits opposite P?",
+    options: ["Q", "R", "S", "T"],
+    correctAnswer: 2,
+    explanation:
+      "With six people, the person three positions away sits opposite. From P, the third position clockwise is S. Therefore, S sits opposite P.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 168,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Six people A, B, C, D, E and F are sitting in a row facing north. B sits immediately to the right of A. C sits immediately to the right of B. F sits at the extreme right. E sits immediately to the left of F. Who sits between C and E?",
+    options: ["A", "B", "D", "F"],
+    correctAnswer: 2,
+    explanation:
+      "The only arrangement satisfying all conditions is A, B, C, D, E, F. Therefore, D sits between C and E.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 169,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Seven people A, B, C, D, E, F and G are sitting in a row facing north. D sits exactly in the middle. B sits second to the left of D. A sits immediately to the left of B. C sits immediately to the right of B. E sits immediately to the right of D. F sits immediately to the right of E. Who sits at the extreme right?",
+    options: ["D", "E", "F", "G"],
+    correctAnswer: 3,
+    explanation:
+      "The arrangement is A, B, C, D, E, F, G. Therefore, G sits at the extreme right.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 170,
+    category: "Logical Reasoning",
+    topic: "seating arrangement",
+    question:
+      "Eight people A, B, C, D, E, F, G and H are sitting around a circular table facing the centre. Starting from A and moving clockwise, they are seated as A, B, C, D, E, F, G and H. Who sits opposite C?",
+    options: ["E", "F", "G", "H"],
+    correctAnswer: 2,
+    explanation:
+      "With eight people, the person four positions away sits opposite. Four positions clockwise from C is G. Therefore, G sits opposite C.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 171,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question:
+      "If all laptops are machines and some machines are portable, which statement is definitely true?",
+    options: [
+      "All machines are laptops",
+      "All laptops are machines",
+      "All portable things are laptops",
+      "No laptop is portable",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The statement directly tells us that all laptops are machines. The other conclusions cannot be guaranteed.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 172,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question: "Find the odd one out: 16, 25, 36, 49, 63, 64",
+    options: ["25", "49", "63", "64"],
+    correctAnswer: 2,
+    explanation:
+      "16, 25, 36, 49 and 64 are perfect squares. 63 is not a perfect square.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 173,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question: "Book is to Reading as Fork is to ____.",
+    options: ["Drawing", "Writing", "Eating", "Walking"],
+    correctAnswer: 2,
+    explanation: "A book is used for reading, while a fork is used for eating.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 174,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question:
+      "Five students A, B, C, D and E have different marks. A scored more than B but less than C. D scored less than B but more than E. Who scored the highest?",
+    options: ["A", "B", "C", "D"],
+    correctAnswer: 2,
+    explanation:
+      "The relationships give C > A > B > D > E. Therefore, C scored the highest.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 175,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question:
+      "A, B and C completed a race. A finished before B, and B finished before C. Who finished second?",
+    options: ["A", "B", "C", "Cannot be determined"],
+    correctAnswer: 1,
+    explanation:
+      "The finishing order is A, B, C. Therefore, B finished second.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 176,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question:
+      "In a class, Rahul ranks 12th from the top and 19th from the bottom. How many students are there in the class?",
+    options: ["29", "30", "31", "32"],
+    correctAnswer: 1,
+    explanation:
+      "Total students = rank from top + rank from bottom - 1 = 12 + 19 - 1 = 30.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 177,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question:
+      "If yesterday was Monday, what day will it be three days after tomorrow?",
+    options: ["Thursday", "Friday", "Saturday", "Sunday"],
+    correctAnswer: 2,
+    explanation:
+      "If yesterday was Monday, today is Tuesday and tomorrow is Wednesday. Three days after Wednesday is Saturday.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 178,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question:
+      "Four tasks P, Q, R and S must be completed one at a time. P must be completed before Q, Q before R, and R before S. Which order is possible?",
+    options: ["P, Q, R, S", "Q, P, R, S", "P, R, Q, S", "S, R, Q, P"],
+    correctAnswer: 0,
+    explanation:
+      "The conditions require P before Q, Q before R, and R before S. Therefore, the required order is P, Q, R, S.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 179,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question:
+      "A company has five employees P, Q, R, S and T. P is older than Q. Q is older than R. S is older than P. T is younger than R. Who is the oldest?",
+    options: ["P", "Q", "S", "T"],
+    correctAnswer: 2,
+    explanation:
+      "The relationships give S > P > Q > R > T. Therefore, S is the oldest.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 180,
+    category: "Logical Reasoning",
+    topic: "analytical reasoning",
+    question:
+      "Five boxes P, Q, R, S and T are arranged by weight. P is heavier than Q. R is lighter than Q. S is heavier than P. T is lighter than R. Which box is the second heaviest?",
+    options: ["P", "Q", "R", "S"],
+    correctAnswer: 0,
+    explanation:
+      "The weight order is S > P > Q > R > T. Therefore, P is the second heaviest.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 181,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question: "Choose the grammatically correct sentence.",
+    options: [
+      "She go to college every day.",
+      "She goes to college every day.",
+      "She going to college every day.",
+      "She gone to college every day.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "With the third-person singular subject 'She' in the simple present tense, the verb takes 's'. Therefore, 'She goes to college every day' is correct.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 182,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question: "Choose the correct article: He is ___ honest man.",
+    options: ["a", "an", "the", "no article"],
+    correctAnswer: 1,
+    explanation:
+      "'Honest' begins with a vowel sound because the 'h' is silent. Therefore, 'an honest man' is correct.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 183,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question: "Choose the correct preposition: She is good ___ mathematics.",
+    options: ["in", "at", "on", "for"],
+    correctAnswer: 1,
+    explanation:
+      "The standard expression is 'good at' something. Therefore, 'good at mathematics' is correct.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 184,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question:
+      "Choose the correct verb: Neither Rahul nor his friends ___ present at the meeting.",
+    options: ["was", "were", "is", "has"],
+    correctAnswer: 1,
+    explanation:
+      "With 'neither...nor', the verb generally agrees with the subject nearest to it. 'Friends' is plural, so 'were' is correct.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 185,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question: "Choose the correct sentence.",
+    options: [
+      "I have completed the work yesterday.",
+      "I completed the work yesterday.",
+      "I had complete the work yesterday.",
+      "I completing the work yesterday.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "'Yesterday' refers to a finished time in the past, so the simple past tense is appropriate: 'I completed the work yesterday.'",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 186,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question:
+      "Choose the correct form: If I ___ you, I would accept the offer.",
+    options: ["am", "was", "were", "be"],
+    correctAnswer: 2,
+    explanation:
+      "In a hypothetical condition, standard formal English uses the subjunctive 'were': 'If I were you.'",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 187,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question:
+      "Choose the correct passive form of: 'The manager approved the proposal.'",
+    options: [
+      "The proposal is approved by the manager.",
+      "The proposal was approved by the manager.",
+      "The proposal has approved by the manager.",
+      "The proposal had approve by the manager.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The active sentence is in the simple past tense. Its passive form is 'was + past participle': 'The proposal was approved by the manager.'",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 188,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question: "Choose the correct indirect speech: Ravi said, 'I am tired.'",
+    options: [
+      "Ravi said that I am tired.",
+      "Ravi said that he was tired.",
+      "Ravi says that he was tired.",
+      "Ravi said that he is tiring.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "With the reporting verb 'said' in the past, 'I' changes to 'he' and 'am' normally changes to 'was'. Therefore, 'Ravi said that he was tired' is correct.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 189,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question: "Choose the correct sentence.",
+    options: [
+      "Each of the students have submitted their assignment.",
+      "Each of the students has submitted the assignment.",
+      "Each of the students were submitting the assignment.",
+      "Each of the students are submitted the assignment.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "'Each' is grammatically singular, so it takes the singular verb 'has'. Therefore, 'Each of the students has submitted the assignment' is correct.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 190,
+    category: "Verbal Ability",
+    topic: "grammar",
+    question: "Choose the grammatically correct sentence.",
+    options: [
+      "Hardly had I reached the station when the train arrived.",
+      "Hardly I had reached the station when the train arrived.",
+      "Hardly had I reached the station than the train arrived.",
+      "Hardly did I reached the station when the train arrived.",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "The standard construction is 'Hardly had + subject + past participle + when'. Therefore, 'Hardly had I reached the station when the train arrived' is correct.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 191,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the synonym of 'Abundant'.",
+    options: ["Scarce", "Plentiful", "Limited", "Rare"],
+    correctAnswer: 1,
+    explanation:
+      "'Abundant' means existing in large quantities. 'Plentiful' has the same meaning.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 192,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the antonym of 'Ancient'.",
+    options: ["Old", "Historic", "Modern", "Traditional"],
+    correctAnswer: 2,
+    explanation: "'Ancient' means very old. Its opposite is 'Modern'.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 193,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the synonym of 'Rapid'.",
+    options: ["Slow", "Swift", "Weak", "Quiet"],
+    correctAnswer: 1,
+    explanation:
+      "'Rapid' means happening very quickly. 'Swift' is its synonym.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 194,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the antonym of 'Expand'.",
+    options: ["Increase", "Extend", "Contract", "Develop"],
+    correctAnswer: 2,
+    explanation:
+      "'Expand' means to become larger. 'Contract' means to become smaller, making it the opposite.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 195,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the synonym of 'Diligent'.",
+    options: ["Careless", "Lazy", "Hardworking", "Uncertain"],
+    correctAnswer: 2,
+    explanation:
+      "'Diligent' describes someone who works carefully and persistently. 'Hardworking' is the closest synonym.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 196,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the antonym of 'Optimistic'.",
+    options: ["Hopeful", "Positive", "Cheerful", "Pessimistic"],
+    correctAnswer: 3,
+    explanation:
+      "'Optimistic' means expecting positive outcomes. 'Pessimistic' means expecting negative outcomes.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 197,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the synonym of 'Reluctant'.",
+    options: ["Unwilling", "Eager", "Confident", "Certain"],
+    correctAnswer: 0,
+    explanation:
+      "'Reluctant' means unwilling or hesitant to do something. Therefore, 'Unwilling' is the closest synonym.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 198,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the antonym of 'Transparent'.",
+    options: ["Clear", "Visible", "Opaque", "Bright"],
+    correctAnswer: 2,
+    explanation:
+      "'Transparent' means allowing light to pass through so objects can be seen clearly. 'Opaque' means not allowing light to pass through.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 199,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the synonym of 'Meticulous'.",
+    options: ["Careless", "Precise", "Ordinary", "Hasty"],
+    correctAnswer: 1,
+    explanation:
+      "'Meticulous' means extremely careful and attentive to details. 'Precise' is the closest option.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 200,
+    category: "Verbal Ability",
+    topic: "synonyms and antonyms",
+    question: "Choose the antonym of 'Benevolent'.",
+    options: ["Kind", "Generous", "Compassionate", "Malevolent"],
+    correctAnswer: 3,
+    explanation:
+      "'Benevolent' means kind and well-meaning. 'Malevolent' means wishing harm to others and is its opposite.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 201,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "He do not know the answer.",
+      "He does not knows the answer.",
+      "He does not know the answer.",
+      "He did not knows the answer.",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "With 'does not', the main verb must remain in its base form. Therefore, 'He does not know the answer' is correct.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 202,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "She is senior than me.",
+      "She is senior to me.",
+      "She is senior from me.",
+      "She is more senior than me.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The adjective 'senior' is followed by 'to', not 'than'. Therefore, 'She is senior to me' is correct.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 203,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "The news are very surprising.",
+      "The news were very surprising.",
+      "The news is very surprising.",
+      "The news have been very surprising.",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "'News' is treated as a singular uncountable noun, so it takes the singular verb 'is'.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 204,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "One of my friend lives in Delhi.",
+      "One of my friends live in Delhi.",
+      "One of my friends lives in Delhi.",
+      "One of my friend live in Delhi.",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "After 'one of', the noun is plural ('friends'), but the subject 'one' is singular, so the verb is 'lives'.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 205,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "She has been working here since five years.",
+      "She has been working here for five years.",
+      "She is working here since five years.",
+      "She was working here for five years ago.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "'For' is used with a duration of time, such as 'five years'. 'Since' is used with a specific starting point.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 206,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "Neither of the two candidates are suitable.",
+      "Neither of the two candidates is suitable.",
+      "Neither of the two candidate is suitable.",
+      "Neither of two candidates were suitable.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "'Neither' is treated as singular in standard formal usage, so 'is suitable' is correct. The noun after 'of the two' is plural: 'candidates'.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 207,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "He is good in solving mathematical problems.",
+      "He is good at solving mathematical problems.",
+      "He is good on solving mathematical problems.",
+      "He is good for solving mathematical problems.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The standard expression is 'good at doing something'. Therefore, 'good at solving mathematical problems' is correct.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 208,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "No sooner did the meeting start when the power went out.",
+      "No sooner had the meeting started than the power went out.",
+      "No sooner the meeting had started than the power went out.",
+      "No sooner had the meeting started when the power went out.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The standard construction is 'No sooner had + subject + past participle + than'. Therefore, option B is correct.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 209,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "The teacher, along with the students, were present.",
+      "The teacher, along with the students, was present.",
+      "The teacher, along with the students, have been present.",
+      "The teacher, along with the students, are present yesterday.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The phrase 'along with the students' does not change the main subject. The subject is singular 'teacher', so 'was' is correct.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 210,
+    category: "Verbal Ability",
+    topic: "sentence correction",
+    question: "Choose the correct sentence.",
+    options: [
+      "Had I knew about the interview, I would have attended it.",
+      "Had I known about the interview, I would have attended it.",
+      "Had I know about the interview, I would attended it.",
+      "If I had knew about the interview, I would have attended it.",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "In the inverted third conditional, the correct structure is 'Had + subject + past participle'. The past participle of 'know' is 'known'.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 211,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question: "She ___ to the office every day.",
+    options: ["go", "goes", "going", "gone"],
+    correctAnswer: 1,
+    explanation:
+      "The subject 'She' is third-person singular, so the simple present form is 'goes'.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 212,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question: "The students ___ studying for their examination.",
+    options: ["is", "are", "was", "has"],
+    correctAnswer: 1,
+    explanation:
+      "'Students' is a plural subject, so the correct helping verb is 'are'.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 213,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question: "He has lived in this city ___ 2020.",
+    options: ["for", "since", "from", "by"],
+    correctAnswer: 1,
+    explanation:
+      "'Since' is used with a specific starting point in time. Therefore, 'since 2020' is correct.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 214,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question: "We reached the station ___ the train arrived.",
+    options: ["before", "because", "although", "unless"],
+    correctAnswer: 0,
+    explanation:
+      "'Before' correctly shows that reaching the station happened earlier than the train's arrival.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 215,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question:
+      "The manager asked the employees to complete the project ___ Friday.",
+    options: ["at", "on", "by", "from"],
+    correctAnswer: 2,
+    explanation:
+      "'By Friday' means the project must be completed no later than Friday.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 216,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question: "If you work hard, you ___ succeed.",
+    options: ["would", "will", "had", "were"],
+    correctAnswer: 1,
+    explanation:
+      "This is a first conditional sentence: If + simple present, followed by 'will' + base verb.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 217,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question: "Despite ___ very tired, she completed the assignment.",
+    options: ["be", "being", "been", "was"],
+    correctAnswer: 1,
+    explanation:
+      "'Despite' can be followed by a gerund. Therefore, 'Despite being very tired' is correct.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 218,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question: "The new software is more efficient ___ the previous version.",
+    options: ["from", "then", "than", "to"],
+    correctAnswer: 2,
+    explanation:
+      "Comparative adjectives such as 'more efficient' are followed by 'than'.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 219,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question: "Had the team prepared better, they ___ the match.",
+    options: ["will win", "would win", "would have won", "had won"],
+    correctAnswer: 2,
+    explanation:
+      "This is an inverted third conditional. The result clause uses 'would have + past participle', so 'would have won' is correct.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 220,
+    category: "Verbal Ability",
+    topic: "fill in the blanks",
+    question:
+      "The interviewer recommended that each candidate ___ a copy of the resume.",
+    options: ["brings", "bring", "brought", "bringing"],
+    correctAnswer: 1,
+    explanation:
+      "After verbs such as 'recommend' in this construction, the subjunctive uses the base form of the verb. Therefore, 'bring' is correct.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 221,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Regular exercise improves physical health and can also reduce stress. People who exercise regularly often feel more energetic and sleep better. Question: According to the passage, which is a benefit of regular exercise?",
+    options: [
+      "It increases stress",
+      "It reduces energy",
+      "It can reduce stress",
+      "It reduces sleep",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "The passage directly states that regular exercise can reduce stress.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 222,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Regular exercise improves physical health and can also reduce stress. People who exercise regularly often feel more energetic and sleep better. Question: What does the passage say about people who exercise regularly?",
+    options: [
+      "They often feel more energetic",
+      "They always feel tired",
+      "They need less food",
+      "They avoid sleeping",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "The passage states that people who exercise regularly often feel more energetic.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 223,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Trees play an important role in protecting the environment. They absorb carbon dioxide, release oxygen and provide habitats for many animals. Question: Which gas do trees absorb according to the passage?",
+    options: ["Oxygen", "Carbon dioxide", "Hydrogen", "Nitrogen"],
+    correctAnswer: 1,
+    explanation: "The passage states that trees absorb carbon dioxide.",
+    difficulty: "Easy",
+  },
+  {
+    questionId: 224,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Trees play an important role in protecting the environment. They absorb carbon dioxide, release oxygen and provide habitats for many animals. Question: Which statement best summarizes the passage?",
+    options: [
+      "Trees are useful only to humans",
+      "Trees are harmful to animals",
+      "Trees are important for the environment",
+      "Trees consume all the oxygen in the atmosphere",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "The passage describes several ways in which trees help the environment, so this is the best summary.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 225,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Online learning gives students the flexibility to study from different locations and often at their own pace. However, successful online learning requires self-discipline and good time-management skills. Question: What is one advantage of online learning mentioned in the passage?",
+    options: [
+      "It requires no discipline",
+      "It provides flexibility",
+      "It eliminates the need to study",
+      "It guarantees high marks",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The passage explicitly identifies flexibility as an advantage of online learning.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 226,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Online learning gives students the flexibility to study from different locations and often at their own pace. However, successful online learning requires self-discipline and good time-management skills. Question: According to the passage, what is required for successful online learning?",
+    options: [
+      "Only a fast computer",
+      "Less study time",
+      "Self-discipline and good time management",
+      "Daily classroom attendance",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "The passage states that successful online learning requires self-discipline and good time-management skills.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 227,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Many companies value employees who can communicate clearly, solve problems and work effectively with others. Technical knowledge is important, but employers also consider these interpersonal abilities when selecting candidates. Question: What can be inferred from the passage?",
+    options: [
+      "Technical knowledge is the only factor in hiring",
+      "Companies do not value communication skills",
+      "Both technical and interpersonal skills can matter in hiring",
+      "Employers prefer candidates who work alone",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "The passage says technical knowledge is important while also emphasizing communication, problem-solving and teamwork skills.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 228,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Many companies value employees who can communicate clearly, solve problems and work effectively with others. Technical knowledge is important, but employers also consider these interpersonal abilities when selecting candidates. Question: Which skill is NOT mentioned in the passage?",
+    options: ["Communication", "Problem-solving", "Teamwork", "Painting"],
+    correctAnswer: 3,
+    explanation:
+      "Communication, problem-solving and working effectively with others are mentioned. Painting is not mentioned.",
+    difficulty: "Medium",
+  },
+  {
+    questionId: 229,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Automation can perform repetitive tasks quickly and consistently. This can allow employees to spend more time on work that requires creativity, judgment and problem-solving. However, workers may need to learn new skills as technology changes their roles. Question: What is the main idea of the passage?",
+    options: [
+      "Automation only creates problems for workers",
+      "Automation can change work and increase the importance of new skills",
+      "Automation makes creativity unnecessary",
+      "Technology completely removes the need for employees",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The passage explains both how automation can handle repetitive work and why workers may need new skills as their roles change.",
+    difficulty: "Hard",
+  },
+  {
+    questionId: 230,
+    category: "Verbal Ability",
+    topic: "reading comprehension",
+    question:
+      "Passage: Automation can perform repetitive tasks quickly and consistently. This can allow employees to spend more time on work that requires creativity, judgment and problem-solving. However, workers may need to learn new skills as technology changes their roles. Question: Why might workers need to learn new skills?",
+    options: [
+      "Because technology can change their job roles",
+      "Because automation makes all work slower",
+      "Because companies no longer need problem-solving",
+      "Because repetitive tasks require more employees",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "The passage directly states that workers may need new skills as technology changes their roles.",
+    difficulty: "Hard",
+  },
 ];
 
 const seedAptitudeQuestions = async () => {

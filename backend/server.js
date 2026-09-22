@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+const MockTest = require("./models/MockTest");
+const MockTestAttempt = require("./models/MockTestAttempt");
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
@@ -386,6 +388,67 @@ app.get("/api/progress", authMiddleware, async (req, res) => {
     });
   }
 });
+app.get("/api/progress/aptitude", authMiddleware, async (req, res) => {
+  try {
+    const userId = req.user.userId;
+
+    const totalQuestions = await AptitudeQuestion.countDocuments();
+
+    const attempts = await AptitudeAttempt.find({
+      userId,
+    }).sort({ createdAt: -1 });
+
+    const attemptedQuestionIds = [
+      ...new Set(attempts.map((attempt) => attempt.questionId)),
+    ];
+
+    const correctQuestionIds = [
+      ...new Set(
+        attempts
+          .filter((attempt) => attempt.isCorrect)
+          .map((attempt) => attempt.questionId),
+      ),
+    ];
+
+    const totalAttempted = attemptedQuestionIds.length;
+    const totalCorrect = correctQuestionIds.length;
+
+    const progressPercentage =
+      totalQuestions === 0
+        ? 0
+        : Math.round((totalCorrect / totalQuestions) * 100);
+
+    const accuracy =
+      totalAttempted === 0
+        ? 0
+        : Math.round((totalCorrect / totalAttempted) * 100);
+
+    return res.status(200).json({
+      success: true,
+
+      totalQuestions,
+
+      solvedCount: totalCorrect,
+
+      attemptedCount: totalAttempted,
+
+      progressPercentage,
+
+      accuracy,
+
+      solvedQuestionIds: correctQuestionIds,
+
+      attemptedQuestionIds,
+    });
+  } catch (error) {
+    console.error("Aptitude progress error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to load aptitude progress.",
+    });
+  }
+});
 app.get("/api/progress/dsa", authMiddleware, async (req, res) => {
   try {
     const totalQuestions = await Question.countDocuments();
@@ -709,7 +772,219 @@ public class Main {
     });
   }
 });
+app.get("/api/mock-tests", authMiddleware, async (req, res) => {
+  try {
+    const tests = await MockTest.find({
+      isActive: true,
+    }).sort({ testId: 1 });
 
+    const mockTests = tests.map((test) => ({
+      testId: test.testId,
+      title: test.title,
+      type: test.type,
+      description: test.description,
+      duration: test.duration,
+      totalMarks: test.totalMarks,
+      questionCount: test.questionIds.length,
+    }));
+
+    return res.status(200).json({
+      success: true,
+      count: mockTests.length,
+      mockTests,
+    });
+  } catch (error) {
+    console.error("Get mock tests error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to load mock tests.",
+    });
+  }
+});
+app.get("/api/mock-tests/:testId", authMiddleware, async (req, res) => {
+  try {
+    const testId = Number(req.params.testId);
+
+    if (!Number.isInteger(testId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid mock test ID.",
+      });
+    }
+
+    const mockTest = await MockTest.findOne({
+      testId,
+      isActive: true,
+    });
+
+    if (!mockTest) {
+      return res.status(404).json({
+        success: false,
+        message: "Mock test not found.",
+      });
+    }
+
+    const questions = await AptitudeQuestion.find({
+      questionId: { $in: mockTest.questionIds },
+    }).select("questionId category topic question options difficulty");
+
+    const questionMap = new Map(
+      questions.map((question) => [question.questionId, question]),
+    );
+
+    const orderedQuestions = mockTest.questionIds
+      .map((id) => questionMap.get(id))
+      .filter(Boolean);
+
+    return res.status(200).json({
+      success: true,
+
+      test: {
+        testId: mockTest.testId,
+        title: mockTest.title,
+        description: mockTest.description,
+        duration: mockTest.duration,
+        totalMarks: mockTest.totalMarks,
+        totalQuestions: orderedQuestions.length,
+        questions: orderedQuestions,
+      },
+    });
+  } catch (error) {
+    console.error("Get mock test error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to load mock test.",
+    });
+  }
+});
+app.post("/api/mock-tests/:testId/submit", authMiddleware, async (req, res) => {
+  try {
+    const testId = Number(req.params.testId);
+    const { answers = {}, timeTaken = 0 } = req.body;
+
+    if (!Number.isInteger(testId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid mock test ID.",
+      });
+    }
+
+    const mockTest = await MockTest.findOne({
+      testId,
+      isActive: true,
+    });
+
+    if (!mockTest) {
+      return res.status(404).json({
+        success: false,
+        message: "Mock test not found.",
+      });
+    }
+
+    const questions = await AptitudeQuestion.find({
+      questionId: { $in: mockTest.questionIds },
+    });
+
+    const questionMap = new Map(
+      questions.map((question) => [question.questionId, question]),
+    );
+
+    let correctAnswers = 0;
+    let wrongAnswers = 0;
+    let unanswered = 0;
+
+    const evaluatedAnswers = mockTest.questionIds
+      .map((questionId) => {
+        const question = questionMap.get(questionId);
+
+        if (!question) {
+          return null;
+        }
+
+        const selectedAnswer = answers[questionId];
+
+        if (selectedAnswer === undefined || selectedAnswer === null) {
+          unanswered++;
+
+          return {
+            questionId,
+            selectedAnswer: null,
+            isCorrect: false,
+          };
+        }
+
+        const numericAnswer = Number(selectedAnswer);
+
+        const isCorrect = numericAnswer === question.correctAnswer;
+
+        if (isCorrect) {
+          correctAnswers++;
+        } else {
+          wrongAnswers++;
+        }
+
+        return {
+          questionId,
+          selectedAnswer: numericAnswer,
+          isCorrect,
+        };
+      })
+      .filter(Boolean);
+
+    const totalQuestions = evaluatedAnswers.length;
+
+    const marksPerQuestion =
+      totalQuestions > 0 ? mockTest.totalMarks / totalQuestions : 0;
+
+    const score = Number((correctAnswers * marksPerQuestion).toFixed(2));
+
+    const percentage =
+      mockTest.totalMarks > 0
+        ? Number(((score / mockTest.totalMarks) * 100).toFixed(2))
+        : 0;
+
+    const attempt = await MockTestAttempt.create({
+      userId: req.user.userId,
+      testId,
+      answers: evaluatedAnswers,
+      correctAnswers,
+      wrongAnswers,
+      unanswered,
+      score,
+      totalMarks: mockTest.totalMarks,
+      percentage,
+      timeTaken: Number(timeTaken) || 0,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Mock test submitted successfully.",
+
+      result: {
+        attemptId: attempt._id,
+        testId,
+        title: mockTest.title,
+        totalQuestions,
+        correctAnswers,
+        wrongAnswers,
+        unanswered,
+        score,
+        totalMarks: mockTest.totalMarks,
+        percentage,
+        timeTaken: attempt.timeTaken,
+      },
+    });
+  } catch (error) {
+    console.error("Submit mock test error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to submit mock test.",
+    });
+  }
+});
 // ==========================================
 // 404 API ROUTE
 // ==========================================
