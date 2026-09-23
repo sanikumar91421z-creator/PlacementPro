@@ -985,6 +985,84 @@ app.post("/api/mock-tests/:testId/submit", authMiddleware, async (req, res) => {
     });
   }
 });
+app.get("/api/progress/mock-tests", authMiddleware, async (req, res) => {
+  try {
+    const userId = req.user.userId;
+
+    const totalMockTests = await MockTest.countDocuments({
+      isActive: true,
+    });
+
+    const attempts = await MockTestAttempt.find({
+      userId,
+    }).sort({ createdAt: -1 });
+
+    const attemptedTestIds = [
+      ...new Set(attempts.map((attempt) => attempt.testId)),
+    ];
+
+    const testsAttempted = attemptedTestIds.length;
+
+    let bestPercentage = 0;
+    let averagePercentage = 0;
+
+    if (attempts.length > 0) {
+      bestPercentage = Math.max(
+        ...attempts.map((attempt) => attempt.percentage),
+      );
+
+      const totalPercentage = attempts.reduce(
+        (sum, attempt) => sum + attempt.percentage,
+        0,
+      );
+
+      averagePercentage = Number(
+        (totalPercentage / attempts.length).toFixed(2),
+      );
+    }
+
+    const progressPercentage =
+      totalMockTests === 0
+        ? 0
+        : Math.round((testsAttempted / totalMockTests) * 100);
+
+    const recentAttempts = attempts.slice(0, 5).map((attempt) => ({
+      attemptId: attempt._id,
+      testId: attempt.testId,
+      score: attempt.score,
+      totalMarks: attempt.totalMarks,
+      percentage: attempt.percentage,
+      correctAnswers: attempt.correctAnswers,
+      wrongAnswers: attempt.wrongAnswers,
+      unanswered: attempt.unanswered,
+      timeTaken: attempt.timeTaken,
+      attemptedAt: attempt.createdAt,
+    }));
+
+    return res.status(200).json({
+      success: true,
+
+      totalMockTests,
+      testsAttempted,
+      totalAttempts: attempts.length,
+
+      progressPercentage,
+      bestPercentage,
+      averagePercentage,
+
+      attemptedTestIds,
+
+      recentAttempts,
+    });
+  } catch (error) {
+    console.error("Mock test progress error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to load mock test progress.",
+    });
+  }
+});
 // ==========================================
 // 404 API ROUTE
 // ==========================================

@@ -13,10 +13,16 @@ function MockTestExam() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
   const autoSubmitTriggered = useRef(false);
+
+  // Load mock test
   useEffect(() => {
     const fetchTest = async () => {
       try {
+        setLoading(true);
+        setError("");
+
         const token = localStorage.getItem("placementproToken");
 
         const { data } = await axios.get(
@@ -38,15 +44,17 @@ function MockTestExam() {
           if (!endTime) {
             endTime = Date.now() + data.test.duration * 60 * 1000;
 
-            localStorage.setItem(storageKey, endTime);
+            localStorage.setItem(storageKey, String(endTime));
           }
 
           const remainingTime = Math.max(
             0,
-            Math.floor((Number(endTime) - Date.now()) / 1000),
+            Math.ceil((Number(endTime) - Date.now()) / 1000),
           );
 
           setTimeLeft(remainingTime);
+        } else {
+          setError("Unable to load mock test.");
         }
       } catch (error) {
         console.error(
@@ -54,7 +62,7 @@ function MockTestExam() {
           error.response?.data?.message || error.message,
         );
 
-        setError("Unable to load mock test.");
+        setError(error.response?.data?.message || "Unable to load mock test.");
       } finally {
         setLoading(false);
       }
@@ -63,6 +71,7 @@ function MockTestExam() {
     fetchTest();
   }, [testId]);
 
+  // Persistent timer
   useEffect(() => {
     if (!test) return;
 
@@ -75,22 +84,21 @@ function MockTestExam() {
 
       const remainingTime = Math.max(
         0,
-        Math.floor((Number(endTime) - Date.now()) / 1000),
+        Math.ceil((Number(endTime) - Date.now()) / 1000),
       );
 
       setTimeLeft(remainingTime);
-
-      if (remainingTime === 0) {
-        clearInterval(timer);
-      }
     };
 
     updateTimer();
 
     const timer = setInterval(updateTimer, 1000);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+    };
   }, [test]);
+
   const handleAnswer = (questionId, optionIndex) => {
     setAnswers((previousAnswers) => ({
       ...previousAnswers,
@@ -106,6 +114,7 @@ function MockTestExam() {
       remainingSeconds,
     ).padStart(2, "0")}`;
   };
+
   const handleSubmit = async () => {
     if (!test || submitting || autoSubmitTriggered.current) {
       return;
@@ -160,6 +169,17 @@ function MockTestExam() {
       setSubmitting(false);
     }
   };
+  useEffect(() => {
+    if (
+      test &&
+      !loading &&
+      timeLeft === 0 &&
+      !submitting &&
+      !autoSubmitTriggered.current
+    ) {
+      handleSubmit();
+    }
+  }, [timeLeft, test, loading, submitting]);
 
   if (loading) {
     return (
@@ -173,6 +193,18 @@ function MockTestExam() {
     return (
       <div className="mock-exam-page">
         <p>{error || "Mock test not found."}</p>
+
+        <button type="button" onClick={() => navigate("/practice/mock-tests")}>
+          Back to Mock Tests
+        </button>
+      </div>
+    );
+  }
+
+  if (!test.questions || test.questions.length === 0) {
+    return (
+      <div className="mock-exam-page">
+        <p>No questions found for this mock test.</p>
       </div>
     );
   }
@@ -184,6 +216,7 @@ function MockTestExam() {
       <div className="mock-exam-header">
         <div>
           <p className="section-label">MOCK TEST</p>
+
           <h1>{test.title}</h1>
 
           <p>

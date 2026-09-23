@@ -3045,11 +3045,7 @@ body {
 .aptitude-progress-value {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    #6d28d9,
-    #9333ea
-  );
+  background: linear-gradient(90deg, #6d28d9, #9333ea);
 }
 
 .aptitude-topic-section {
@@ -3087,8 +3083,7 @@ body {
 
 .aptitude-topic-grid {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 15px;
 }
 
@@ -3099,11 +3094,7 @@ body {
   padding: 18px;
   border: 1px solid #242735;
   border-radius: 14px;
-  background: linear-gradient(
-    145deg,
-    #11131b,
-    #0d0f16
-  );
+  background: linear-gradient(145deg, #11131b, #0d0f16);
   transition:
     transform 0.2s ease,
     border-color 0.2s ease;
@@ -3158,11 +3149,7 @@ body {
   padding: 9px 13px;
   border: 0;
   border-radius: 9px;
-  background: linear-gradient(
-    135deg,
-    #6d28d9,
-    #9333ea
-  );
+  background: linear-gradient(135deg, #6d28d9, #9333ea);
   color: white;
   font-size: 12px;
   font-weight: 700;
@@ -3274,11 +3261,7 @@ body {
 .question-progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    #6d28d9,
-    #9333ea
-  );
+  background: linear-gradient(90deg, #6d28d9, #9333ea);
   transition: width 0.3s ease;
 }
 
@@ -3352,7 +3335,9 @@ body {
   border-radius: 18px;
   padding: 28px;
   text-align: left;
-  transition: transform 0.25s ease, border-color 0.25s ease,
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
@@ -3411,7 +3396,9 @@ body {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .mock-test-card button:hover {
@@ -3424,7 +3411,6 @@ body {
   color: #a7a7b5;
   margin: 50px 0;
 }
-
 
 /* =========================
    MOCK TEST EXAM
@@ -3586,7 +3572,6 @@ body {
   cursor: not-allowed;
 }
 
-
 /* Question Palette */
 
 .mock-question-palette {
@@ -3637,7 +3622,6 @@ body {
   max-width: 1200px;
   margin: 25px auto 0;
 }
-
 
 /* =========================
    RESPONSIVE
@@ -3818,5 +3802,120 @@ body {
 
   .mock-result-actions {
     flex-direction: column;
+  }
+}
+/* =========================
+   MOCK TEST PROGRESS
+========================= */
+
+.mock-progress-card {
+  width: min(1150px, 92%);
+  margin: 35px auto 10px;
+  padding: 26px;
+  background: #11111b;
+  border: 1px solid #29293a;
+  border-radius: 18px;
+}
+
+.mock-progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.mock-progress-top h2 {
+  margin: 5px 0 6px;
+  color: #ffffff;
+}
+
+.mock-progress-top p {
+  color: #9ca3af;
+}
+
+.mock-progress-percentage {
+  font-size: 32px;
+  font-weight: 700;
+  color: #a78bfa;
+}
+
+.mock-progress-bar {
+  width: 100%;
+  height: 9px;
+  margin: 22px 0;
+  background: #242432;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.mock-progress-fill {
+  height: 100%;
+  background: #7c3aed;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.mock-progress-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.mock-progress-stats > div {
+  padding: 15px;
+  background: #171721;
+  border: 1px solid #29293a;
+  border-radius: 11px;
+  text-align: center;
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mock-progress-stats > div:hover {
+  transform: translateY(-4px);
+  border-color: #7c3aed;
+  background: rgba(124, 58, 237, 0.1);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+}
+
+.mock-progress-stats > div:hover strong {
+  color: #a78bfa;
+}
+
+.mock-progress-stats strong {
+  display: block;
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.mock-progress-stats span {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.mock-attempted-badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #86efac;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 650px) {
+  .mock-progress-top {
+    align-items: flex-start;
+  }
+
+  .mock-progress-stats {
+    grid-template-columns: 1fr;
   }
 }
