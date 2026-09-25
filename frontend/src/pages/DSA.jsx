@@ -6,22 +6,22 @@ function DSA() {
       name: "Arrays",
       icon: "📊",
       description: "Learn and practice array-based problems.",
-      questions: 50,
+      questions: 35,
       path: "/practice/dsa/arrays",
     },
     {
       name: "Strings",
       icon: "🔤",
       description: "Practice string manipulation and algorithms.",
-      questions: 40,
-      path: "#",
+      questions: 20,
+      path: "/practice/dsa/strings",
     },
     {
       name: "Linked List",
       icon: "🔗",
       description: "Master singly and doubly linked lists.",
-      questions: 35,
-      path: "#",
+      questions: 20,
+      path: "/practice/dsa/linked-list",
     },
     {
       name: "Stack",
@@ -62,70 +62,38 @@ function DSA() {
 
   return (
     <div className="dsa-page">
-
       {/* Header */}
       <div className="dsa-header">
+        <p className="section-label">CODING PRACTICE</p>
 
-        <p className="section-label">
-          CODING PRACTICE
-        </p>
-
-        <h1>
-          Data Structures & Algorithms
-        </h1>
+        <h1>Data Structures & Algorithms</h1>
 
         <p>
-          Strengthen your problem-solving skills with
-          carefully selected DSA problems.
+          Strengthen your problem-solving skills with carefully selected DSA
+          problems.
         </p>
-
       </div>
-
 
       {/* DSA Topics */}
       <div className="dsa-container">
-
         {topics.map((topic) => (
+          <div className="dsa-card" key={topic.name}>
+            <div className="dsa-icon">{topic.icon}</div>
 
-          <div
-            className="dsa-card"
-            key={topic.name}
-          >
+            <h2>{topic.name}</h2>
 
-            <div className="dsa-icon">
-              {topic.icon}
-            </div>
-
-            <h2>
-              {topic.name}
-            </h2>
-
-            <p>
-              {topic.description}
-            </p>
-
+            <p>{topic.description}</p>
 
             <div className="dsa-bottom">
+              <span>{topic.questions} Questions</span>
 
-              <span>
-                {topic.questions} Questions
-              </span>
-
-              <Link
-                to={topic.path}
-                className="btn primary-btn"
-              >
+              <Link to={topic.path} className="btn primary-btn">
                 Practice →
               </Link>
-
             </div>
-
           </div>
-
         ))}
-
       </div>
-
     </div>
   );
 }

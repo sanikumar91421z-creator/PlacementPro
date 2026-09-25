@@ -4,8 +4,26 @@ import axios from "axios";
 import Editor from "@monaco-editor/react";
 
 function Question() {
-  const { id } = useParams();
+  const { topic, id } = useParams();
+  const topicConfig = {
+    arrays: {
+      label: "ARRAY",
+      name: "Arrays",
+    },
+    strings: {
+      label: "STRING",
+      name: "Strings",
+    },
+    "linked-list": {
+      label: "LINKED LIST",
+      name: "Linked List",
+    },
+  };
 
+  const currentTopic = topicConfig[topic] || {
+    label: topic?.toUpperCase() || "DSA",
+    name: topic || "DSA",
+  };
   const [question, setQuestion] = useState(null);
   const [code, setCode] = useState("");
   const [result, setResult] = useState("");
@@ -144,8 +162,8 @@ function Question() {
 
           <p>{error || "The question you are looking for does not exist."}</p>
 
-          <Link to="/practice/dsa/arrays" className="back-link">
-            ← Back to Arrays
+          <Link to={`/practice/dsa/${topic}`} className="back-link">
+            ← Back to {currentTopic.name}
           </Link>
         </div>
       </div>
@@ -155,8 +173,8 @@ function Question() {
   return (
     <div className="question-page">
       <div className="question-top">
-        <Link to="/practice/dsa/arrays" className="back-link">
-          ← Back to Arrays
+        <Link to={`/practice/dsa/${topic}`} className="back-link">
+          ← Back to {currentTopic.name}
         </Link>
 
         <span className="question-id">Question #{question.questionId}</span>
@@ -165,7 +183,7 @@ function Question() {
       <div className="problem-section">
         <div className="problem-header">
           <div>
-            <p className="section-label">ARRAY PROBLEM</p>
+            <p className="section-label">{currentTopic.label} PROBLEM</p>
 
             <h1>{question.title}</h1>
           </div>

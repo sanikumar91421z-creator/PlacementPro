@@ -511,6 +511,10 @@ app.get("/api/progress/dsa", authMiddleware, async (req, res) => {
 // ==========================================
 // CODE RUNNER API - PROTECTED
 // ==========================================
+// ==========================================
+// CODE RUNNER API - PROTECTED
+// ==========================================
+
 app.post("/api/run", authMiddleware, async (req, res) => {
   try {
     const { code, language, questionId, mode = "run" } = req.body;
@@ -559,20 +563,20 @@ app.post("/api/run", authMiddleware, async (req, res) => {
 
     const hasMainClass = /public\s+class\s+Main|class\s+Main/.test(code);
 
-    const testCases =
-      mode === "submit"
-        ? question.testCases
-        : question.testCases.filter((testCase) => !testCase.hidden);
+    // You currently use visible test cases only.
+    const testCases = question.testCases;
 
     const results = [];
 
     for (let i = 0; i < testCases.length; i++) {
       const testCase = testCases[i];
+
       let finalCode;
 
       if (hasMainClass) {
         finalCode = code;
       } else {
+        // Judge0 requires only Main to be public.
         const userCode = code.replace(
           /public\s+class\s+Solution/,
           "class Solution",
@@ -581,72 +585,210 @@ app.post("/api/run", authMiddleware, async (req, res) => {
         const argumentDeclarations = [];
         const argumentNames = [];
 
+        // ==========================================
+        // CREATE JAVA METHOD ARGUMENTS
+        // ==========================================
+
         question.parameters.forEach((parameterType, index) => {
           const value = testCase.args[index];
           const variableName = `arg${index}`;
 
           argumentNames.push(variableName);
 
+          // int[]
           if (parameterType === "int[]") {
+            if (!Array.isArray(value)) {
+              throw new Error("int[] test case value must be an array.");
+            }
+
             argumentDeclarations.push(
               `int[] ${variableName} = {${value.join(",")}};`,
             );
-          } else if (parameterType === "int") {
-            argumentDeclarations.push(`int ${variableName} = ${value};`);
-          } else if (parameterType === "String") {
+          }
+
+          // int
+          else if (parameterType === "int") {
+            argumentDeclarations.push(
+              `int ${variableName} = ${Number(value)};`,
+            );
+          }
+
+          // String
+          else if (parameterType === "String") {
             const escapedValue = String(value)
               .replace(/\\/g, "\\\\")
-              .replace(/"/g, '\\"');
+              .replace(/"/g, '\\"')
+              .replace(/\n/g, "\\n")
+              .replace(/\r/g, "\\r")
+              .replace(/\t/g, "\\t");
 
             argumentDeclarations.push(
               `String ${variableName} = "${escapedValue}";`,
             );
-          } else {
+          }
+
+          // String[]
+          else if (parameterType === "String[]") {
+            if (!Array.isArray(value)) {
+              throw new Error("String[] test case value must be an array.");
+            }
+
+            const stringValues = value.map((item) => {
+              const escapedItem = String(item)
+                .replace(/\\/g, "\\\\")
+                .replace(/"/g, '\\"')
+                .replace(/\n/g, "\\n")
+                .replace(/\r/g, "\\r")
+                .replace(/\t/g, "\\t");
+
+              return `"${escapedItem}"`;
+            });
+
+            argumentDeclarations.push(
+              `String[] ${variableName} = {${stringValues.join(", ")}};`,
+            );
+          }
+
+          // ListNode
+          else if (parameterType === "ListNode") {
+            if (!Array.isArray(value)) {
+              throw new Error("ListNode test case value must be an array.");
+            }
+
+            argumentDeclarations.push(`
+ListNode ${variableName} = null;
+ListNode ${variableName}Tail = null;
+
+int[] ${variableName}Values = {${value.join(",")}};
+
+for (int nodeValue : ${variableName}Values) {
+    ListNode newNode = new ListNode(nodeValue);
+
+    if (${variableName} == null) {
+        ${variableName} = newNode;
+        ${variableName}Tail = newNode;
+    } else {
+        ${variableName}Tail.next = newNode;
+        ${variableName}Tail = newNode;
+    }
+}
+`);
+          }
+
+          // Unsupported parameter
+          else {
             throw new Error(`Unsupported parameter type: ${parameterType}`);
           }
         });
 
+        // ==========================================
+        // CREATE JAVA RESULT CODE
+        // ==========================================
+
         let resultCode = "";
 
+        // int
         if (question.returnType === "int") {
           resultCode = `
-        int result = solution.${question.methodName}(
-            ${argumentNames.join(", ")}
-        );
+int result = solution.${question.methodName}(
+    ${argumentNames.join(", ")}
+);
 
-        System.out.println(result);
+System.out.println(result);
 `;
-        } else if (question.returnType === "int[]") {
+        }
+
+        // int[]
+        else if (question.returnType === "int[]") {
           resultCode = `
-        int[] result = solution.${question.methodName}(
-            ${argumentNames.join(", ")}
-        );
+int[] result = solution.${question.methodName}(
+    ${argumentNames.join(", ")}
+);
 
-        System.out.println(
-            java.util.Arrays.toString(result)
-        );
+System.out.println(
+    java.util.Arrays.toString(result)
+);
 `;
-        } else if (question.returnType === "String") {
+        }
+
+        // String
+        else if (question.returnType === "String") {
           resultCode = `
-        String result = solution.${question.methodName}(
-            ${argumentNames.join(", ")}
-        );
+String result = solution.${question.methodName}(
+    ${argumentNames.join(", ")}
+);
 
-        System.out.println(result);
+System.out.println(result);
 `;
-        } else if (question.returnType === "boolean") {
+        }
+
+        // boolean
+        else if (question.returnType === "boolean") {
           resultCode = `
-        boolean result = solution.${question.methodName}(
-            ${argumentNames.join(", ")}
-        );
+boolean result = solution.${question.methodName}(
+    ${argumentNames.join(", ")}
+);
 
-        System.out.println(result);
+System.out.println(result);
 `;
-        } else {
+        }
+
+        // ListNode
+        else if (question.returnType === "ListNode") {
+          resultCode = `
+ListNode result = solution.${question.methodName}(
+    ${argumentNames.join(", ")}
+);
+
+java.util.ArrayList<Integer> output =
+    new java.util.ArrayList<>();
+
+ListNode current = result;
+
+while (current != null) {
+    output.add(current.val);
+    current = current.next;
+}
+
+System.out.println(output);
+`;
+        }
+
+        // Unsupported return type
+        else {
           throw new Error(`Unsupported return type: ${question.returnType}`);
         }
 
+        // ==========================================
+        // ADD ListNode CLASS ONLY WHEN REQUIRED
+        // ==========================================
+
+        const needsListNode =
+          question.parameters.includes("ListNode") ||
+          question.returnType === "ListNode";
+
+        const listNodeClass = needsListNode
+          ? `
+class ListNode {
+
+    int val;
+    ListNode next;
+
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+`
+          : "";
+
+        // ==========================================
+        // CREATE MAIN CLASS
+        // ==========================================
+
         const testCode = `
+
+${listNodeClass}
 
 public class Main {
 
@@ -666,6 +808,10 @@ public class Main {
 
       console.log(`Running Test Case ${i + 1}`);
 
+      // ==========================================
+      // SEND CODE TO JUDGE0
+      // ==========================================
+
       const response = await axios.post(
         "https://ce.judge0.com/submissions?base64_encoded=false&wait=true",
         {
@@ -676,6 +822,7 @@ public class Main {
           headers: {
             "Content-Type": "application/json",
           },
+
           timeout: 20000,
         },
       );
@@ -690,6 +837,10 @@ public class Main {
         ""
       ).trim();
 
+      // ==========================================
+      // CREATE EXPECTED OUTPUT
+      // ==========================================
+
       let expectedOutput;
 
       if (Array.isArray(testCase.expected)) {
@@ -703,25 +854,26 @@ public class Main {
       const displayInput =
         testCase.args.length === 1 ? testCase.args[0] : testCase.args;
 
-      if (mode === "submit" && testCase.hidden) {
-        results.push({
-          testCase: i + 1,
-          hidden: true,
-          passed,
-        });
-      } else {
-        results.push({
-          testCase: i + 1,
-          hidden: false,
-          input: displayInput,
-          expected: expectedOutput,
-          output,
-          passed,
-        });
-      }
+      results.push({
+        testCase: i + 1,
+        hidden: false,
+        input: displayInput,
+        expected: expectedOutput,
+        output,
+        passed,
+      });
     }
 
+    // ==========================================
+    // CHECK FINAL RESULT
+    // ==========================================
+
     const allPassed = results.every((test) => test.passed);
+
+    // ==========================================
+    // SAVE SUBMISSION
+    // ==========================================
+
     if (mode === "submit") {
       const passedTests = results.filter((test) => test.passed).length;
 
@@ -739,6 +891,11 @@ public class Main {
         `Submission saved: User ${req.user.userId}, Question ${question.questionId}`,
       );
     }
+
+    // ==========================================
+    // SEND RESULT TO FRONTEND
+    // ==========================================
+
     return res.status(200).json({
       success: true,
       questionId: question.questionId,
@@ -765,6 +922,7 @@ public class Main {
 
     return res.status(500).json({
       success: false,
+
       output:
         error.code === "ECONNABORTED"
           ? "Code execution server timed out."

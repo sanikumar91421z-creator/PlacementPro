@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 import { useEffect, useState } from "react";
-
+import DSATopic from "./pages/DSATopic";
 import "./App.css";
 import MockTestExam from "./pages/MockTestExam";
 import Home from "./pages/Home";
@@ -214,16 +214,16 @@ function App() {
         />
 
         <Route
-          path="/practice/dsa/arrays"
+          path="/practice/dsa/:topic"
           element={
             <ProtectedRoute>
-              <Arrays />
+              <DSATopic />
             </ProtectedRoute>
           }
         />
 
         <Route
-          path="/practice/dsa/arrays/:id"
+          path="/practice/dsa/:topic/:id"
           element={
             <ProtectedRoute>
               <Question />
