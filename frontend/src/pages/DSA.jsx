@@ -26,16 +26,16 @@ function DSA() {
     {
       name: "Stack",
       icon: "📚",
-      description: "Practice stack-based interview problems.",
-      questions: 30,
-      path: "#",
+      description: "Practice stack and monotonic stack interview problems.",
+      questions: 20,
+      path: "/practice/dsa/stack",
     },
     {
       name: "Queue",
       icon: "🚶",
-      description: "Learn queues and common applications.",
-      questions: 30,
-      path: "#",
+      description: "Master queue, deque and sliding window patterns.",
+      questions: 20,
+      path: "/practice/dsa/queue",
     },
     {
       name: "Binary Tree",

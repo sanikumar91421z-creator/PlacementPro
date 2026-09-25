@@ -2811,6 +2811,1404 @@ const questions = [
       },
     ],
   },
+  {
+    questionId: 76,
+    topic: "stack",
+    title: "Valid Parentheses",
+    difficulty: "Easy",
+
+    description:
+      "Given a string containing only the characters '(', ')', '{', '}', '[' and ']', determine whether the input string is valid. A string is valid if every opening bracket is closed by the same type of bracket and the brackets are closed in the correct order.",
+
+    input: 's = "({[]})"',
+
+    output: "true",
+
+    explanation:
+      "Each opening bracket has a matching closing bracket in the correct order, so the string is valid.",
+
+    constraints: [
+      "1 ≤ s.length ≤ 10⁴",
+      "s contains only the characters '(', ')', '{', '}', '[' and ']'.",
+    ],
+
+    starterCode: `public class Solution {
+    public boolean isValid(String s) {
+
+        // Write your code here
+
+        return false;
+    }
+}`,
+
+    methodName: "isValid",
+
+    returnType: "boolean",
+
+    parameters: ["String"],
+
+    testCases: [
+      {
+        args: ["()"],
+        expected: true,
+      },
+      {
+        args: ["()[]{}"],
+        expected: true,
+      },
+      {
+        args: ["(]"],
+        expected: false,
+      },
+      {
+        args: ["([)]"],
+        expected: false,
+      },
+      {
+        args: ["{[]}"],
+        expected: true,
+      },
+    ],
+  },
+  {
+    questionId: 77,
+    topic: "stack",
+    title: "Implement Stack Using Array",
+    difficulty: "Easy",
+    description:
+      "Given an array of integers, simulate pushing all elements onto a stack and then pop all elements. Return the elements in the order they are popped.",
+    input: "arr = [10, 20, 30, 40]",
+    output: "[40, 30, 20, 10]",
+    explanation:
+      "A stack follows LIFO order, so the last inserted element is removed first.",
+    constraints: ["0 ≤ arr.length ≤ 10⁴", "-10⁵ ≤ arr[i] ≤ 10⁵"],
+    starterCode: `public class Solution {
+    public int[] stackOperations(int[] arr) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "stackOperations",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[10, 20, 30, 40]], expected: [40, 30, 20, 10] },
+      { args: [[1, 2, 3]], expected: [3, 2, 1] },
+      { args: [[5]], expected: [5] },
+    ],
+  },
+
+  {
+    questionId: 78,
+    topic: "stack",
+    title: "Implement Stack Using Queues",
+    difficulty: "Easy",
+    description:
+      "Given an array representing values pushed into a stack, implement stack behavior using queue operations and return all elements in pop order.",
+    input: "arr = [1, 2, 3, 4]",
+    output: "[4, 3, 2, 1]",
+    explanation:
+      "Although queue operations are used internally, the resulting data structure must follow LIFO stack behavior.",
+    constraints: ["0 ≤ arr.length ≤ 10⁴", "-10⁵ ≤ arr[i] ≤ 10⁵"],
+    starterCode: `public class Solution {
+    public int[] stackUsingQueue(int[] arr) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "stackUsingQueue",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[1, 2, 3, 4]], expected: [4, 3, 2, 1] },
+      { args: [[10, 20]], expected: [20, 10] },
+      { args: [[7]], expected: [7] },
+    ],
+  },
+
+  {
+    questionId: 79,
+    topic: "stack",
+    title: "Min Stack",
+    difficulty: "Medium",
+    description:
+      "Given an array representing elements pushed into a stack, return the minimum element present in the stack. Design your approach using an additional stack so that the minimum can be obtained efficiently.",
+    input: "arr = [5, 2, 8, 1, 3]",
+    output: "1",
+    explanation: "The minimum value stored in the stack is 1.",
+    constraints: ["1 ≤ arr.length ≤ 10⁴", "-10⁵ ≤ arr[i] ≤ 10⁵"],
+    starterCode: `public class Solution {
+    public int getMin(int[] arr) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "getMin",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[5, 2, 8, 1, 3]], expected: 1 },
+      { args: [[10, 20, 5, 30]], expected: 5 },
+      { args: [[-2, 0, -3]], expected: -3 },
+    ],
+  },
+
+  {
+    questionId: 80,
+    topic: "stack",
+    title: "Next Greater Element",
+    difficulty: "Medium",
+    description:
+      "Given an integer array, find the next greater element to the right for every element. If no greater element exists, use -1.",
+    input: "arr = [4, 5, 2, 10]",
+    output: "[5, 10, 10, -1]",
+    explanation:
+      "For 4 the next greater element is 5, for 5 it is 10, for 2 it is 10, and 10 has no greater element to its right.",
+    constraints: ["1 ≤ arr.length ≤ 10⁵", "-10⁹ ≤ arr[i] ≤ 10⁹"],
+    starterCode: `public class Solution {
+    public int[] nextGreaterElement(int[] arr) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "nextGreaterElement",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[4, 5, 2, 10]], expected: [5, 10, 10, -1] },
+      { args: [[3, 2, 1]], expected: [-1, -1, -1] },
+      { args: [[1, 3, 2, 4]], expected: [3, 4, 4, -1] },
+    ],
+  },
+
+  {
+    questionId: 81,
+    topic: "stack",
+    title: "Next Greater Element II",
+    difficulty: "Medium",
+    description:
+      "Given a circular integer array, return the next greater element for every element. While searching to the right, you may wrap around to the beginning of the array. Return -1 if no greater element exists.",
+    input: "arr = [1, 2, 1]",
+    output: "[2, -1, 2]",
+    explanation:
+      "The array is circular, so the last 1 can find 2 after wrapping around.",
+    constraints: ["1 ≤ arr.length ≤ 10⁵", "-10⁹ ≤ arr[i] ≤ 10⁹"],
+    starterCode: `public class Solution {
+    public int[] nextGreaterElements(int[] arr) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "nextGreaterElements",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[1, 2, 1]], expected: [2, -1, 2] },
+      { args: [[1, 2, 3, 4, 3]], expected: [2, 3, 4, -1, 4] },
+      { args: [[5, 4, 3]], expected: [-1, 5, 5] },
+    ],
+  },
+
+  {
+    questionId: 82,
+    topic: "stack",
+    title: "Previous Smaller Element",
+    difficulty: "Medium",
+    description:
+      "For every element in the array, find the nearest element to its left that is strictly smaller. If no such element exists, return -1 for that position.",
+    input: "arr = [4, 5, 2, 10, 8]",
+    output: "[-1, 4, -1, 2, 2]",
+    explanation:
+      "For each position, the nearest strictly smaller value on its left is returned.",
+    constraints: ["1 ≤ arr.length ≤ 10⁵", "-10⁹ ≤ arr[i] ≤ 10⁹"],
+    starterCode: `public class Solution {
+    public int[] previousSmaller(int[] arr) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "previousSmaller",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[4, 5, 2, 10, 8]], expected: [-1, 4, -1, 2, 2] },
+      { args: [[1, 2, 3]], expected: [-1, 1, 2] },
+      { args: [[3, 2, 1]], expected: [-1, -1, -1] },
+    ],
+  },
+
+  {
+    questionId: 83,
+    topic: "stack",
+    title: "Next Smaller Element",
+    difficulty: "Medium",
+    description:
+      "For every element in the array, find the nearest element to its right that is strictly smaller. If no such element exists, return -1.",
+    input: "arr = [4, 8, 5, 2, 25]",
+    output: "[2, 5, 2, -1, -1]",
+    explanation:
+      "The nearest smaller values on the right are returned for each array element.",
+    constraints: ["1 ≤ arr.length ≤ 10⁵", "-10⁹ ≤ arr[i] ≤ 10⁹"],
+    starterCode: `public class Solution {
+    public int[] nextSmaller(int[] arr) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "nextSmaller",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[4, 8, 5, 2, 25]], expected: [2, 5, 2, -1, -1] },
+      { args: [[3, 2, 1]], expected: [2, 1, -1] },
+      { args: [[1, 2, 3]], expected: [-1, -1, -1] },
+    ],
+  },
+
+  {
+    questionId: 84,
+    topic: "stack",
+    title: "Stock Span Problem",
+    difficulty: "Medium",
+    description:
+      "Given daily stock prices, calculate the span of the stock price for each day. The span is the maximum number of consecutive days ending on the current day for which the price was less than or equal to today's price.",
+    input: "prices = [100, 80, 60, 70, 60, 75, 85]",
+    output: "[1, 1, 1, 2, 1, 4, 6]",
+    explanation:
+      "Each value represents how many consecutive previous days, including the current day, had a price less than or equal to the current price.",
+    constraints: ["1 ≤ prices.length ≤ 10⁵", "1 ≤ prices[i] ≤ 10⁹"],
+    starterCode: `public class Solution {
+    public int[] calculateSpan(int[] prices) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "calculateSpan",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[100, 80, 60, 70, 60, 75, 85]],
+        expected: [1, 1, 1, 2, 1, 4, 6],
+      },
+      { args: [[10, 20, 30, 40]], expected: [1, 2, 3, 4] },
+      { args: [[40, 30, 20, 10]], expected: [1, 1, 1, 1] },
+    ],
+  },
+
+  {
+    questionId: 85,
+    topic: "stack",
+    title: "Daily Temperatures",
+    difficulty: "Medium",
+    description:
+      "Given an array of daily temperatures, return an array where each element represents the number of days you must wait until a warmer temperature. If there is no future warmer day, return 0 for that position.",
+    input: "temperatures = [73, 74, 75, 71, 69, 72, 76, 73]",
+    output: "[1, 1, 4, 2, 1, 1, 0, 0]",
+    explanation:
+      "For temperature 73 on the first day, a warmer temperature occurs one day later.",
+    constraints: ["1 ≤ temperatures.length ≤ 10⁵", "0 ≤ temperatures[i] ≤ 100"],
+    starterCode: `public class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "dailyTemperatures",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[73, 74, 75, 71, 69, 72, 76, 73]],
+        expected: [1, 1, 4, 2, 1, 1, 0, 0],
+      },
+      { args: [[30, 40, 50, 60]], expected: [1, 1, 1, 0] },
+      { args: [[30, 60, 90]], expected: [1, 1, 0] },
+    ],
+  },
+
+  {
+    questionId: 86,
+    topic: "stack",
+    title: "Largest Rectangle in Histogram",
+    difficulty: "Hard",
+    description:
+      "Given an array of non-negative integers representing histogram bar heights, where each bar has width 1, return the area of the largest rectangle that can be formed.",
+    input: "heights = [2, 1, 5, 6, 2, 3]",
+    output: "10",
+    explanation:
+      "The largest rectangle uses the bars with heights 5 and 6 and has area 10.",
+    constraints: ["1 ≤ heights.length ≤ 10⁵", "0 ≤ heights[i] ≤ 10⁴"],
+    starterCode: `public class Solution {
+    public int largestRectangleArea(int[] heights) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "largestRectangleArea",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[2, 1, 5, 6, 2, 3]], expected: 10 },
+      { args: [[2, 4]], expected: 4 },
+      { args: [[1, 1, 1, 1]], expected: 4 },
+    ],
+  },
+
+  {
+    questionId: 87,
+    topic: "stack",
+    title: "Maximal Rectangle",
+    difficulty: "Hard",
+    description:
+      "Given a binary matrix represented as an array of strings, find the area of the largest rectangle containing only 1s.",
+    input: 'matrix = ["10100", "10111", "11111", "10010"]',
+    output: "6",
+    explanation: "The largest rectangle containing only 1s has area 6.",
+    constraints: [
+      "1 ≤ matrix.length ≤ 200",
+      "1 ≤ matrix[i].length ≤ 200",
+      "Each character is either '0' or '1'.",
+    ],
+    starterCode: `public class Solution {
+    public int maximalRectangle(String[] matrix) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "maximalRectangle",
+    returnType: "int",
+    parameters: ["String[]"],
+    testCases: [
+      {
+        args: [["10100", "10111", "11111", "10010"]],
+        expected: 6,
+      },
+      {
+        args: [["1"]],
+        expected: 1,
+      },
+      {
+        args: [["00", "00"]],
+        expected: 0,
+      },
+    ],
+  },
+
+  {
+    questionId: 88,
+    topic: "stack",
+    title: "Trapping Rain Water Using Stack",
+    difficulty: "Hard",
+    description:
+      "Given an array representing elevation heights where each bar has width 1, return the total amount of rain water that can be trapped after raining.",
+    input: "height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]",
+    output: "6",
+    explanation: "The elevation map can trap a total of 6 units of water.",
+    constraints: ["1 ≤ height.length ≤ 10⁵", "0 ≤ height[i] ≤ 10⁵"],
+    starterCode: `public class Solution {
+    public int trap(int[] height) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "trap",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]],
+        expected: 6,
+      },
+      { args: [[4, 2, 0, 3, 2, 5]], expected: 9 },
+      { args: [[1, 2, 3]], expected: 0 },
+    ],
+  },
+
+  {
+    questionId: 89,
+    topic: "stack",
+    title: "Asteroid Collision",
+    difficulty: "Medium",
+    description:
+      "Given an array of integers representing asteroids moving in a row, the absolute value represents size and the sign represents direction. Positive asteroids move right and negative asteroids move left. When two asteroids collide, the smaller one is destroyed. If they are equal, both are destroyed. Return the state after all collisions.",
+    input: "asteroids = [5, 10, -5]",
+    output: "[5, 10]",
+    explanation:
+      "The asteroids 10 and -5 collide. Since 10 is larger, -5 is destroyed.",
+    constraints: [
+      "1 ≤ asteroids.length ≤ 10⁴",
+      "-1000 ≤ asteroids[i] ≤ 1000",
+      "asteroids[i] != 0",
+    ],
+    starterCode: `public class Solution {
+    public int[] asteroidCollision(int[] asteroids) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "asteroidCollision",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[5, 10, -5]], expected: [5, 10] },
+      { args: [[8, -8]], expected: [] },
+      { args: [[10, 2, -5]], expected: [10] },
+    ],
+  },
+
+  {
+    questionId: 90,
+    topic: "stack",
+    title: "Remove K Digits",
+    difficulty: "Medium",
+    description:
+      "Given a non-negative integer num represented as a string and an integer k, remove exactly k digits so that the resulting number is as small as possible. Return the result as a string without unnecessary leading zeroes.",
+    input: 'num = "1432219", k = 3',
+    output: '"1219"',
+    explanation:
+      "Removing digits 4, 3 and 2 produces the smallest possible number 1219.",
+    constraints: [
+      "1 ≤ num.length ≤ 10⁵",
+      "0 ≤ k ≤ num.length",
+      "num contains only digits.",
+    ],
+    starterCode: `public class Solution {
+    public String removeKdigits(String num, int k) {
+
+        // Write your code here
+
+        return "";
+    }
+}`,
+    methodName: "removeKdigits",
+    returnType: "String",
+    parameters: ["String", "int"],
+    testCases: [
+      { args: ["1432219", 3], expected: "1219" },
+      { args: ["10200", 1], expected: "200" },
+      { args: ["10", 2], expected: "0" },
+    ],
+  },
+
+  {
+    questionId: 91,
+    topic: "stack",
+    title: "Decode String",
+    difficulty: "Medium",
+    description:
+      "Given an encoded string using the pattern k[encodedString], return its decoded form. The substring inside the brackets must be repeated exactly k times. Encoded strings may be nested.",
+    input: 's = "3[a2[c]]"',
+    output: '"accaccacc"',
+    explanation:
+      "First 2[c] becomes cc, so a2[c] becomes acc. Repeating acc three times gives accaccacc.",
+    constraints: [
+      "1 ≤ s.length ≤ 10⁴",
+      "The input is always a valid encoded string.",
+    ],
+    starterCode: `public class Solution {
+    public String decodeString(String s) {
+
+        // Write your code here
+
+        return "";
+    }
+}`,
+    methodName: "decodeString",
+    returnType: "String",
+    parameters: ["String"],
+    testCases: [
+      { args: ["3[a]2[bc]"], expected: "aaabcbc" },
+      { args: ["3[a2[c]]"], expected: "accaccacc" },
+      { args: ["2[abc]3[cd]ef"], expected: "abcabccdcdcdef" },
+    ],
+  },
+
+  {
+    questionId: 92,
+    topic: "stack",
+    title: "Evaluate Reverse Polish Notation",
+    difficulty: "Medium",
+    description:
+      "Given an array of strings representing an arithmetic expression in Reverse Polish Notation, evaluate the expression and return its integer result. Valid operators are +, -, * and /. Integer division truncates toward zero.",
+    input: 'tokens = ["2", "1", "+", "3", "*"]',
+    output: "9",
+    explanation: "2 + 1 = 3, then 3 * 3 = 9.",
+    constraints: [
+      "1 ≤ tokens.length ≤ 10⁴",
+      "Each token is an integer or one of '+', '-', '*', '/'.",
+      "The expression is always valid.",
+    ],
+    starterCode: `public class Solution {
+    public int evalRPN(String[] tokens) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "evalRPN",
+    returnType: "int",
+    parameters: ["String[]"],
+    testCases: [
+      {
+        args: [["2", "1", "+", "3", "*"]],
+        expected: 9,
+      },
+      {
+        args: [["4", "13", "5", "/", "+"]],
+        expected: 6,
+      },
+      {
+        args: [
+          ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"],
+        ],
+        expected: 22,
+      },
+    ],
+  },
+
+  {
+    questionId: 93,
+    topic: "stack",
+    title: "Infix to Postfix Conversion",
+    difficulty: "Medium",
+    description:
+      "Given a valid infix expression containing lowercase letters, parentheses and the operators +, -, *, / and ^, convert it into postfix notation.",
+    input: 'expression = "a+b*(c^d-e)^(f+g*h)-i"',
+    output: '"abcd^e-fgh*+^*+i-"',
+    explanation:
+      "Operators are placed after their operands according to precedence and associativity.",
+    constraints: [
+      "1 ≤ expression.length ≤ 10⁴",
+      "Operands are lowercase English letters.",
+      "The expression is valid.",
+    ],
+    starterCode: `public class Solution {
+    public String infixToPostfix(String expression) {
+
+        // Write your code here
+
+        return "";
+    }
+}`,
+    methodName: "infixToPostfix",
+    returnType: "String",
+    parameters: ["String"],
+    testCases: [
+      {
+        args: ["a+b*(c^d-e)^(f+g*h)-i"],
+        expected: "abcd^e-fgh*+^*+i-",
+      },
+      {
+        args: ["a+b*c"],
+        expected: "abc*+",
+      },
+      {
+        args: ["(a+b)*c"],
+        expected: "ab+c*",
+      },
+    ],
+  },
+
+  {
+    questionId: 94,
+    topic: "stack",
+    title: "Simplify Path",
+    difficulty: "Medium",
+    description:
+      "Given an absolute Unix-style file path, convert it to its simplified canonical path. A single dot represents the current directory, two dots represent the parent directory, and multiple consecutive slashes are treated as one slash.",
+    input: 'path = "/home//foo/"',
+    output: '"/home/foo"',
+    explanation:
+      "Repeated slashes and the trailing slash are removed to produce the canonical path.",
+    constraints: [
+      "1 ≤ path.length ≤ 3000",
+      "path is a valid absolute Unix-style path.",
+    ],
+    starterCode: `public class Solution {
+    public String simplifyPath(String path) {
+
+        // Write your code here
+
+        return "";
+    }
+}`,
+    methodName: "simplifyPath",
+    returnType: "String",
+    parameters: ["String"],
+    testCases: [
+      { args: ["/home/"], expected: "/home" },
+      { args: ["/../"], expected: "/" },
+      { args: ["/home//foo/"], expected: "/home/foo" },
+      { args: ["/a/./b/../../c/"], expected: "/c" },
+    ],
+  },
+
+  {
+    questionId: 95,
+    topic: "stack",
+    title: "Remove All Adjacent Duplicates in String II",
+    difficulty: "Medium",
+    description:
+      "Given a string s and an integer k, repeatedly remove groups of k adjacent equal characters until no such group remains. Return the final string.",
+    input: 's = "deeedbbcccbdaa", k = 3',
+    output: '"aa"',
+    explanation:
+      "Removing eee and ccc creates new adjacent groups. After repeatedly removing groups of three equal characters, the result is aa.",
+    constraints: [
+      "1 ≤ s.length ≤ 10⁵",
+      "2 ≤ k ≤ 10⁴",
+      "s contains lowercase English letters.",
+    ],
+    starterCode: `public class Solution {
+    public String removeDuplicates(String s, int k) {
+
+        // Write your code here
+
+        return "";
+    }
+}`,
+    methodName: "removeDuplicates",
+    returnType: "String",
+    parameters: ["String", "int"],
+    testCases: [
+      {
+        args: ["deeedbbcccbdaa", 3],
+        expected: "aa",
+      },
+      {
+        args: ["abcd", 2],
+        expected: "abcd",
+      },
+      {
+        args: ["pbbcggttciiippooaais", 2],
+        expected: "ps",
+      },
+    ],
+  },
+  {
+    questionId: 96,
+    topic: "queue",
+    title: "Implement Queue Using Array",
+    difficulty: "Easy",
+
+    description:
+      "Given an integer array, insert all elements into a queue in the same order and then remove all elements from the queue. Return the elements in the order they are removed.",
+
+    input: "arr = [10, 20, 30, 40]",
+
+    output: "[10, 20, 30, 40]",
+
+    explanation:
+      "A queue follows FIFO (First In First Out), so elements are removed in the same order in which they were inserted.",
+
+    constraints: ["0 ≤ arr.length ≤ 10⁴", "-10⁵ ≤ arr[i] ≤ 10⁵"],
+
+    starterCode: `public class Solution {
+    public int[] queueOperations(int[] arr) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+
+    methodName: "queueOperations",
+
+    returnType: "int[]",
+
+    parameters: ["int[]"],
+
+    testCases: [
+      {
+        args: [[10, 20, 30, 40]],
+        expected: [10, 20, 30, 40],
+      },
+      {
+        args: [[1, 2, 3]],
+        expected: [1, 2, 3],
+      },
+      {
+        args: [[5]],
+        expected: [5],
+      },
+    ],
+  },
+  {
+    questionId: 97,
+    topic: "queue",
+    title: "Implement Queue Using Stacks",
+    difficulty: "Easy",
+    description:
+      "Given an integer array, insert all elements into a queue implemented using stacks and then remove all elements. Return the elements in FIFO order.",
+    input: "arr = [10, 20, 30, 40]",
+    output: "[10, 20, 30, 40]",
+    explanation:
+      "Although stacks follow LIFO order, using two stacks allows us to simulate FIFO queue behavior.",
+    constraints: ["0 ≤ arr.length ≤ 10⁴", "-10⁵ ≤ arr[i] ≤ 10⁵"],
+    starterCode: `public class Solution {
+    public int[] queueUsingStacks(int[] arr) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "queueUsingStacks",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[10, 20, 30, 40]], expected: [10, 20, 30, 40] },
+      { args: [[1, 2, 3]], expected: [1, 2, 3] },
+      { args: [[7]], expected: [7] },
+    ],
+  },
+
+  {
+    questionId: 98,
+    topic: "queue",
+    title: "Implement Circular Queue",
+    difficulty: "Medium",
+    description:
+      "Given an integer array and a capacity k, simulate inserting the elements into a circular queue. Whenever the queue becomes full, remove the oldest element before inserting the new element. Return the final contents of the queue from front to rear.",
+    input: "arr = [1, 2, 3, 4, 5], k = 3",
+    output: "[3, 4, 5]",
+    explanation:
+      "The queue can contain at most 3 elements. The oldest elements are removed when new elements are inserted into a full queue.",
+    constraints: [
+      "1 ≤ arr.length ≤ 10⁴",
+      "1 ≤ k ≤ arr.length",
+      "-10⁵ ≤ arr[i] ≤ 10⁵",
+    ],
+    starterCode: `public class Solution {
+    public int[] circularQueue(int[] arr, int k) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "circularQueue",
+    returnType: "int[]",
+    parameters: ["int[]", "int"],
+    testCases: [
+      { args: [[1, 2, 3, 4, 5], 3], expected: [3, 4, 5] },
+      { args: [[10, 20, 30], 3], expected: [10, 20, 30] },
+      { args: [[1, 2, 3, 4], 2], expected: [3, 4] },
+    ],
+  },
+
+  {
+    questionId: 99,
+    topic: "queue",
+    title: "Reverse a Queue",
+    difficulty: "Easy",
+    description:
+      "Given an array representing the elements of a queue from front to rear, reverse the queue and return its elements.",
+    input: "queue = [1, 2, 3, 4, 5]",
+    output: "[5, 4, 3, 2, 1]",
+    explanation:
+      "After reversing the queue, the last element becomes the first element.",
+    constraints: ["0 ≤ queue.length ≤ 10⁴", "-10⁵ ≤ queue[i] ≤ 10⁵"],
+    starterCode: `public class Solution {
+    public int[] reverseQueue(int[] queue) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "reverseQueue",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[1, 2, 3, 4, 5]], expected: [5, 4, 3, 2, 1] },
+      { args: [[10, 20]], expected: [20, 10] },
+      { args: [[7]], expected: [7] },
+    ],
+  },
+
+  {
+    questionId: 100,
+    topic: "queue",
+    title: "Reverse First K Elements of Queue",
+    difficulty: "Easy",
+    description:
+      "Given an array representing a queue and an integer k, reverse the first k elements while keeping the remaining elements in the same relative order.",
+    input: "queue = [1, 2, 3, 4, 5], k = 3",
+    output: "[3, 2, 1, 4, 5]",
+    explanation: "Only the first three elements are reversed.",
+    constraints: [
+      "1 ≤ queue.length ≤ 10⁴",
+      "1 ≤ k ≤ queue.length",
+      "-10⁵ ≤ queue[i] ≤ 10⁵",
+    ],
+    starterCode: `public class Solution {
+    public int[] reverseFirstK(int[] queue, int k) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "reverseFirstK",
+    returnType: "int[]",
+    parameters: ["int[]", "int"],
+    testCases: [
+      { args: [[1, 2, 3, 4, 5], 3], expected: [3, 2, 1, 4, 5] },
+      { args: [[10, 20, 30, 40], 2], expected: [20, 10, 30, 40] },
+      { args: [[1, 2, 3], 3], expected: [3, 2, 1] },
+    ],
+  },
+
+  {
+    questionId: 101,
+    topic: "queue",
+    title: "Generate Binary Numbers from 1 to N",
+    difficulty: "Easy",
+    description:
+      "Given a positive integer n, generate the binary representations of all numbers from 1 to n in increasing order.",
+    input: "n = 5",
+    output: '["1", "10", "11", "100", "101"]',
+    explanation:
+      "These are the binary representations of the decimal numbers from 1 through 5.",
+    constraints: ["1 ≤ n ≤ 10⁴"],
+    starterCode: `public class Solution {
+    public String[] generateBinary(int n) {
+
+        // Write your code here
+
+        return new String[0];
+    }
+}`,
+    methodName: "generateBinary",
+    returnType: "String[]",
+    parameters: ["int"],
+    testCases: [
+      { args: [5], expected: ["1", "10", "11", "100", "101"] },
+      { args: [3], expected: ["1", "10", "11"] },
+      { args: [1], expected: ["1"] },
+    ],
+  },
+
+  {
+    questionId: 102,
+    topic: "queue",
+    title: "First Non-Repeating Character in a Stream",
+    difficulty: "Medium",
+    description:
+      "Given a stream of lowercase characters represented by a string, return a string containing the first non-repeating character after each character is processed. Use '#' when no non-repeating character exists.",
+    input: 'stream = "aabc"',
+    output: '"a#bb"',
+    explanation:
+      "After reading a the answer is a. After the second a there is no non-repeating character. After b and c, b is the first non-repeating character.",
+    constraints: [
+      "1 ≤ stream.length ≤ 10⁵",
+      "stream contains lowercase English letters.",
+    ],
+    starterCode: `public class Solution {
+    public String firstNonRepeating(String stream) {
+
+        // Write your code here
+
+        return "";
+    }
+}`,
+    methodName: "firstNonRepeating",
+    returnType: "String",
+    parameters: ["String"],
+    testCases: [
+      { args: ["aabc"], expected: "a#bb" },
+      { args: ["zz"], expected: "z#" },
+      { args: ["abc"], expected: "aaa" },
+    ],
+  },
+
+  {
+    questionId: 103,
+    topic: "queue",
+    title: "Interleave First and Second Half of Queue",
+    difficulty: "Medium",
+    description:
+      "Given an array representing a queue containing an even number of elements, interleave the first half with the second half and return the resulting queue.",
+    input: "queue = [1, 2, 3, 4, 5, 6]",
+    output: "[1, 4, 2, 5, 3, 6]",
+    explanation:
+      "The first half [1,2,3] is interleaved with the second half [4,5,6].",
+    constraints: [
+      "2 ≤ queue.length ≤ 10⁴",
+      "queue.length is even.",
+      "-10⁵ ≤ queue[i] ≤ 10⁵",
+    ],
+    starterCode: `public class Solution {
+    public int[] interleaveQueue(int[] queue) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "interleaveQueue",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[1, 2, 3, 4, 5, 6]], expected: [1, 4, 2, 5, 3, 6] },
+      { args: [[1, 2, 3, 4]], expected: [1, 3, 2, 4] },
+      { args: [[10, 20]], expected: [10, 20] },
+    ],
+  },
+
+  {
+    questionId: 104,
+    topic: "queue",
+    title: "Sliding Window Maximum",
+    difficulty: "Hard",
+    description:
+      "Given an integer array nums and an integer k, return the maximum value in every contiguous subarray of size k.",
+    input: "nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3",
+    output: "[3, 3, 5, 5, 6, 7]",
+    explanation:
+      "The maximum values of each window of size 3 are 3, 3, 5, 5, 6 and 7.",
+    constraints: [
+      "1 ≤ nums.length ≤ 10⁵",
+      "1 ≤ k ≤ nums.length",
+      "-10⁴ ≤ nums[i] ≤ 10⁴",
+    ],
+    starterCode: `public class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "maxSlidingWindow",
+    returnType: "int[]",
+    parameters: ["int[]", "int"],
+    testCases: [
+      {
+        args: [[1, 3, -1, -3, 5, 3, 6, 7], 3],
+        expected: [3, 3, 5, 5, 6, 7],
+      },
+      { args: [[1], 1], expected: [1] },
+      { args: [[9, 11], 2], expected: [11] },
+    ],
+  },
+
+  {
+    questionId: 105,
+    topic: "queue",
+    title: "First Negative Integer in Every Window",
+    difficulty: "Medium",
+    description:
+      "Given an integer array and a window size k, return the first negative integer in every contiguous window of size k. If a window contains no negative integer, return 0 for that window.",
+    input: "arr = [-8, 2, 3, -6, 10], k = 2",
+    output: "[-8, 0, -6, -6]",
+    explanation:
+      "For every window of size 2, the first negative value is returned. Zero is used when a window contains no negative number.",
+    constraints: [
+      "1 ≤ arr.length ≤ 10⁵",
+      "1 ≤ k ≤ arr.length",
+      "-10⁹ ≤ arr[i] ≤ 10⁹",
+    ],
+    starterCode: `public class Solution {
+    public int[] firstNegative(int[] arr, int k) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "firstNegative",
+    returnType: "int[]",
+    parameters: ["int[]", "int"],
+    testCases: [
+      { args: [[-8, 2, 3, -6, 10], 2], expected: [-8, 0, -6, -6] },
+      { args: [[1, 2, 3, 4], 2], expected: [0, 0, 0] },
+      { args: [[-1, -2, -3], 2], expected: [-1, -2] },
+    ],
+  },
+
+  {
+    questionId: 106,
+    topic: "queue",
+    title: "Sum of Minimum and Maximum of All Windows",
+    difficulty: "Medium",
+    description:
+      "Given an integer array and an integer k, find the sum of the minimum and maximum element of every contiguous subarray of size k, and return the total sum.",
+    input: "arr = [2, 5, -1, 7, -3, -1, -2], k = 4",
+    output: "18",
+    explanation:
+      "For every window of size 4, add its minimum and maximum values. The total of all these values is 18.",
+    constraints: [
+      "1 ≤ arr.length ≤ 10⁵",
+      "1 ≤ k ≤ arr.length",
+      "-10⁴ ≤ arr[i] ≤ 10⁴",
+    ],
+    starterCode: `public class Solution {
+    public int sumMinMax(int[] arr, int k) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "sumMinMax",
+    returnType: "int",
+    parameters: ["int[]", "int"],
+    testCases: [
+      { args: [[2, 5, -1, 7, -3, -1, -2], 4], expected: 18 },
+      { args: [[1, 2, 3], 2], expected: 8 },
+      { args: [[5, 5, 5], 2], expected: 20 },
+    ],
+  },
+
+  {
+    questionId: 107,
+    topic: "queue",
+    title: "Rotten Oranges",
+    difficulty: "Medium",
+    description:
+      "A grid is represented as an array of strings where '0' means empty, '1' means a fresh orange, and '2' means a rotten orange. Every minute, a rotten orange makes its adjacent fresh oranges rotten in the four cardinal directions. Return the minimum number of minutes required for all oranges to become rotten, or -1 if it is impossible.",
+    input: 'grid = ["211", "110", "011"]',
+    output: "4",
+    explanation:
+      "Using multi-source BFS from all initially rotten oranges, all fresh oranges become rotten after 4 minutes.",
+    constraints: [
+      "1 ≤ grid.length ≤ 100",
+      "1 ≤ grid[i].length ≤ 100",
+      "Each character is '0', '1' or '2'.",
+    ],
+    starterCode: `public class Solution {
+    public int orangesRotting(String[] grid) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "orangesRotting",
+    returnType: "int",
+    parameters: ["String[]"],
+    testCases: [
+      { args: [["211", "110", "011"]], expected: 4 },
+      { args: [["211", "111", "011"]], expected: 4 },
+      { args: [["211", "110", "101"]], expected: -1 },
+      { args: [["0"]], expected: 0 },
+    ],
+  },
+
+  {
+    questionId: 108,
+    topic: "queue",
+    title: "Number of Recent Calls",
+    difficulty: "Easy",
+    description:
+      "Given a strictly increasing array of request times, return an array where each position contains the number of requests that occurred in the inclusive time interval [t - 3000, t] for the current request time t.",
+    input: "times = [1, 100, 3001, 3002]",
+    output: "[1, 2, 3, 3]",
+    explanation:
+      "For each request, only requests made during the previous 3000 milliseconds including the current request are counted.",
+    constraints: [
+      "1 ≤ times.length ≤ 10⁴",
+      "1 ≤ times[i] ≤ 10⁹",
+      "times is strictly increasing.",
+    ],
+    starterCode: `public class Solution {
+    public int[] recentCalls(int[] times) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "recentCalls",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      { args: [[1, 100, 3001, 3002]], expected: [1, 2, 3, 3] },
+      { args: [[1, 3002]], expected: [1, 1] },
+      { args: [[100, 200, 300]], expected: [1, 2, 3] },
+    ],
+  },
+
+  {
+    questionId: 109,
+    topic: "queue",
+    title: "Dota2 Senate",
+    difficulty: "Medium",
+    description:
+      "A senate consists of members from two parties represented by 'R' and 'D'. Senators act in order and may ban one senator from the opposite party. Banned senators lose all future rights. Return 'Radiant' if the R party eventually wins, otherwise return 'Dire'.",
+    input: 'senate = "RDD"',
+    output: '"Dire"',
+    explanation:
+      "By processing active senators in queue order, the Dire party eventually eliminates all Radiant senators.",
+    constraints: [
+      "1 ≤ senate.length ≤ 10⁴",
+      "senate contains only 'R' and 'D'.",
+    ],
+    starterCode: `public class Solution {
+    public String predictPartyVictory(String senate) {
+
+        // Write your code here
+
+        return "";
+    }
+}`,
+    methodName: "predictPartyVictory",
+    returnType: "String",
+    parameters: ["String"],
+    testCases: [
+      { args: ["RD"], expected: "Radiant" },
+      { args: ["RDD"], expected: "Dire" },
+      { args: ["RRDDD"], expected: "Radiant" },
+    ],
+  },
+
+  {
+    questionId: 110,
+    topic: "queue",
+    title: "Reveal Cards in Increasing Order",
+    difficulty: "Medium",
+    description:
+      "Given an array of distinct integers representing a deck of cards, reorder the deck so that repeatedly revealing the top card and moving the next top card to the bottom reveals the cards in increasing order. Return the required initial deck order.",
+    input: "deck = [17, 13, 11, 2, 3, 5, 7]",
+    output: "[2, 13, 3, 11, 5, 17, 7]",
+    explanation:
+      "Starting with this ordering causes the cards to be revealed in increasing order: 2, 3, 5, 7, 11, 13, 17.",
+    constraints: [
+      "1 ≤ deck.length ≤ 1000",
+      "1 ≤ deck[i] ≤ 10⁶",
+      "All deck values are distinct.",
+    ],
+    starterCode: `public class Solution {
+    public int[] deckRevealedIncreasing(int[] deck) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "deckRevealedIncreasing",
+    returnType: "int[]",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[17, 13, 11, 2, 3, 5, 7]],
+        expected: [2, 13, 3, 11, 5, 17, 7],
+      },
+      { args: [[1, 1000]], expected: [1, 1000] },
+      { args: [[3, 1, 2]], expected: [1, 3, 2] },
+    ],
+  },
+
+  {
+    questionId: 111,
+    topic: "queue",
+    title: "Task Scheduler",
+    difficulty: "Medium",
+    description:
+      "Given a string of uppercase letters representing CPU tasks and a non-negative integer n representing the cooldown interval, return the minimum number of time units required to complete all tasks. Identical tasks must be separated by at least n time units.",
+    input: 'tasks = "AAABBB", n = 2',
+    output: "8",
+    explanation:
+      "One valid schedule is A, B, idle, A, B, idle, A, B, which requires 8 time units.",
+    constraints: [
+      "1 ≤ tasks.length ≤ 10⁴",
+      "tasks contains uppercase English letters.",
+      "0 ≤ n ≤ 100",
+    ],
+    starterCode: `public class Solution {
+    public int leastInterval(String tasks, int n) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "leastInterval",
+    returnType: "int",
+    parameters: ["String", "int"],
+    testCases: [
+      { args: ["AAABBB", 2], expected: 8 },
+      { args: ["AAABBB", 0], expected: 6 },
+      { args: ["AAAAAABCDEFG", 2], expected: 16 },
+    ],
+  },
+
+  {
+    questionId: 112,
+    topic: "queue",
+    title: "Jump Game VI",
+    difficulty: "Medium",
+    description:
+      "Given an integer array nums and an integer k, start at index 0. From index i you may jump to any index from i + 1 through i + k. Your score is the sum of the values at all visited indices. Return the maximum score possible when reaching the last index.",
+    input: "nums = [1, -1, -2, 4, -7, 3], k = 2",
+    output: "7",
+    explanation:
+      "An optimal path gives a total score of 7. A monotonic deque can be used to track the best reachable score.",
+    constraints: [
+      "1 ≤ nums.length ≤ 10⁵",
+      "1 ≤ k ≤ nums.length",
+      "-10⁴ ≤ nums[i] ≤ 10⁴",
+    ],
+    starterCode: `public class Solution {
+    public int maxResult(int[] nums, int k) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "maxResult",
+    returnType: "int",
+    parameters: ["int[]", "int"],
+    testCases: [
+      { args: [[1, -1, -2, 4, -7, 3], 2], expected: 7 },
+      { args: [[10, -5, -2, 4, 0, 3], 3], expected: 17 },
+      { args: [[1, -5, -20, 4, -1, 3, -6, -3], 2], expected: 0 },
+    ],
+  },
+
+  {
+    questionId: 113,
+    topic: "queue",
+    title: "Shortest Subarray with Sum at Least K",
+    difficulty: "Hard",
+    description:
+      "Given an integer array nums and an integer k, return the length of the shortest non-empty contiguous subarray whose sum is at least k. Return -1 if no such subarray exists. The array may contain negative numbers.",
+    input: "nums = [2, -1, 2], k = 3",
+    output: "3",
+    explanation:
+      "The entire array has sum 3, and no shorter subarray has a sum of at least 3.",
+    constraints: [
+      "1 ≤ nums.length ≤ 10⁵",
+      "-10⁵ ≤ nums[i] ≤ 10⁵",
+      "1 ≤ k ≤ 10⁹",
+    ],
+    starterCode: `public class Solution {
+    public int shortestSubarray(int[] nums, int k) {
+
+        // Write your code here
+
+        return -1;
+    }
+}`,
+    methodName: "shortestSubarray",
+    returnType: "int",
+    parameters: ["int[]", "int"],
+    testCases: [
+      { args: [[1], 1], expected: 1 },
+      { args: [[1, 2], 4], expected: -1 },
+      { args: [[2, -1, 2], 3], expected: 3 },
+      { args: [[84, -37, 32, 40, 95], 167], expected: 3 },
+    ],
+  },
+
+  {
+    questionId: 114,
+    topic: "queue",
+    title: "Constrained Subsequence Sum",
+    difficulty: "Hard",
+    description:
+      "Given an integer array nums and an integer k, choose a non-empty subsequence such that the indices of every two consecutive chosen elements differ by at most k. Return the maximum possible subsequence sum.",
+    input: "nums = [10, 2, -10, 5, 20], k = 2",
+    output: "37",
+    explanation:
+      "Choosing 10, 2, 5 and 20 gives the maximum sum 37 while satisfying the index-distance constraint.",
+    constraints: [
+      "1 ≤ nums.length ≤ 10⁵",
+      "1 ≤ k ≤ nums.length",
+      "-10⁴ ≤ nums[i] ≤ 10⁴",
+    ],
+    starterCode: `public class Solution {
+    public int constrainedSubsetSum(int[] nums, int k) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "constrainedSubsetSum",
+    returnType: "int",
+    parameters: ["int[]", "int"],
+    testCases: [
+      { args: [[10, 2, -10, 5, 20], 2], expected: 37 },
+      { args: [[-1, -2, -3], 1], expected: -1 },
+      { args: [[10, -2, -10, -5, 20], 2], expected: 23 },
+    ],
+  },
+
+  {
+    questionId: 115,
+    topic: "queue",
+    title: "Maximum Value of Equation",
+    difficulty: "Hard",
+    description:
+      "Points are represented by two arrays x and y, where point i is (x[i], y[i]) and x is strictly increasing. For two points i and j with i < j and x[j] - x[i] <= k, maximize y[i] + y[j] + x[j] - x[i]. Return the maximum value.",
+    input: "x = [1, 2, 3, 5], y = [1, 3, 2, 5], k = 2",
+    output: "10",
+    explanation:
+      "Using the points (3,2) and (5,5), the value is 2 + 5 + 5 - 3 = 9. Using (1,1) and (2,3) gives 5. The maximum valid value for these points is 9.",
+    constraints: [
+      "2 ≤ x.length = y.length ≤ 10⁵",
+      "x is strictly increasing.",
+      "1 ≤ k ≤ 10⁹",
+      "-10⁸ ≤ y[i] ≤ 10⁸",
+    ],
+    starterCode: `public class Solution {
+    public int findMaxValueOfEquation(int[] x, int[] y, int k) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "findMaxValueOfEquation",
+    returnType: "int",
+    parameters: ["int[]", "int[]", "int"],
+    testCases: [
+      {
+        args: [[1, 2, 3, 5], [1, 3, 2, 5], 2],
+        expected: 9,
+      },
+      {
+        args: [[1, 3, 6], [3, 0, 10], 3],
+        expected: 13,
+      },
+      {
+        args: [[1, 2], [1, 2], 1],
+        expected: 4,
+      },
+    ],
+  },
 ];
 
 async function seedQuestions() {

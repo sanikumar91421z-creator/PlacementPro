@@ -33,6 +33,20 @@ function DSATopic() {
       description:
         "Practice important linked list problems commonly asked in coding interviews.",
     },
+    stack: {
+      apiTopic: "stack",
+      label: "STACK",
+      title: "Stack Problems 📚",
+      description:
+        "Practice important stack problems and patterns commonly asked in coding interviews.",
+    },
+    queue: {
+      apiTopic: "queue",
+      label: "QUEUE",
+      title: "Queue Problems 🚶",
+      description:
+        "Practice important queue, deque and monotonic queue problems commonly asked in coding interviews.",
+    },
   };
 
   const currentTopic = topicConfig[topic];

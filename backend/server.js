@@ -709,6 +709,16 @@ System.out.println(
     java.util.Arrays.toString(result)
 );
 `;
+        } else if (question.returnType === "String[]") {
+          resultCode = `
+String[] result = solution.${question.methodName}(
+    ${argumentNames.join(", ")}
+);
+
+System.out.println(
+    java.util.Arrays.toString(result)
+);
+`;
         }
 
         // String

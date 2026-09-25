@@ -18,6 +18,14 @@ function Question() {
       label: "LINKED LIST",
       name: "Linked List",
     },
+    stack: {
+      label: "STACK",
+      name: "Stack",
+    },
+    queue: {
+      label: "QUEUE",
+      name: "Queue",
+    },
   };
 
   const currentTopic = topicConfig[topic] || {
