@@ -16,9 +16,136 @@ const app = express();
 const AptitudeQuestion = require("./models/AptitudeQuestion");
 const AptitudeAttempt = require("./models/AptitudeAttempt");
 const PORT = process.env.PORT || 5000;
-
+const Company = require("./models/Company");
+const CompanyQuestion = require("./models/CompanyQuestion");
 app.use(cors());
 app.use(express.json());
+// Get all companies
+app.get("/api/companies", authMiddleware, async (req, res) => {
+  try {
+    const companies = await Company.find().sort({ name: 1 });
+
+    return res.status(200).json({
+      success: true,
+      companies,
+    });
+  } catch (error) {
+    console.error("Companies error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to load companies.",
+    });
+  }
+});
+
+// Get one company by slug
+app.get("/api/companies/:slug", authMiddleware, async (req, res) => {
+  try {
+    const company = await Company.findOne({
+      slug: req.params.slug.toLowerCase(),
+    });
+
+    if (!company) {
+      return res.status(404).json({
+        success: false,
+        message: "Company not found.",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      company,
+    });
+  } catch (error) {
+    console.error("Company error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to load company.",
+    });
+  }
+});
+
+// Get merged yearly company paper
+app.get(
+  "/api/companies/:slug/:year/questions",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      const company = await Company.findOne({
+        slug: req.params.slug.toLowerCase(),
+      });
+
+      if (!company) {
+        return res.status(404).json({
+          success: false,
+          message: "Company not found.",
+        });
+      }
+
+      const year = Number(req.params.year);
+
+      if (!Number.isInteger(year)) {
+        return res.status(400).json({
+          success: false,
+          message: "Invalid year.",
+        });
+      }
+
+      const filter = {
+        companyId: company.companyId,
+        year,
+      };
+
+      // Optional category filter
+      if (req.query.category) {
+        const allowedCategories = [
+          "programming",
+          "aptitude",
+          "reasoning",
+          "comprehension",
+        ];
+
+        const category = req.query.category.toLowerCase();
+
+        if (!allowedCategories.includes(category)) {
+          return res.status(400).json({
+            success: false,
+            message: "Invalid category.",
+          });
+        }
+
+        filter.category = category;
+      }
+
+      const questions = await CompanyQuestion.find(filter).sort({
+        questionId: 1,
+      });
+
+      return res.status(200).json({
+        success: true,
+
+        company: {
+          companyId: company.companyId,
+          name: company.name,
+          slug: company.slug,
+        },
+
+        year,
+        totalQuestions: questions.length,
+        questions,
+      });
+    } catch (error) {
+      console.error("Company questions error:", error.message);
+
+      return res.status(500).json({
+        success: false,
+        message: "Unable to load company questions.",
+      });
+    }
+  },
+);
 
 // ==========================================
 // MONGODB CONNECTION
@@ -605,6 +732,21 @@ app.post("/api/run", authMiddleware, async (req, res) => {
               `int[] ${variableName} = {${value.join(",")}};`,
             );
           }
+          // int[][]
+          else if (parameterType === "int[][]") {
+            if (
+              !Array.isArray(value) ||
+              !value.every((row) => Array.isArray(row))
+            ) {
+              throw new Error("int[][] test case value must be a 2D array.");
+            }
+
+            const rows = value.map((row) => `{${row.join(",")}}`);
+
+            argumentDeclarations.push(
+              `int[][] ${variableName} = {${rows.join(",")}};`,
+            );
+          }
 
           // int
           else if (parameterType === "int") {
@@ -674,6 +816,69 @@ for (int nodeValue : ${variableName}Values) {
 }
 `);
           }
+          // TreeNode
+          else if (parameterType === "TreeNode") {
+            if (!Array.isArray(value)) {
+              throw new Error("TreeNode test case value must be an array.");
+            }
+
+            if (value.length === 0 || value[0] === null) {
+              argumentDeclarations.push(`TreeNode ${variableName} = null;`);
+            } else {
+              const treeValues = value
+                .map((item) => (item === null ? "null" : `"${item}"`))
+                .join(", ");
+
+              argumentDeclarations.push(`
+String[] ${variableName}Values = {${treeValues}};
+
+TreeNode ${variableName} =
+    new TreeNode(Integer.parseInt(${variableName}Values[0]));
+
+java.util.Queue<TreeNode> ${variableName}Queue =
+    new java.util.LinkedList<>();
+
+${variableName}Queue.offer(${variableName});
+
+int ${variableName}Index = 1;
+
+while (!${variableName}Queue.isEmpty()
+        && ${variableName}Index < ${variableName}Values.length) {
+
+    TreeNode currentNode =
+        ${variableName}Queue.poll();
+
+    if (${variableName}Index < ${variableName}Values.length
+            && ${variableName}Values[${variableName}Index] != null) {
+
+        currentNode.left = new TreeNode(
+            Integer.parseInt(
+                ${variableName}Values[${variableName}Index]
+            )
+        );
+
+        ${variableName}Queue.offer(currentNode.left);
+    }
+
+    ${variableName}Index++;
+
+    if (${variableName}Index < ${variableName}Values.length
+            && ${variableName}Values[${variableName}Index] != null) {
+
+        currentNode.right = new TreeNode(
+            Integer.parseInt(
+                ${variableName}Values[${variableName}Index]
+            )
+        );
+
+        ${variableName}Queue.offer(currentNode.right);
+    }
+
+    ${variableName}Index++;
+}
+`);
+            }
+          }
 
           // Unsupported parameter
           else {
@@ -707,6 +912,16 @@ int[] result = solution.${question.methodName}(
 
 System.out.println(
     java.util.Arrays.toString(result)
+);
+`;
+        } else if (question.returnType === "int[][]") {
+          resultCode = `
+int[][] result = solution.${question.methodName}(
+    ${argumentNames.join(", ")}
+);
+
+System.out.println(
+    java.util.Arrays.deepToString(result)
 );
 `;
         } else if (question.returnType === "String[]") {
@@ -791,14 +1006,34 @@ class ListNode {
 }
 `
           : "";
+        const needsTreeNode =
+          question.parameters.includes("TreeNode") ||
+          question.returnType === "TreeNode";
+
+        const treeNodeClass = needsTreeNode
+          ? `
+class TreeNode {
+
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+`
+          : "";
 
         // ==========================================
         // CREATE MAIN CLASS
         // ==========================================
 
         const testCode = `
-
 ${listNodeClass}
+${treeNodeClass}
 
 public class Main {
 
@@ -854,8 +1089,22 @@ public class Main {
       let expectedOutput;
 
       if (Array.isArray(testCase.expected)) {
-        expectedOutput = `[${testCase.expected.join(", ")}]`;
+        // Handle 2D arrays like int[][]
+        if (
+          testCase.expected.length > 0 &&
+          Array.isArray(testCase.expected[0])
+        ) {
+          expectedOutput = `[${testCase.expected
+            .map((row) => `[${row.join(", ")}]`)
+            .join(", ")}]`;
+        }
+
+        // Handle normal arrays like int[] and String[]
+        else {
+          expectedOutput = `[${testCase.expected.join(", ")}]`;
+        }
       } else {
+        // Handle int, String and boolean
         expectedOutput = String(testCase.expected);
       }
 

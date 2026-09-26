@@ -26,6 +26,18 @@ function Question() {
       label: "QUEUE",
       name: "Queue",
     },
+    "binary-tree": {
+      label: "BINARY TREE",
+      name: "Binary Tree",
+    },
+    graph: {
+      label: "GRAPH",
+      name: "Graph",
+    },
+    "dynamic-programming": {
+      label: "DYNAMIC PROGRAMMING",
+      name: "Dynamic Programming",
+    },
   };
 
   const currentTopic = topicConfig[topic] || {

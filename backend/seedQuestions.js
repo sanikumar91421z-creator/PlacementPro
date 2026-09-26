@@ -4209,6 +4209,2724 @@ const questions = [
       },
     ],
   },
+  {
+    questionId: 116,
+    topic: "binary-tree",
+    title: "Binary Tree Inorder Traversal",
+    difficulty: "Easy",
+
+    description:
+      "Given the root of a binary tree, return the inorder traversal of its node values. In inorder traversal, visit the left subtree first, then the root node, and finally the right subtree.",
+
+    input: "root = [1, null, 2, 3]",
+
+    output: "[1, 3, 2]",
+
+    explanation:
+      "The inorder traversal visits the nodes in the order: 1, 3, 2.",
+
+    constraints: ["0 ≤ number of nodes ≤ 100", "-100 ≤ Node.val ≤ 100"],
+
+    starterCode: `public class Solution {
+    public int[] inorderTraversal(TreeNode root) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+
+    methodName: "inorderTraversal",
+
+    returnType: "int[]",
+
+    parameters: ["TreeNode"],
+
+    testCases: [
+      {
+        args: [[1, null, 2, 3]],
+        expected: [1, 3, 2],
+      },
+      {
+        args: [[1, 2, 3, 4, 5]],
+        expected: [4, 2, 5, 1, 3],
+      },
+      {
+        args: [[]],
+        expected: [],
+      },
+      {
+        args: [[1]],
+        expected: [1],
+      },
+    ],
+  },
+  {
+    questionId: 117,
+    topic: "binary-tree",
+    title: "Binary Tree Preorder Traversal",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary tree, return the preorder traversal of its node values. In preorder traversal, visit the root first, then the left subtree, and finally the right subtree.",
+    input: "root = [1, null, 2, 3]",
+    output: "[1, 2, 3]",
+    explanation: "Preorder traversal follows Root → Left → Right.",
+    constraints: ["0 ≤ number of nodes ≤ 100", "-100 ≤ Node.val ≤ 100"],
+    starterCode: `public class Solution {
+    public int[] preorderTraversal(TreeNode root) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "preorderTraversal",
+    returnType: "int[]",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[1, null, 2, 3]], expected: [1, 2, 3] },
+      { args: [[1, 2, 3, 4, 5]], expected: [1, 2, 4, 5, 3] },
+      { args: [[]], expected: [] },
+      { args: [[1]], expected: [1] },
+    ],
+  },
+
+  {
+    questionId: 118,
+    topic: "binary-tree",
+    title: "Binary Tree Postorder Traversal",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary tree, return the postorder traversal of its node values. In postorder traversal, visit the left subtree, then the right subtree, and finally the root.",
+    input: "root = [1, null, 2, 3]",
+    output: "[3, 2, 1]",
+    explanation: "Postorder traversal follows Left → Right → Root.",
+    constraints: ["0 ≤ number of nodes ≤ 100", "-100 ≤ Node.val ≤ 100"],
+    starterCode: `public class Solution {
+    public int[] postorderTraversal(TreeNode root) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "postorderTraversal",
+    returnType: "int[]",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[1, null, 2, 3]], expected: [3, 2, 1] },
+      { args: [[1, 2, 3, 4, 5]], expected: [4, 5, 2, 3, 1] },
+      { args: [[]], expected: [] },
+      { args: [[1]], expected: [1] },
+    ],
+  },
+
+  {
+    questionId: 119,
+    topic: "binary-tree",
+    title: "Maximum Depth of Binary Tree",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary tree, return its maximum depth. The maximum depth is the number of nodes along the longest path from the root to a leaf.",
+    input: "root = [3, 9, 20, null, null, 15, 7]",
+    output: "3",
+    explanation: "The longest root-to-leaf path contains 3 nodes.",
+    constraints: ["0 ≤ number of nodes ≤ 10⁴", "-100 ≤ Node.val ≤ 100"],
+    starterCode: `public class Solution {
+    public int maxDepth(TreeNode root) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "maxDepth",
+    returnType: "int",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[3, 9, 20, null, null, 15, 7]], expected: 3 },
+      { args: [[1, null, 2]], expected: 2 },
+      { args: [[]], expected: 0 },
+      { args: [[1]], expected: 1 },
+    ],
+  },
+
+  {
+    questionId: 120,
+    topic: "binary-tree",
+    title: "Minimum Depth of Binary Tree",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary tree, return its minimum depth. The minimum depth is the number of nodes along the shortest path from the root to the nearest leaf node.",
+    input: "root = [3, 9, 20, null, null, 15, 7]",
+    output: "2",
+    explanation:
+      "Node 9 is a leaf, so the shortest root-to-leaf path contains 2 nodes.",
+    constraints: ["0 ≤ number of nodes ≤ 10⁴", "-100 ≤ Node.val ≤ 100"],
+    starterCode: `public class Solution {
+    public int minDepth(TreeNode root) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "minDepth",
+    returnType: "int",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[3, 9, 20, null, null, 15, 7]], expected: 2 },
+      { args: [[2, null, 3, null, 4, null, 5]], expected: 4 },
+      { args: [[]], expected: 0 },
+      { args: [[1]], expected: 1 },
+    ],
+  },
+
+  {
+    questionId: 121,
+    topic: "binary-tree",
+    title: "Same Tree",
+    difficulty: "Easy",
+    description:
+      "Given the roots of two binary trees, determine whether they are identical. Two trees are identical if they have the same structure and the same value at every corresponding node.",
+    input: "p = [1, 2, 3], q = [1, 2, 3]",
+    output: "true",
+    explanation: "Both trees have the same structure and node values.",
+    constraints: [
+      "0 ≤ number of nodes in each tree ≤ 100",
+      "-10⁴ ≤ Node.val ≤ 10⁴",
+    ],
+    starterCode: `public class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+
+        // Write your code here
+
+        return false;
+    }
+}`,
+    methodName: "isSameTree",
+    returnType: "boolean",
+    parameters: ["TreeNode", "TreeNode"],
+    testCases: [
+      {
+        args: [
+          [1, 2, 3],
+          [1, 2, 3],
+        ],
+        expected: true,
+      },
+      {
+        args: [
+          [1, 2],
+          [1, null, 2],
+        ],
+        expected: false,
+      },
+      {
+        args: [
+          [1, 2, 1],
+          [1, 1, 2],
+        ],
+        expected: false,
+      },
+      { args: [[], []], expected: true },
+    ],
+  },
+
+  {
+    questionId: 122,
+    topic: "binary-tree",
+    title: "Symmetric Tree",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary tree, determine whether the tree is symmetric around its center.",
+    input: "root = [1, 2, 2, 3, 4, 4, 3]",
+    output: "true",
+    explanation: "The left and right subtrees are mirror images of each other.",
+    constraints: ["0 ≤ number of nodes ≤ 1000", "-100 ≤ Node.val ≤ 100"],
+    starterCode: `public class Solution {
+    public boolean isSymmetric(TreeNode root) {
+
+        // Write your code here
+
+        return false;
+    }
+}`,
+    methodName: "isSymmetric",
+    returnType: "boolean",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[1, 2, 2, 3, 4, 4, 3]], expected: true },
+      { args: [[1, 2, 2, null, 3, null, 3]], expected: false },
+      { args: [[1]], expected: true },
+      { args: [[]], expected: true },
+    ],
+  },
+
+  {
+    questionId: 123,
+    topic: "binary-tree",
+    title: "Balanced Binary Tree",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary tree, determine whether it is height-balanced. A tree is height-balanced if the heights of the left and right subtrees of every node differ by at most one.",
+    input: "root = [3, 9, 20, null, null, 15, 7]",
+    output: "true",
+    explanation:
+      "The height difference between the left and right subtree of every node is at most one.",
+    constraints: ["0 ≤ number of nodes ≤ 5000", "-10⁴ ≤ Node.val ≤ 10⁴"],
+    starterCode: `public class Solution {
+    public boolean isBalanced(TreeNode root) {
+
+        // Write your code here
+
+        return false;
+    }
+}`,
+    methodName: "isBalanced",
+    returnType: "boolean",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[3, 9, 20, null, null, 15, 7]], expected: true },
+      { args: [[1, 2, 2, 3, 3, null, null, 4, 4]], expected: false },
+      { args: [[]], expected: true },
+      { args: [[1]], expected: true },
+    ],
+  },
+
+  {
+    questionId: 124,
+    topic: "binary-tree",
+    title: "Diameter of Binary Tree",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary tree, return the diameter of the tree. The diameter is the number of edges in the longest path between any two nodes.",
+    input: "root = [1, 2, 3, 4, 5]",
+    output: "3",
+    explanation: "One longest path is 4 → 2 → 1 → 3, containing 3 edges.",
+    constraints: ["0 ≤ number of nodes ≤ 10⁴", "-100 ≤ Node.val ≤ 100"],
+    starterCode: `public class Solution {
+    public int diameterOfBinaryTree(TreeNode root) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "diameterOfBinaryTree",
+    returnType: "int",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[1, 2, 3, 4, 5]], expected: 3 },
+      { args: [[1, 2]], expected: 1 },
+      { args: [[1]], expected: 0 },
+      { args: [[]], expected: 0 },
+    ],
+  },
+
+  {
+    questionId: 125,
+    topic: "binary-tree",
+    title: "Binary Tree Level Order Traversal",
+    difficulty: "Medium",
+    description:
+      "Given the root of a binary tree, return all node values in level-order from left to right as a single integer array.",
+    input: "root = [3, 9, 20, null, null, 15, 7]",
+    output: "[3, 9, 20, 15, 7]",
+    explanation: "The nodes are visited level by level from left to right.",
+    constraints: ["0 ≤ number of nodes ≤ 2000", "-1000 ≤ Node.val ≤ 1000"],
+    starterCode: `public class Solution {
+    public int[] levelOrder(TreeNode root) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "levelOrder",
+    returnType: "int[]",
+    parameters: ["TreeNode"],
+    testCases: [
+      {
+        args: [[3, 9, 20, null, null, 15, 7]],
+        expected: [3, 9, 20, 15, 7],
+      },
+      { args: [[1, 2, 3, 4, 5]], expected: [1, 2, 3, 4, 5] },
+      { args: [[1]], expected: [1] },
+      { args: [[]], expected: [] },
+    ],
+  },
+
+  {
+    questionId: 126,
+    topic: "binary-tree",
+    title: "Right Side View of Binary Tree",
+    difficulty: "Medium",
+    description:
+      "Given the root of a binary tree, imagine standing on the right side of the tree. Return the value of the node visible at each level from top to bottom.",
+    input: "root = [1, 2, 3, null, 5, null, 4]",
+    output: "[1, 3, 4]",
+    explanation: "The nodes visible from the right side are 1, 3 and 4.",
+    constraints: ["0 ≤ number of nodes ≤ 100", "-100 ≤ Node.val ≤ 100"],
+    starterCode: `public class Solution {
+    public int[] rightSideView(TreeNode root) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "rightSideView",
+    returnType: "int[]",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[1, 2, 3, null, 5, null, 4]], expected: [1, 3, 4] },
+      { args: [[1, null, 3]], expected: [1, 3] },
+      { args: [[1]], expected: [1] },
+      { args: [[]], expected: [] },
+    ],
+  },
+
+  {
+    questionId: 127,
+    topic: "binary-tree",
+    title: "Left View of Binary Tree",
+    difficulty: "Medium",
+    description:
+      "Given the root of a binary tree, return the first node visible from the left side at each level.",
+    input: "root = [1, 2, 3, 4, 5, null, 6]",
+    output: "[1, 2, 4]",
+    explanation: "The first node at each level is 1, then 2, then 4.",
+    constraints: ["0 ≤ number of nodes ≤ 10⁴", "-10⁴ ≤ Node.val ≤ 10⁴"],
+    starterCode: `public class Solution {
+    public int[] leftView(TreeNode root) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+    methodName: "leftView",
+    returnType: "int[]",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[1, 2, 3, 4, 5, null, 6]], expected: [1, 2, 4] },
+      { args: [[1, null, 2, 3]], expected: [1, 2, 3] },
+      { args: [[1]], expected: [1] },
+      { args: [[]], expected: [] },
+    ],
+  },
+
+  {
+    questionId: 128,
+    topic: "binary-tree",
+    title: "Path Sum",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path whose node values add up to targetSum.",
+    input:
+      "root = [5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1], targetSum = 22",
+    output: "true",
+    explanation: "The root-to-leaf path 5 → 4 → 11 → 2 has a sum of 22.",
+    constraints: [
+      "0 ≤ number of nodes ≤ 5000",
+      "-1000 ≤ Node.val ≤ 1000",
+      "-1000 ≤ targetSum ≤ 1000",
+    ],
+    starterCode: `public class Solution {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+
+        // Write your code here
+
+        return false;
+    }
+}`,
+    methodName: "hasPathSum",
+    returnType: "boolean",
+    parameters: ["TreeNode", "int"],
+    testCases: [
+      {
+        args: [[5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1], 22],
+        expected: true,
+      },
+      { args: [[1, 2, 3], 5], expected: false },
+      { args: [[1, 2], 1], expected: false },
+      { args: [[], 0], expected: false },
+    ],
+  },
+
+  {
+    questionId: 129,
+    topic: "binary-tree",
+    title: "Lowest Common Ancestor of a Binary Tree",
+    difficulty: "Medium",
+    description:
+      "Given the root of a binary tree and two distinct node values p and q, return the value of their lowest common ancestor. All node values in the tree are unique.",
+    input: "root = [3, 5, 1, 6, 2, 0, 8, null, null, 7, 4], p = 5, q = 1",
+    output: "3",
+    explanation:
+      "Node 3 is the lowest node whose subtree contains both nodes 5 and 1.",
+    constraints: [
+      "2 ≤ number of nodes ≤ 10⁴",
+      "All node values are unique.",
+      "p and q exist in the tree.",
+    ],
+    starterCode: `public class Solution {
+    public int lowestCommonAncestor(TreeNode root, int p, int q) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "lowestCommonAncestor",
+    returnType: "int",
+    parameters: ["TreeNode", "int", "int"],
+    testCases: [
+      {
+        args: [[3, 5, 1, 6, 2, 0, 8, null, null, 7, 4], 5, 1],
+        expected: 3,
+      },
+      {
+        args: [[3, 5, 1, 6, 2, 0, 8, null, null, 7, 4], 5, 4],
+        expected: 5,
+      },
+      { args: [[1, 2], 1, 2], expected: 1 },
+    ],
+  },
+
+  {
+    questionId: 130,
+    topic: "binary-tree",
+    title: "Validate Binary Search Tree",
+    difficulty: "Medium",
+    description:
+      "Given the root of a binary tree, determine whether it is a valid binary search tree. For every node, all values in its left subtree must be strictly smaller and all values in its right subtree must be strictly greater.",
+    input: "root = [2, 1, 3]",
+    output: "true",
+    explanation:
+      "The left value is smaller than 2 and the right value is greater than 2.",
+    constraints: ["1 ≤ number of nodes ≤ 10⁴", "-2³¹ ≤ Node.val ≤ 2³¹ - 1"],
+    starterCode: `public class Solution {
+    public boolean isValidBST(TreeNode root) {
+
+        // Write your code here
+
+        return false;
+    }
+}`,
+    methodName: "isValidBST",
+    returnType: "boolean",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[2, 1, 3]], expected: true },
+      { args: [[5, 1, 4, null, null, 3, 6]], expected: false },
+      { args: [[2, 2, 2]], expected: false },
+      { args: [[1]], expected: true },
+    ],
+  },
+
+  {
+    questionId: 131,
+    topic: "binary-tree",
+    title: "Search in a Binary Search Tree",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary search tree and an integer val, return true if a node with the given value exists in the tree. Otherwise return false.",
+    input: "root = [4, 2, 7, 1, 3], val = 2",
+    output: "true",
+    explanation: "The value 2 exists in the binary search tree.",
+    constraints: [
+      "0 ≤ number of nodes ≤ 5000",
+      "1 ≤ Node.val ≤ 10⁷",
+      "1 ≤ val ≤ 10⁷",
+    ],
+    starterCode: `public class Solution {
+    public boolean searchBST(TreeNode root, int val) {
+
+        // Write your code here
+
+        return false;
+    }
+}`,
+    methodName: "searchBST",
+    returnType: "boolean",
+    parameters: ["TreeNode", "int"],
+    testCases: [
+      { args: [[4, 2, 7, 1, 3], 2], expected: true },
+      { args: [[4, 2, 7, 1, 3], 5], expected: false },
+      { args: [[2, 1, 3], 3], expected: true },
+      { args: [[], 1], expected: false },
+    ],
+  },
+
+  {
+    questionId: 132,
+    topic: "binary-tree",
+    title: "Kth Smallest Element in a BST",
+    difficulty: "Medium",
+    description:
+      "Given the root of a binary search tree and an integer k, return the kth smallest value in the tree.",
+    input: "root = [3, 1, 4, null, 2], k = 1",
+    output: "1",
+    explanation:
+      "The inorder traversal of a BST gives values in sorted order. The first smallest value is 1.",
+    constraints: [
+      "1 ≤ k ≤ number of nodes",
+      "1 ≤ number of nodes ≤ 10⁴",
+      "All node values are unique.",
+    ],
+    starterCode: `public class Solution {
+    public int kthSmallest(TreeNode root, int k) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "kthSmallest",
+    returnType: "int",
+    parameters: ["TreeNode", "int"],
+    testCases: [
+      { args: [[3, 1, 4, null, 2], 1], expected: 1 },
+      { args: [[5, 3, 6, 2, 4, null, null, 1], 3], expected: 3 },
+      { args: [[2, 1, 3], 2], expected: 2 },
+    ],
+  },
+
+  {
+    questionId: 133,
+    topic: "binary-tree",
+    title: "Range Sum of BST",
+    difficulty: "Easy",
+    description:
+      "Given the root of a binary search tree and two integers low and high, return the sum of all node values in the inclusive range [low, high].",
+    input: "root = [10, 5, 15, 3, 7, null, 18], low = 7, high = 15",
+    output: "32",
+    explanation:
+      "The values in the range [7,15] are 7, 10 and 15. Their sum is 32.",
+    constraints: [
+      "1 ≤ number of nodes ≤ 2 × 10⁴",
+      "1 ≤ Node.val ≤ 10⁵",
+      "1 ≤ low ≤ high ≤ 10⁵",
+    ],
+    starterCode: `public class Solution {
+    public int rangeSumBST(TreeNode root, int low, int high) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "rangeSumBST",
+    returnType: "int",
+    parameters: ["TreeNode", "int", "int"],
+    testCases: [
+      {
+        args: [[10, 5, 15, 3, 7, null, 18], 7, 15],
+        expected: 32,
+      },
+      {
+        args: [[10, 5, 15, 3, 7, 13, 18, 1, null, 6], 6, 10],
+        expected: 23,
+      },
+      { args: [[5, 3, 7], 1, 2], expected: 0 },
+    ],
+  },
+
+  {
+    questionId: 134,
+    topic: "binary-tree",
+    title: "Maximum Path Sum in Binary Tree",
+    difficulty: "Hard",
+    description:
+      "Given the root of a binary tree, return the maximum path sum. A path may start and end at any nodes, but each adjacent pair of nodes in the path must be connected by an edge and no node may appear more than once.",
+    input: "root = [-10, 9, 20, null, null, 15, 7]",
+    output: "42",
+    explanation: "The maximum-sum path is 15 → 20 → 7, giving 42.",
+    constraints: ["1 ≤ number of nodes ≤ 3 × 10⁴", "-1000 ≤ Node.val ≤ 1000"],
+    starterCode: `public class Solution {
+    public int maxPathSum(TreeNode root) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "maxPathSum",
+    returnType: "int",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[1, 2, 3]], expected: 6 },
+      { args: [[-10, 9, 20, null, null, 15, 7]], expected: 42 },
+      { args: [[-3]], expected: -3 },
+      { args: [[2, -1]], expected: 2 },
+    ],
+  },
+
+  {
+    questionId: 135,
+    topic: "binary-tree",
+    title: "Count Complete Tree Nodes",
+    difficulty: "Medium",
+    description:
+      "Given the root of a complete binary tree, return the total number of nodes in the tree. A complete binary tree has every level completely filled except possibly the last level, whose nodes are as far left as possible.",
+    input: "root = [1, 2, 3, 4, 5, 6]",
+    output: "6",
+    explanation: "The tree contains six nodes.",
+    constraints: [
+      "0 ≤ number of nodes ≤ 5 × 10⁴",
+      "The input tree is complete.",
+    ],
+    starterCode: `public class Solution {
+    public int countNodes(TreeNode root) {
+
+        // Write your code here
+
+        return 0;
+    }
+}`,
+    methodName: "countNodes",
+    returnType: "int",
+    parameters: ["TreeNode"],
+    testCases: [
+      { args: [[1, 2, 3, 4, 5, 6]], expected: 6 },
+      { args: [[1]], expected: 1 },
+      { args: [[]], expected: 0 },
+      { args: [[1, 2, 3]], expected: 3 },
+    ],
+  },
+  {
+    questionId: 136,
+    topic: "graph",
+    title: "BFS Traversal of Graph",
+    difficulty: "Easy",
+
+    description:
+      "Given an undirected graph with V vertices numbered from 0 to V - 1 and a list of edges, return the Breadth First Search (BFS) traversal starting from vertex 0. When multiple adjacent vertices are available, visit them in increasing order.",
+
+    input: "V = 5, edges = [[0,1],[0,2],[1,3],[1,4]]",
+
+    output: "[0, 1, 2, 3, 4]",
+
+    explanation:
+      "Starting from vertex 0, BFS first visits 0. Then it visits its neighbors 1 and 2. After that, vertices 3 and 4 are visited through vertex 1.",
+
+    constraints: [
+      "1 ≤ V ≤ 1000",
+      "0 ≤ number of edges ≤ 5000",
+      "0 ≤ u, v < V",
+      "The graph is undirected.",
+    ],
+
+    starterCode: `public class Solution {
+    public int[] bfsTraversal(int V, int[][] edges) {
+
+        // Write your code here
+
+        return new int[0];
+    }
+}`,
+
+    methodName: "bfsTraversal",
+
+    returnType: "int[]",
+
+    parameters: ["int", "int[][]"],
+
+    testCases: [
+      {
+        args: [
+          5,
+          [
+            [0, 1],
+            [0, 2],
+            [1, 3],
+            [1, 4],
+          ],
+        ],
+        expected: [0, 1, 2, 3, 4],
+      },
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [0, 2],
+            [1, 2],
+            [2, 3],
+          ],
+        ],
+        expected: [0, 1, 2, 3],
+      },
+      {
+        args: [
+          6,
+          [
+            [0, 1],
+            [0, 2],
+            [1, 3],
+            [2, 4],
+            [4, 5],
+          ],
+        ],
+        expected: [0, 1, 2, 3, 4, 5],
+      },
+      {
+        args: [1, []],
+        expected: [0],
+      },
+    ],
+  },
+  {
+    questionId: 137,
+    topic: "graph",
+    title: "DFS Traversal of Graph",
+    difficulty: "Easy",
+    description:
+      "Given an undirected graph with V vertices numbered from 0 to V - 1 and a list of edges, return the Depth First Search traversal starting from vertex 0. Visit adjacent vertices in increasing order.",
+    input: "V = 5, edges = [[0,1],[0,2],[1,3],[1,4]]",
+    output: "[0, 1, 3, 4, 2]",
+    explanation:
+      "Starting from 0, DFS explores vertex 1 and its unvisited neighbors before returning to visit vertex 2.",
+    constraints: [
+      "1 ≤ V ≤ 1000",
+      "0 ≤ number of edges ≤ 5000",
+      "0 ≤ u, v < V",
+      "The graph is undirected.",
+    ],
+    starterCode: `public class Solution {
+    public int[] dfsTraversal(int V, int[][] edges) {
+        // Write your code here
+        return new int[0];
+    }
+}`,
+    methodName: "dfsTraversal",
+    returnType: "int[]",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [
+          5,
+          [
+            [0, 1],
+            [0, 2],
+            [1, 3],
+            [1, 4],
+          ],
+        ],
+        expected: [0, 1, 3, 4, 2],
+      },
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [0, 2],
+            [1, 2],
+            [2, 3],
+          ],
+        ],
+        expected: [0, 1, 2, 3],
+      },
+      {
+        args: [
+          6,
+          [
+            [0, 1],
+            [0, 2],
+            [1, 3],
+            [2, 4],
+            [4, 5],
+          ],
+        ],
+        expected: [0, 1, 3, 2, 4, 5],
+      },
+      {
+        args: [1, []],
+        expected: [0],
+      },
+    ],
+  },
+
+  {
+    questionId: 138,
+    topic: "graph",
+    title: "Number of Provinces",
+    difficulty: "Medium",
+    description:
+      "Given an adjacency matrix isConnected where isConnected[i][j] is 1 if city i and city j are directly connected, return the total number of provinces.",
+    input: "isConnected = [[1,1,0],[1,1,0],[0,0,1]]",
+    output: "2",
+    explanation:
+      "Cities 0 and 1 form one province, while city 2 forms another province.",
+    constraints: [
+      "1 ≤ number of cities ≤ 200",
+      "isConnected[i][i] = 1",
+      "isConnected[i][j] = isConnected[j][i]",
+    ],
+    starterCode: `public class Solution {
+    public int findCircleNum(int[][] isConnected) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "findCircleNum",
+    returnType: "int",
+    parameters: ["int[][]"],
+    testCases: [
+      {
+        args: [
+          [
+            [1, 1, 0],
+            [1, 1, 0],
+            [0, 0, 1],
+          ],
+        ],
+        expected: 2,
+      },
+      {
+        args: [
+          [
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1],
+          ],
+        ],
+        expected: 3,
+      },
+      {
+        args: [
+          [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 1, 1],
+          ],
+        ],
+        expected: 1,
+      },
+      {
+        args: [[[1]]],
+        expected: 1,
+      },
+    ],
+  },
+
+  {
+    questionId: 139,
+    topic: "graph",
+    title: "Number of Islands",
+    difficulty: "Medium",
+    description:
+      "Given a grid containing 0s and 1s, where 1 represents land and 0 represents water, return the number of islands. Land cells are connected horizontally or vertically.",
+    input: "grid = [[1,1,0],[1,0,0],[0,0,1]]",
+    output: "2",
+    explanation:
+      "The connected land cells in the upper-left form one island and the bottom-right cell forms another.",
+    constraints: ["1 ≤ rows, columns ≤ 300", "grid[i][j] is either 0 or 1"],
+    starterCode: `public class Solution {
+    public int numIslands(int[][] grid) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "numIslands",
+    returnType: "int",
+    parameters: ["int[][]"],
+    testCases: [
+      {
+        args: [
+          [
+            [1, 1, 0],
+            [1, 0, 0],
+            [0, 0, 1],
+          ],
+        ],
+        expected: 2,
+      },
+      {
+        args: [
+          [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 1, 1],
+          ],
+        ],
+        expected: 1,
+      },
+      {
+        args: [
+          [
+            [0, 0],
+            [0, 0],
+          ],
+        ],
+        expected: 0,
+      },
+      {
+        args: [
+          [
+            [1, 0, 1],
+            [0, 1, 0],
+            [1, 0, 1],
+          ],
+        ],
+        expected: 5,
+      },
+    ],
+  },
+
+  {
+    questionId: 140,
+    topic: "graph",
+    title: "Flood Fill",
+    difficulty: "Easy",
+    description:
+      "Given an image represented by an integer matrix, a starting cell (sr, sc), and a new color, perform flood fill and return the modified image.",
+    input: "image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2",
+    output: "[[2, 2, 2], [2, 2, 0], [2, 0, 1]]",
+    explanation:
+      "All cells connected to the starting cell having the original color 1 are changed to color 2.",
+    constraints: [
+      "1 ≤ rows, columns ≤ 50",
+      "0 ≤ sr < rows",
+      "0 ≤ sc < columns",
+    ],
+    starterCode: `public class Solution {
+    public int[][] floodFill(int[][] image, int sr, int sc, int color) {
+        // Write your code here
+        return image;
+    }
+}`,
+    methodName: "floodFill",
+    returnType: "int[][]",
+    parameters: ["int[][]", "int", "int", "int"],
+    testCases: [
+      {
+        args: [
+          [
+            [1, 1, 1],
+            [1, 1, 0],
+            [1, 0, 1],
+          ],
+          1,
+          1,
+          2,
+        ],
+        expected: [
+          [2, 2, 2],
+          [2, 2, 0],
+          [2, 0, 1],
+        ],
+      },
+      {
+        args: [
+          [
+            [0, 0, 0],
+            [0, 0, 0],
+          ],
+          0,
+          0,
+          1,
+        ],
+        expected: [
+          [1, 1, 1],
+          [1, 1, 1],
+        ],
+      },
+      {
+        args: [
+          [
+            [1, 1],
+            [1, 1],
+          ],
+          0,
+          0,
+          1,
+        ],
+        expected: [
+          [1, 1],
+          [1, 1],
+        ],
+      },
+    ],
+  },
+
+  {
+    questionId: 141,
+    topic: "graph",
+    title: "Detect Cycle in Undirected Graph",
+    difficulty: "Medium",
+    description:
+      "Given an undirected graph with V vertices and a list of edges, return true if the graph contains a cycle. Otherwise return false.",
+    input: "V = 4, edges = [[0,1],[1,2],[2,0],[2,3]]",
+    output: "true",
+    explanation: "Vertices 0, 1 and 2 form a cycle.",
+    constraints: ["1 ≤ V ≤ 10⁴", "0 ≤ number of edges ≤ 10⁴"],
+    starterCode: `public class Solution {
+    public boolean hasCycle(int V, int[][] edges) {
+        // Write your code here
+        return false;
+    }
+}`,
+    methodName: "hasCycle",
+    returnType: "boolean",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [1, 2],
+            [2, 0],
+            [2, 3],
+          ],
+        ],
+        expected: true,
+      },
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [1, 2],
+            [2, 3],
+          ],
+        ],
+        expected: false,
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1],
+            [1, 2],
+            [2, 0],
+          ],
+        ],
+        expected: true,
+      },
+      {
+        args: [1, []],
+        expected: false,
+      },
+    ],
+  },
+
+  {
+    questionId: 142,
+    topic: "graph",
+    title: "Detect Cycle in Directed Graph",
+    difficulty: "Medium",
+    description:
+      "Given a directed graph with V vertices and a list of directed edges, return true if the graph contains a cycle.",
+    input: "V = 4, edges = [[0,1],[1,2],[2,0],[2,3]]",
+    output: "true",
+    explanation: "The directed path 0 → 1 → 2 → 0 forms a cycle.",
+    constraints: ["1 ≤ V ≤ 10⁴", "0 ≤ number of edges ≤ 10⁴"],
+    starterCode: `public class Solution {
+    public boolean hasDirectedCycle(int V, int[][] edges) {
+        // Write your code here
+        return false;
+    }
+}`,
+    methodName: "hasDirectedCycle",
+    returnType: "boolean",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [1, 2],
+            [2, 0],
+            [2, 3],
+          ],
+        ],
+        expected: true,
+      },
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [1, 2],
+            [2, 3],
+          ],
+        ],
+        expected: false,
+      },
+      {
+        args: [
+          2,
+          [
+            [0, 1],
+            [1, 0],
+          ],
+        ],
+        expected: true,
+      },
+      {
+        args: [1, []],
+        expected: false,
+      },
+    ],
+  },
+
+  {
+    questionId: 143,
+    topic: "graph",
+    title: "Topological Sort",
+    difficulty: "Medium",
+    description:
+      "Given a directed acyclic graph with V vertices and directed edges, return one valid topological ordering. When multiple vertices are available, choose the smallest numbered vertex first.",
+    input: "V = 4, edges = [[0,1],[0,2],[1,3],[2,3]]",
+    output: "[0, 1, 2, 3]",
+    explanation:
+      "Vertex 0 appears before 1 and 2, while both 1 and 2 appear before 3.",
+    constraints: ["1 ≤ V ≤ 10⁴", "The graph is a DAG"],
+    starterCode: `public class Solution {
+    public int[] topologicalSort(int V, int[][] edges) {
+        // Write your code here
+        return new int[0];
+    }
+}`,
+    methodName: "topologicalSort",
+    returnType: "int[]",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [0, 2],
+            [1, 3],
+            [2, 3],
+          ],
+        ],
+        expected: [0, 1, 2, 3],
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1],
+            [1, 2],
+          ],
+        ],
+        expected: [0, 1, 2],
+      },
+      {
+        args: [
+          4,
+          [
+            [0, 2],
+            [1, 2],
+            [2, 3],
+          ],
+        ],
+        expected: [0, 1, 2, 3],
+      },
+      {
+        args: [1, []],
+        expected: [0],
+      },
+    ],
+  },
+
+  {
+    questionId: 144,
+    topic: "graph",
+    title: "Course Schedule",
+    difficulty: "Medium",
+    description:
+      "There are numCourses courses numbered from 0 to numCourses - 1. Each prerequisite pair [a,b] means course b must be completed before course a. Return true if all courses can be completed.",
+    input: "numCourses = 2, prerequisites = [[1,0]]",
+    output: "true",
+    explanation: "Course 0 can be completed before course 1.",
+    constraints: ["1 ≤ numCourses ≤ 2000", "0 ≤ prerequisites.length ≤ 5000"],
+    starterCode: `public class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        // Write your code here
+        return false;
+    }
+}`,
+    methodName: "canFinish",
+    returnType: "boolean",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [2, [[1, 0]]],
+        expected: true,
+      },
+      {
+        args: [
+          2,
+          [
+            [1, 0],
+            [0, 1],
+          ],
+        ],
+        expected: false,
+      },
+      {
+        args: [
+          4,
+          [
+            [1, 0],
+            [2, 1],
+            [3, 2],
+          ],
+        ],
+        expected: true,
+      },
+      {
+        args: [3, []],
+        expected: true,
+      },
+    ],
+  },
+
+  {
+    questionId: 145,
+    topic: "graph",
+    title: "Is Graph Bipartite",
+    difficulty: "Medium",
+    description:
+      "Given an undirected graph with V vertices and a list of edges, determine whether the graph is bipartite. A graph is bipartite if its vertices can be divided into two groups such that no edge connects vertices in the same group.",
+    input: "V = 4, edges = [[0,1],[1,2],[2,3],[3,0]]",
+    output: "true",
+    explanation: "The vertices can be divided into the groups {0,2} and {1,3}.",
+    constraints: ["1 ≤ V ≤ 10⁴", "0 ≤ number of edges ≤ 10⁴"],
+    starterCode: `public class Solution {
+    public boolean isBipartite(int V, int[][] edges) {
+        // Write your code here
+        return false;
+    }
+}`,
+    methodName: "isBipartite",
+    returnType: "boolean",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [1, 2],
+            [2, 3],
+            [3, 0],
+          ],
+        ],
+        expected: true,
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1],
+            [1, 2],
+            [2, 0],
+          ],
+        ],
+        expected: false,
+      },
+      {
+        args: [
+          5,
+          [
+            [0, 1],
+            [2, 3],
+          ],
+        ],
+        expected: true,
+      },
+      {
+        args: [1, []],
+        expected: true,
+      },
+    ],
+  },
+
+  {
+    questionId: 146,
+    topic: "graph",
+    title: "Rotting Oranges",
+    difficulty: "Medium",
+    description:
+      "Given a grid where 0 represents an empty cell, 1 represents a fresh orange and 2 represents a rotten orange, return the minimum number of minutes required for all fresh oranges to become rotten. Return -1 if it is impossible.",
+    input: "grid = [[2,1,1],[1,1,0],[0,1,1]]",
+    output: "4",
+    explanation:
+      "Rotting spreads to adjacent fresh oranges each minute. All oranges become rotten after 4 minutes.",
+    constraints: ["1 ≤ rows, columns ≤ 10", "grid[i][j] is 0, 1 or 2"],
+    starterCode: `public class Solution {
+    public int orangesRotting(int[][] grid) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "orangesRotting",
+    returnType: "int",
+    parameters: ["int[][]"],
+    testCases: [
+      {
+        args: [
+          [
+            [2, 1, 1],
+            [1, 1, 0],
+            [0, 1, 1],
+          ],
+        ],
+        expected: 4,
+      },
+      {
+        args: [
+          [
+            [2, 1, 1],
+            [0, 1, 1],
+            [1, 0, 1],
+          ],
+        ],
+        expected: -1,
+      },
+      {
+        args: [[[0, 2]]],
+        expected: 0,
+      },
+      {
+        args: [[[1]]],
+        expected: -1,
+      },
+    ],
+  },
+
+  {
+    questionId: 147,
+    topic: "graph",
+    title: "Shortest Path in Unweighted Graph",
+    difficulty: "Medium",
+    description:
+      "Given an undirected unweighted graph with V vertices, a list of edges and a source vertex, return the shortest distance from the source to every vertex. Return -1 for unreachable vertices.",
+    input: "V = 5, edges = [[0,1],[0,2],[1,3],[2,4]], source = 0",
+    output: "[0, 1, 1, 2, 2]",
+    explanation:
+      "Vertices 1 and 2 are one edge from 0, while vertices 3 and 4 are two edges away.",
+    constraints: ["1 ≤ V ≤ 10⁴", "0 ≤ source < V"],
+    starterCode: `public class Solution {
+    public int[] shortestPath(int V, int[][] edges, int source) {
+        // Write your code here
+        return new int[0];
+    }
+}`,
+    methodName: "shortestPath",
+    returnType: "int[]",
+    parameters: ["int", "int[][]", "int"],
+    testCases: [
+      {
+        args: [
+          5,
+          [
+            [0, 1],
+            [0, 2],
+            [1, 3],
+            [2, 4],
+          ],
+          0,
+        ],
+        expected: [0, 1, 1, 2, 2],
+      },
+      {
+        args: [
+          4,
+          [
+            [0, 1],
+            [1, 2],
+          ],
+          0,
+        ],
+        expected: [0, 1, 2, -1],
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1],
+            [1, 2],
+          ],
+          2,
+        ],
+        expected: [2, 1, 0],
+      },
+      {
+        args: [1, [], 0],
+        expected: [0],
+      },
+    ],
+  },
+
+  {
+    questionId: 148,
+    topic: "graph",
+    title: "Dijkstra Shortest Path",
+    difficulty: "Medium",
+    description:
+      "Given a weighted undirected graph with V vertices, edges represented as [u,v,weight], and a source vertex, return the shortest distance from the source to every vertex. Return -1 for unreachable vertices.",
+    input:
+      "V = 5, edges = [[0,1,4],[0,2,1],[2,1,2],[1,3,1],[2,3,5],[3,4,3]], source = 0",
+    output: "[0, 3, 1, 4, 7]",
+    explanation: "The shortest route to vertex 1 is 0 → 2 → 1 with cost 3.",
+    constraints: ["1 ≤ V ≤ 10⁴", "Edge weights are non-negative"],
+    starterCode: `public class Solution {
+    public int[] dijkstra(int V, int[][] edges, int source) {
+        // Write your code here
+        return new int[0];
+    }
+}`,
+    methodName: "dijkstra",
+    returnType: "int[]",
+    parameters: ["int", "int[][]", "int"],
+    testCases: [
+      {
+        args: [
+          5,
+          [
+            [0, 1, 4],
+            [0, 2, 1],
+            [2, 1, 2],
+            [1, 3, 1],
+            [2, 3, 5],
+            [3, 4, 3],
+          ],
+          0,
+        ],
+        expected: [0, 3, 1, 4, 7],
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1, 5],
+            [1, 2, 2],
+            [0, 2, 10],
+          ],
+          0,
+        ],
+        expected: [0, 5, 7],
+      },
+      {
+        args: [4, [[0, 1, 1]], 0],
+        expected: [0, 1, -1, -1],
+      },
+    ],
+  },
+
+  {
+    questionId: 149,
+    topic: "graph",
+    title: "Network Delay Time",
+    difficulty: "Medium",
+    description:
+      "Given a directed weighted graph represented by times[i] = [u,v,w], where w is the travel time from u to v, return the minimum time required for a signal sent from node k to reach all n nodes. Return -1 if some node cannot be reached.",
+    input: "times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2",
+    output: "2",
+    explanation:
+      "The signal reaches nodes 1 and 3 after 1 unit and node 4 after 2 units.",
+    constraints: ["1 ≤ n ≤ 100", "1 ≤ u, v ≤ n", "0 ≤ w ≤ 100"],
+    starterCode: `public class Solution {
+    public int networkDelayTime(int[][] times, int n, int k) {
+        // Write your code here
+        return -1;
+    }
+}`,
+    methodName: "networkDelayTime",
+    returnType: "int",
+    parameters: ["int[][]", "int", "int"],
+    testCases: [
+      {
+        args: [
+          [
+            [2, 1, 1],
+            [2, 3, 1],
+            [3, 4, 1],
+          ],
+          4,
+          2,
+        ],
+        expected: 2,
+      },
+      {
+        args: [[[1, 2, 1]], 2, 1],
+        expected: 1,
+      },
+      {
+        args: [[[1, 2, 1]], 2, 2],
+        expected: -1,
+      },
+      {
+        args: [[], 1, 1],
+        expected: 0,
+      },
+    ],
+  },
+
+  {
+    questionId: 150,
+    topic: "graph",
+    title: "Minimum Spanning Tree Using Prim's Algorithm",
+    difficulty: "Medium",
+    description:
+      "Given a connected weighted undirected graph with V vertices and edges represented as [u,v,weight], return the total weight of its minimum spanning tree using Prim's algorithm.",
+    input: "V = 4, edges = [[0,1,1],[0,2,4],[1,2,2],[1,3,5],[2,3,3]]",
+    output: "6",
+    explanation:
+      "The minimum spanning tree can use edges with weights 1, 2 and 3, giving a total weight of 6.",
+    constraints: [
+      "1 ≤ V ≤ 10⁴",
+      "The graph is connected",
+      "Edge weights are non-negative",
+    ],
+    starterCode: `public class Solution {
+    public int primMST(int V, int[][] edges) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "primMST",
+    returnType: "int",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [
+          4,
+          [
+            [0, 1, 1],
+            [0, 2, 4],
+            [1, 2, 2],
+            [1, 3, 5],
+            [2, 3, 3],
+          ],
+        ],
+        expected: 6,
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1, 5],
+            [1, 2, 3],
+            [0, 2, 1],
+          ],
+        ],
+        expected: 4,
+      },
+      {
+        args: [2, [[0, 1, 7]]],
+        expected: 7,
+      },
+      {
+        args: [1, []],
+        expected: 0,
+      },
+    ],
+  },
+
+  {
+    questionId: 151,
+    topic: "graph",
+    title: "Minimum Spanning Tree Using Kruskal's Algorithm",
+    difficulty: "Medium",
+    description:
+      "Given a connected weighted undirected graph with V vertices and edges represented as [u,v,weight], return the total weight of its minimum spanning tree using Kruskal's algorithm.",
+    input: "V = 4, edges = [[0,1,1],[0,2,4],[1,2,2],[1,3,5],[2,3,3]]",
+    output: "6",
+    explanation:
+      "Selecting the lowest-weight edges without creating cycles gives a minimum spanning tree of total weight 6.",
+    constraints: ["1 ≤ V ≤ 10⁴", "The graph is connected"],
+    starterCode: `public class Solution {
+    public int kruskalMST(int V, int[][] edges) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "kruskalMST",
+    returnType: "int",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [
+          4,
+          [
+            [0, 1, 1],
+            [0, 2, 4],
+            [1, 2, 2],
+            [1, 3, 5],
+            [2, 3, 3],
+          ],
+        ],
+        expected: 6,
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1, 5],
+            [1, 2, 3],
+            [0, 2, 1],
+          ],
+        ],
+        expected: 4,
+      },
+      {
+        args: [2, [[0, 1, 10]]],
+        expected: 10,
+      },
+      {
+        args: [1, []],
+        expected: 0,
+      },
+    ],
+  },
+
+  {
+    questionId: 152,
+    topic: "graph",
+    title: "Count Connected Components",
+    difficulty: "Medium",
+    description:
+      "Given an undirected graph with n vertices numbered from 0 to n - 1 and a list of edges, return the number of connected components in the graph.",
+    input: "n = 5, edges = [[0,1],[1,2],[3,4]]",
+    output: "2",
+    explanation:
+      "Vertices {0,1,2} form one component and vertices {3,4} form another.",
+    constraints: ["1 ≤ n ≤ 2000", "0 ≤ number of edges ≤ 5000"],
+    starterCode: `public class Solution {
+    public int countComponents(int n, int[][] edges) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "countComponents",
+    returnType: "int",
+    parameters: ["int", "int[][]"],
+    testCases: [
+      {
+        args: [
+          5,
+          [
+            [0, 1],
+            [1, 2],
+            [3, 4],
+          ],
+        ],
+        expected: 2,
+      },
+      {
+        args: [
+          5,
+          [
+            [0, 1],
+            [1, 2],
+            [2, 3],
+            [3, 4],
+          ],
+        ],
+        expected: 1,
+      },
+      {
+        args: [4, []],
+        expected: 4,
+      },
+      {
+        args: [1, []],
+        expected: 1,
+      },
+    ],
+  },
+
+  {
+    questionId: 153,
+    topic: "graph",
+    title: "Cheapest Flights Within K Stops",
+    difficulty: "Medium",
+    description:
+      "Given n cities and flights represented by [from,to,price], return the cheapest price from src to dst using at most k stops. Return -1 if no such route exists.",
+    input:
+      "n = 4, flights = [[0,1,100],[1,2,100],[2,3,100],[0,2,500]], src = 0, dst = 3, k = 1",
+    output: "600",
+    explanation:
+      "With at most one stop, the valid cheapest route is 0 → 2 → 3 with cost 600.",
+    constraints: ["1 ≤ n ≤ 100", "0 ≤ k < n", "Flight prices are positive"],
+    starterCode: `public class Solution {
+    public int findCheapestPrice(
+        int n,
+        int[][] flights,
+        int src,
+        int dst,
+        int k
+    ) {
+        // Write your code here
+        return -1;
+    }
+}`,
+    methodName: "findCheapestPrice",
+    returnType: "int",
+    parameters: ["int", "int[][]", "int", "int", "int"],
+    testCases: [
+      {
+        args: [
+          4,
+          [
+            [0, 1, 100],
+            [1, 2, 100],
+            [2, 3, 100],
+            [0, 2, 500],
+          ],
+          0,
+          3,
+          1,
+        ],
+        expected: 600,
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1, 100],
+            [1, 2, 100],
+            [0, 2, 500],
+          ],
+          0,
+          2,
+          1,
+        ],
+        expected: 200,
+      },
+      {
+        args: [
+          3,
+          [
+            [0, 1, 100],
+            [1, 2, 100],
+            [0, 2, 500],
+          ],
+          0,
+          2,
+          0,
+        ],
+        expected: 500,
+      },
+      {
+        args: [3, [[0, 1, 100]], 0, 2, 1],
+        expected: -1,
+      },
+    ],
+  },
+
+  {
+    questionId: 154,
+    topic: "graph",
+    title: "Word Ladder",
+    difficulty: "Hard",
+    description:
+      "Given beginWord, endWord and a list of words, return the number of words in the shortest transformation sequence from beginWord to endWord. Only one letter may be changed at a time and every transformed word must exist in wordList. Return 0 if no sequence exists.",
+    input:
+      'beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]',
+    output: "5",
+    explanation:
+      "One shortest sequence is hit → hot → dot → dog → cog, containing 5 words.",
+    constraints: [
+      "All words have the same length",
+      "All words contain lowercase English letters",
+    ],
+    starterCode: `public class Solution {
+    public int ladderLength(
+        String beginWord,
+        String endWord,
+        String[] wordList
+    ) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "ladderLength",
+    returnType: "int",
+    parameters: ["String", "String", "String[]"],
+    testCases: [
+      {
+        args: ["hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]],
+        expected: 5,
+      },
+      {
+        args: ["hit", "cog", ["hot", "dot", "dog", "lot", "log"]],
+        expected: 0,
+      },
+      {
+        args: ["a", "c", ["a", "b", "c"]],
+        expected: 2,
+      },
+    ],
+  },
+
+  {
+    questionId: 155,
+    topic: "graph",
+    title: "Alien Dictionary",
+    difficulty: "Hard",
+    description:
+      "Given a sorted list of words from an alien language containing the first k lowercase English letters, return one valid ordering of the alien alphabet. When multiple characters have zero indegree, choose the alphabetically smaller character first. Return an empty string if the ordering is invalid.",
+    input: 'words = ["baa","abcd","abca","cab","cad"], k = 4',
+    output: "bdac",
+    explanation:
+      "Comparing adjacent words gives ordering constraints b → a, d → a, a → c and b → d, producing bdac.",
+    constraints: [
+      "1 ≤ words.length ≤ 1000",
+      "1 ≤ k ≤ 26",
+      "Characters belong to the first k lowercase English letters",
+    ],
+    starterCode: `public class Solution {
+    public String alienOrder(String[] words, int k) {
+        // Write your code here
+        return "";
+    }
+}`,
+    methodName: "alienOrder",
+    returnType: "String",
+    parameters: ["String[]", "int"],
+    testCases: [
+      {
+        args: [["baa", "abcd", "abca", "cab", "cad"], 4],
+        expected: "bdac",
+      },
+      {
+        args: [["caa", "aaa", "aab"], 3],
+        expected: "cab",
+      },
+      {
+        args: [["abc", "ab"], 3],
+        expected: "",
+      },
+    ],
+  },
+  {
+    questionId: 156,
+    topic: "dynamic-programming",
+    title: "Climbing Stairs",
+    difficulty: "Easy",
+    description:
+      "You are climbing a staircase with n steps. Each time you can climb either 1 or 2 steps. Return the number of distinct ways to reach the top.",
+    input: "n = 5",
+    output: "8",
+    explanation:
+      "There are 8 different ways to reach the fifth step using jumps of 1 or 2 steps.",
+    constraints: ["1 ≤ n ≤ 45"],
+    starterCode: `public class Solution {
+    public int climbStairs(int n) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "climbStairs",
+    returnType: "int",
+    parameters: ["int"],
+    testCases: [
+      {
+        args: [2],
+        expected: 2,
+      },
+      {
+        args: [3],
+        expected: 3,
+      },
+      {
+        args: [5],
+        expected: 8,
+      },
+      {
+        args: [10],
+        expected: 89,
+      },
+    ],
+  },
+
+  {
+    questionId: 157,
+    topic: "dynamic-programming",
+    title: "Fibonacci Number",
+    difficulty: "Easy",
+    description:
+      "Given an integer n, return the nth Fibonacci number. F(0) = 0, F(1) = 1 and F(n) = F(n - 1) + F(n - 2).",
+    input: "n = 6",
+    output: "8",
+    explanation: "The Fibonacci sequence is 0, 1, 1, 2, 3, 5, 8, so F(6) = 8.",
+    constraints: ["0 ≤ n ≤ 30"],
+    starterCode: `public class Solution {
+    public int fib(int n) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "fib",
+    returnType: "int",
+    parameters: ["int"],
+    testCases: [
+      {
+        args: [0],
+        expected: 0,
+      },
+      {
+        args: [1],
+        expected: 1,
+      },
+      {
+        args: [6],
+        expected: 8,
+      },
+      {
+        args: [10],
+        expected: 55,
+      },
+    ],
+  },
+
+  {
+    questionId: 158,
+    topic: "dynamic-programming",
+    title: "Min Cost Climbing Stairs",
+    difficulty: "Easy",
+    description:
+      "You are given an integer array cost where cost[i] is the cost of stepping on the ith stair. After paying the cost, you may climb one or two steps. Return the minimum cost required to reach the top.",
+    input: "cost = [10,15,20]",
+    output: "15",
+    explanation:
+      "Start from index 1, pay 15 and move two steps to reach the top.",
+    constraints: ["2 ≤ cost.length ≤ 1000", "0 ≤ cost[i] ≤ 999"],
+    starterCode: `public class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "minCostClimbingStairs",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[10, 15, 20]],
+        expected: 15,
+      },
+      {
+        args: [[1, 100, 1, 1, 1, 100, 1, 1, 100, 1]],
+        expected: 6,
+      },
+      {
+        args: [[0, 0]],
+        expected: 0,
+      },
+    ],
+  },
+
+  {
+    questionId: 159,
+    topic: "dynamic-programming",
+    title: "House Robber",
+    difficulty: "Medium",
+    description:
+      "Given an array nums where nums[i] represents the money in the ith house, return the maximum amount you can rob without robbing two adjacent houses.",
+    input: "nums = [2,7,9,3,1]",
+    output: "12",
+    explanation: "Rob houses containing 2, 9 and 1 for a total of 12.",
+    constraints: ["1 ≤ nums.length ≤ 100", "0 ≤ nums[i] ≤ 400"],
+    starterCode: `public class Solution {
+    public int rob(int[] nums) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "rob",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[1, 2, 3, 1]],
+        expected: 4,
+      },
+      {
+        args: [[2, 7, 9, 3, 1]],
+        expected: 12,
+      },
+      {
+        args: [[5]],
+        expected: 5,
+      },
+      {
+        args: [[2, 1, 1, 2]],
+        expected: 4,
+      },
+    ],
+  },
+
+  {
+    questionId: 160,
+    topic: "dynamic-programming",
+    title: "House Robber II",
+    difficulty: "Medium",
+    description:
+      "Houses are arranged in a circle, so the first and last houses are adjacent. Return the maximum amount you can rob without robbing two adjacent houses.",
+    input: "nums = [2,3,2]",
+    output: "3",
+    explanation:
+      "You cannot rob both the first and last houses because they are adjacent.",
+    constraints: ["1 ≤ nums.length ≤ 100", "0 ≤ nums[i] ≤ 1000"],
+    starterCode: `public class Solution {
+    public int rob(int[] nums) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "rob",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[2, 3, 2]],
+        expected: 3,
+      },
+      {
+        args: [[1, 2, 3, 1]],
+        expected: 4,
+      },
+      {
+        args: [[1]],
+        expected: 1,
+      },
+      {
+        args: [[1, 2, 3]],
+        expected: 3,
+      },
+    ],
+  },
+
+  {
+    questionId: 161,
+    topic: "dynamic-programming",
+    title: "Coin Change",
+    difficulty: "Medium",
+    description:
+      "Given an array coins representing coin denominations and an integer amount, return the minimum number of coins required to make the amount. Return -1 if the amount cannot be formed.",
+    input: "coins = [1,2,5], amount = 11",
+    output: "3",
+    explanation: "11 can be formed using 5 + 5 + 1, requiring 3 coins.",
+    constraints: [
+      "1 ≤ coins.length ≤ 12",
+      "1 ≤ coins[i]",
+      "0 ≤ amount ≤ 10000",
+    ],
+    starterCode: `public class Solution {
+    public int coinChange(int[] coins, int amount) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "coinChange",
+    returnType: "int",
+    parameters: ["int[]", "int"],
+    testCases: [
+      {
+        args: [[1, 2, 5], 11],
+        expected: 3,
+      },
+      {
+        args: [[2], 3],
+        expected: -1,
+      },
+      {
+        args: [[1], 0],
+        expected: 0,
+      },
+      {
+        args: [[2, 5, 10, 1], 27],
+        expected: 4,
+      },
+    ],
+  },
+
+  {
+    questionId: 162,
+    topic: "dynamic-programming",
+    title: "Coin Change II",
+    difficulty: "Medium",
+    description:
+      "Given an integer amount and an array coins, return the number of different combinations that can make up the amount. You may use each coin an unlimited number of times.",
+    input: "amount = 5, coins = [1,2,5]",
+    output: "4",
+    explanation: "The combinations are 5, 2+2+1, 2+1+1+1 and 1+1+1+1+1.",
+    constraints: ["0 ≤ amount ≤ 5000", "1 ≤ coins.length ≤ 300"],
+    starterCode: `public class Solution {
+    public int change(int amount, int[] coins) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "change",
+    returnType: "int",
+    parameters: ["int", "int[]"],
+    testCases: [
+      {
+        args: [5, [1, 2, 5]],
+        expected: 4,
+      },
+      {
+        args: [3, [2]],
+        expected: 0,
+      },
+      {
+        args: [10, [10]],
+        expected: 1,
+      },
+      {
+        args: [0, [1, 2]],
+        expected: 1,
+      },
+    ],
+  },
+
+  {
+    questionId: 163,
+    topic: "dynamic-programming",
+    title: "0/1 Knapsack",
+    difficulty: "Medium",
+    description:
+      "Given arrays weights and values and an integer capacity, return the maximum total value that can be placed in the knapsack. Each item may be selected at most once.",
+    input: "weights = [1,3,4,5], values = [1,4,5,7], capacity = 7",
+    output: "9",
+    explanation:
+      "Selecting items with weights 3 and 4 gives total weight 7 and total value 9.",
+    constraints: [
+      "1 ≤ weights.length ≤ 100",
+      "weights.length = values.length",
+      "1 ≤ capacity ≤ 1000",
+    ],
+    starterCode: `public class Solution {
+    public int knapsack(int[] weights, int[] values, int capacity) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "knapsack",
+    returnType: "int",
+    parameters: ["int[]", "int[]", "int"],
+    testCases: [
+      {
+        args: [[1, 3, 4, 5], [1, 4, 5, 7], 7],
+        expected: 9,
+      },
+      {
+        args: [[1, 2, 3], [10, 15, 40], 6],
+        expected: 65,
+      },
+      {
+        args: [[2, 3, 4], [4, 5, 6], 1],
+        expected: 0,
+      },
+    ],
+  },
+
+  {
+    questionId: 164,
+    topic: "dynamic-programming",
+    title: "Partition Equal Subset Sum",
+    difficulty: "Medium",
+    description:
+      "Given an integer array nums, return true if the array can be partitioned into two subsets whose sums are equal.",
+    input: "nums = [1,5,11,5]",
+    output: "true",
+    explanation:
+      "The array can be divided into [1,5,5] and [11], both having sum 11.",
+    constraints: ["1 ≤ nums.length ≤ 200", "1 ≤ nums[i] ≤ 100"],
+    starterCode: `public class Solution {
+    public boolean canPartition(int[] nums) {
+        // Write your code here
+        return false;
+    }
+}`,
+    methodName: "canPartition",
+    returnType: "boolean",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[1, 5, 11, 5]],
+        expected: true,
+      },
+      {
+        args: [[1, 2, 3, 5]],
+        expected: false,
+      },
+      {
+        args: [[1, 1]],
+        expected: true,
+      },
+      {
+        args: [[2, 2, 3, 5]],
+        expected: false,
+      },
+    ],
+  },
+
+  {
+    questionId: 165,
+    topic: "dynamic-programming",
+    title: "Longest Increasing Subsequence",
+    difficulty: "Medium",
+    description:
+      "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+    input: "nums = [10,9,2,5,3,7,101,18]",
+    output: "4",
+    explanation:
+      "One longest increasing subsequence is [2,3,7,101], which has length 4.",
+    constraints: ["1 ≤ nums.length ≤ 2500"],
+    starterCode: `public class Solution {
+    public int lengthOfLIS(int[] nums) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "lengthOfLIS",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[10, 9, 2, 5, 3, 7, 101, 18]],
+        expected: 4,
+      },
+      {
+        args: [[0, 1, 0, 3, 2, 3]],
+        expected: 4,
+      },
+      {
+        args: [[7, 7, 7, 7]],
+        expected: 1,
+      },
+      {
+        args: [[1, 2, 3, 4, 5]],
+        expected: 5,
+      },
+    ],
+  },
+
+  {
+    questionId: 166,
+    topic: "dynamic-programming",
+    title: "Longest Common Subsequence",
+    difficulty: "Medium",
+    description:
+      "Given two strings text1 and text2, return the length of their longest common subsequence.",
+    input: 'text1 = "abcde", text2 = "ace"',
+    output: "3",
+    explanation: "The longest common subsequence is ace, which has length 3.",
+    constraints: ["1 ≤ text1.length, text2.length ≤ 1000"],
+    starterCode: `public class Solution {
+    public int longestCommonSubsequence(String text1, String text2) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "longestCommonSubsequence",
+    returnType: "int",
+    parameters: ["String", "String"],
+    testCases: [
+      {
+        args: ["abcde", "ace"],
+        expected: 3,
+      },
+      {
+        args: ["abc", "abc"],
+        expected: 3,
+      },
+      {
+        args: ["abc", "def"],
+        expected: 0,
+      },
+      {
+        args: ["bl", "yby"],
+        expected: 1,
+      },
+    ],
+  },
+
+  {
+    questionId: 167,
+    topic: "dynamic-programming",
+    title: "Edit Distance",
+    difficulty: "Medium",
+    description:
+      "Given two strings word1 and word2, return the minimum number of insertions, deletions and replacements required to convert word1 into word2.",
+    input: 'word1 = "horse", word2 = "ros"',
+    output: "3",
+    explanation: "Horse can be converted to ros using three operations.",
+    constraints: ["0 ≤ word1.length, word2.length ≤ 500"],
+    starterCode: `public class Solution {
+    public int minDistance(String word1, String word2) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "minDistance",
+    returnType: "int",
+    parameters: ["String", "String"],
+    testCases: [
+      {
+        args: ["horse", "ros"],
+        expected: 3,
+      },
+      {
+        args: ["intention", "execution"],
+        expected: 5,
+      },
+      {
+        args: ["", "abc"],
+        expected: 3,
+      },
+      {
+        args: ["abc", "abc"],
+        expected: 0,
+      },
+    ],
+  },
+
+  {
+    questionId: 168,
+    topic: "dynamic-programming",
+    title: "Unique Paths",
+    difficulty: "Medium",
+    description:
+      "A robot is located at the top-left corner of an m x n grid and can move only right or down. Return the number of unique paths to the bottom-right corner.",
+    input: "m = 3, n = 7",
+    output: "28",
+    explanation:
+      "There are 28 different ways for the robot to reach the bottom-right cell.",
+    constraints: ["1 ≤ m, n ≤ 100"],
+    starterCode: `public class Solution {
+    public int uniquePaths(int m, int n) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "uniquePaths",
+    returnType: "int",
+    parameters: ["int", "int"],
+    testCases: [
+      {
+        args: [3, 7],
+        expected: 28,
+      },
+      {
+        args: [3, 2],
+        expected: 3,
+      },
+      {
+        args: [1, 1],
+        expected: 1,
+      },
+      {
+        args: [2, 2],
+        expected: 2,
+      },
+    ],
+  },
+
+  {
+    questionId: 169,
+    topic: "dynamic-programming",
+    title: "Minimum Path Sum",
+    difficulty: "Medium",
+    description:
+      "Given a grid filled with non-negative numbers, find a path from the top-left to the bottom-right that minimizes the sum of all numbers along the path. You may move only right or down.",
+    input: "grid = [[1,3,1],[1,5,1],[4,2,1]]",
+    output: "7",
+    explanation: "The path 1 → 3 → 1 → 1 → 1 has the minimum sum of 7.",
+    constraints: ["1 ≤ rows, columns ≤ 200", "0 ≤ grid[i][j] ≤ 200"],
+    starterCode: `public class Solution {
+    public int minPathSum(int[][] grid) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "minPathSum",
+    returnType: "int",
+    parameters: ["int[][]"],
+    testCases: [
+      {
+        args: [
+          [
+            [1, 3, 1],
+            [1, 5, 1],
+            [4, 2, 1],
+          ],
+        ],
+        expected: 7,
+      },
+      {
+        args: [
+          [
+            [1, 2, 3],
+            [4, 5, 6],
+          ],
+        ],
+        expected: 12,
+      },
+      {
+        args: [[[5]]],
+        expected: 5,
+      },
+    ],
+  },
+
+  {
+    questionId: 170,
+    topic: "dynamic-programming",
+    title: "Maximum Product Subarray",
+    difficulty: "Medium",
+    description:
+      "Given an integer array nums, find the contiguous subarray that has the largest product and return that product.",
+    input: "nums = [2,3,-2,4]",
+    output: "6",
+    explanation: "The subarray [2,3] has the largest product, which is 6.",
+    constraints: ["1 ≤ nums.length ≤ 20000"],
+    starterCode: `public class Solution {
+    public int maxProduct(int[] nums) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "maxProduct",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[2, 3, -2, 4]],
+        expected: 6,
+      },
+      {
+        args: [[-2, 0, -1]],
+        expected: 0,
+      },
+      {
+        args: [[-2, 3, -4]],
+        expected: 24,
+      },
+      {
+        args: [[5]],
+        expected: 5,
+      },
+    ],
+  },
+
+  {
+    questionId: 171,
+    topic: "dynamic-programming",
+    title: "Decode Ways",
+    difficulty: "Medium",
+    description:
+      "A message containing digits can be decoded using 1 → A, 2 → B, ..., 26 → Z. Given a string s containing only digits, return the number of ways to decode it.",
+    input: 's = "226"',
+    output: "3",
+    explanation: "226 can be decoded as BZ, VF or BBF.",
+    constraints: ["1 ≤ s.length ≤ 100", "s contains only digits"],
+    starterCode: `public class Solution {
+    public int numDecodings(String s) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "numDecodings",
+    returnType: "int",
+    parameters: ["String"],
+    testCases: [
+      {
+        args: ["12"],
+        expected: 2,
+      },
+      {
+        args: ["226"],
+        expected: 3,
+      },
+      {
+        args: ["06"],
+        expected: 0,
+      },
+      {
+        args: ["10"],
+        expected: 1,
+      },
+    ],
+  },
+
+  {
+    questionId: 172,
+    topic: "dynamic-programming",
+    title: "Word Break",
+    difficulty: "Medium",
+    description:
+      "Given a string s and an array dictionary containing valid words, return true if s can be segmented into a sequence of one or more dictionary words.",
+    input: 's = "leetcode", dictionary = ["leet","code"]',
+    output: "true",
+    explanation: "leetcode can be segmented as leet + code.",
+    constraints: ["1 ≤ s.length ≤ 300", "1 ≤ dictionary.length ≤ 1000"],
+    starterCode: `public class Solution {
+    public boolean wordBreak(String s, String[] dictionary) {
+        // Write your code here
+        return false;
+    }
+}`,
+    methodName: "wordBreak",
+    returnType: "boolean",
+    parameters: ["String", "String[]"],
+    testCases: [
+      {
+        args: ["leetcode", ["leet", "code"]],
+        expected: true,
+      },
+      {
+        args: ["applepenapple", ["apple", "pen"]],
+        expected: true,
+      },
+      {
+        args: ["catsandog", ["cats", "dog", "sand", "and", "cat"]],
+        expected: false,
+      },
+      {
+        args: ["a", ["a"]],
+        expected: true,
+      },
+    ],
+  },
+
+  {
+    questionId: 173,
+    topic: "dynamic-programming",
+    title: "Best Time to Buy and Sell Stock with Cooldown",
+    difficulty: "Medium",
+    description:
+      "Given an array prices where prices[i] is the stock price on day i, return the maximum profit you can achieve. After selling a stock, you cannot buy another stock on the next day.",
+    input: "prices = [1,2,3,0,2]",
+    output: "3",
+    explanation:
+      "One optimal sequence is buy, sell, cooldown, buy, sell for a total profit of 3.",
+    constraints: ["1 ≤ prices.length ≤ 5000"],
+    starterCode: `public class Solution {
+    public int maxProfit(int[] prices) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "maxProfit",
+    returnType: "int",
+    parameters: ["int[]"],
+    testCases: [
+      {
+        args: [[1, 2, 3, 0, 2]],
+        expected: 3,
+      },
+      {
+        args: [[1]],
+        expected: 0,
+      },
+      {
+        args: [[2, 1, 4]],
+        expected: 3,
+      },
+      {
+        args: [[5, 4, 3, 2, 1]],
+        expected: 0,
+      },
+    ],
+  },
+
+  {
+    questionId: 174,
+    topic: "dynamic-programming",
+    title: "Target Sum",
+    difficulty: "Medium",
+    description:
+      "You are given an integer array nums and an integer target. Assign either a plus or minus sign to every number. Return the number of different expressions that evaluate to target.",
+    input: "nums = [1,1,1,1,1], target = 3",
+    output: "5",
+    explanation:
+      "There are 5 different sign assignments that produce the target value 3.",
+    constraints: ["1 ≤ nums.length ≤ 20", "0 ≤ nums[i] ≤ 1000"],
+    starterCode: `public class Solution {
+    public int findTargetSumWays(int[] nums, int target) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "findTargetSumWays",
+    returnType: "int",
+    parameters: ["int[]", "int"],
+    testCases: [
+      {
+        args: [[1, 1, 1, 1, 1], 3],
+        expected: 5,
+      },
+      {
+        args: [[1], 1],
+        expected: 1,
+      },
+      {
+        args: [[1], 2],
+        expected: 0,
+      },
+      {
+        args: [[0, 0, 0, 0, 0], 0],
+        expected: 32,
+      },
+    ],
+  },
+
+  {
+    questionId: 175,
+    topic: "dynamic-programming",
+    title: "Distinct Subsequences",
+    difficulty: "Hard",
+    description:
+      "Given two strings s and t, return the number of distinct subsequences of s that equal t. A subsequence is formed by deleting zero or more characters without changing the relative order of the remaining characters.",
+    input: 's = "rabbbit", t = "rabbit"',
+    output: "3",
+    explanation:
+      "There are three different ways to delete characters from rabbbit to form rabbit.",
+    constraints: ["1 ≤ s.length, t.length ≤ 1000"],
+    starterCode: `public class Solution {
+    public int numDistinct(String s, String t) {
+        // Write your code here
+        return 0;
+    }
+}`,
+    methodName: "numDistinct",
+    returnType: "int",
+    parameters: ["String", "String"],
+    testCases: [
+      {
+        args: ["rabbbit", "rabbit"],
+        expected: 3,
+      },
+      {
+        args: ["babgbag", "bag"],
+        expected: 5,
+      },
+      {
+        args: ["abc", "abc"],
+        expected: 1,
+      },
+      {
+        args: ["abc", "abcd"],
+        expected: 0,
+      },
+    ],
+  },
 ];
 
 async function seedQuestions() {

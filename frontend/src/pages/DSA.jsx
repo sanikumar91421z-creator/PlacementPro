@@ -40,25 +40,28 @@ function DSA() {
     {
       name: "Binary Tree",
       icon: "🌳",
-      description: "Practice tree traversal and problems.",
-      questions: 45,
-      path: "#",
+      description: "Master Binary Tree, BST and tree traversal problems.",
+      questions: 20,
+      path: "/practice/dsa/binary-tree",
     },
     {
       name: "Graph",
       icon: "🕸️",
-      description: "Master BFS, DFS and graph algorithms.",
-      questions: 40,
-      path: "#",
+      description:
+        "Master graph traversal, shortest paths and important graph algorithms.",
+      questions: 20,
+      path: "/practice/dsa/graph",
     },
-    {
-      name: "Dynamic Programming",
-      icon: "🧩",
-      description: "Solve optimization and DP problems.",
-      questions: 50,
-      path: "#",
-    },
-  ];
+   {
+  name: "Dynamic Programming",
+  icon: "🧠",
+  description:
+    "Master dynamic programming patterns and optimization problems.",
+  questions: 20,
+  path: "/practice/dsa/dynamic-programming",
+ },
+]
+
 
   return (
     <div className="dsa-page">

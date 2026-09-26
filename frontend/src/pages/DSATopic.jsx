@@ -47,6 +47,27 @@ function DSATopic() {
       description:
         "Practice important queue, deque and monotonic queue problems commonly asked in coding interviews.",
     },
+    "binary-tree": {
+      apiTopic: "binary-tree",
+      label: "BINARY TREE",
+      title: "Binary Tree Problems 🌳",
+      description:
+        "Practice important Binary Tree and BST problems commonly asked in coding interviews.",
+    },
+    graph: {
+      apiTopic: "graph",
+      label: "GRAPH",
+      title: "Graph Problems 🕸️",
+      description:
+        "Practice important Graph problems and algorithms commonly asked in coding interviews.",
+    },
+    "dynamic-programming": {
+  apiTopic: "dynamic-programming",
+  label: "DYNAMIC PROGRAMMING",
+  title: "Dynamic Programming Problems 🧠",
+  description:
+    "Practice important Dynamic Programming problems and patterns commonly asked in coding interviews.",
+},
   };
 
   const currentTopic = topicConfig[topic];

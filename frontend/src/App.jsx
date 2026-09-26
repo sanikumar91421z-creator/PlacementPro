@@ -1,3 +1,6 @@
+import Companies from "./pages/Companies";
+import CompanyPaper from "./pages/CompanyPaper";
+import CompanyDetails from "./pages/CompanyDetails";
 import ProtectedRoute from "./components/ProtectedRoute";
 import {
   BrowserRouter,
@@ -286,11 +289,25 @@ function App() {
         <Route
           path="/companies"
           element={
-            <div className="page-placeholder">
-              <h1>Companies Page</h1>
-
-              <p>Company-specific placement preparation is coming soon.</p>
-            </div>
+            <ProtectedRoute>
+              <Companies />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/companies/:slug"
+          element={
+            <ProtectedRoute>
+              <CompanyDetails />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/companies/:slug/:year"
+          element={
+            <ProtectedRoute>
+              <CompanyPaper />
+            </ProtectedRoute>
           }
         />
 
