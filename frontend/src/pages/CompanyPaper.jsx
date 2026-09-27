@@ -11,7 +11,7 @@ function CompanyPaper() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [openSolution, setOpenSolution] = useState(null);
-
+  const [selectedAnswers, setSelectedAnswers] = useState({});
   const categories = [
     "all",
     "programming",
@@ -28,8 +28,7 @@ function CompanyPaper() {
 
         const token = localStorage.getItem("placementproToken");
 
-        let url =
-          `http://localhost:5000/api/companies/${slug}/${year}/questions`;
+        let url = `http://localhost:5000/api/companies/${slug}/${year}/questions`;
 
         if (category !== "all") {
           url += `?category=${category}`;
@@ -44,9 +43,7 @@ function CompanyPaper() {
         const data = await response.json();
 
         if (!response.ok) {
-          throw new Error(
-            data.message || "Unable to load questions."
-          );
+          throw new Error(data.message || "Unable to load questions.");
         }
 
         setQuestions(data.questions || []);
@@ -66,6 +63,16 @@ function CompanyPaper() {
   const formatCategory = (value) => {
     return value.charAt(0).toUpperCase() + value.slice(1);
   };
+  const handleOptionClick = (question, option) => {
+    if (selectedAnswers[question.questionId] !== undefined) {
+      return;
+    }
+
+    setSelectedAnswers((previous) => ({
+      ...previous,
+      [question.questionId]: option,
+    }));
+  };
 
   return (
     <div className="company-paper-page">
@@ -77,17 +84,15 @@ function CompanyPaper() {
       </button>
 
       <div className="company-paper-header">
-        <span className="companies-label">
-          REPORTED PREVIOUS-YEAR PAPER
-        </span>
+        <span className="companies-label">REPORTED PREVIOUS-YEAR PAPER</span>
 
         <h1>
           {company?.name || slug.toUpperCase()} {year}
         </h1>
 
         <p>
-          A merged collection of reported and memory-based
-          questions from {year}.
+          A merged collection of reported and memory-based questions from {year}
+          .
         </p>
       </div>
 
@@ -96,9 +101,7 @@ function CompanyPaper() {
           <button
             key={item}
             className={
-              category === item
-                ? "company-filter active"
-                : "company-filter"
+              category === item ? "company-filter active" : "company-filter"
             }
             onClick={() => setCategory(item)}
           >
@@ -107,25 +110,15 @@ function CompanyPaper() {
         ))}
       </div>
 
-      {loading && (
-        <p className="company-paper-message">
-          Loading questions...
-        </p>
-      )}
+      {loading && <p className="company-paper-message">Loading questions...</p>}
 
-      {error && (
-        <p className="company-paper-message">
-          {error}
-        </p>
-      )}
+      {error && <p className="company-paper-message">{error}</p>}
 
       {!loading && !error && (
         <>
           <div className="company-question-count">
             {questions.length}{" "}
-            {questions.length === 1
-              ? "Question"
-              : "Questions"}
+            {questions.length === 1 ? "Question" : "Questions"}
           </div>
 
           <div className="company-questions-list">
@@ -135,9 +128,7 @@ function CompanyPaper() {
                 key={question._id || question.questionId}
               >
                 <div className="company-question-top">
-                  <span className="question-number">
-                    Question {index + 1}
-                  </span>
+                  <span className="question-number">Question {index + 1}</span>
 
                   <div className="question-badges">
                     <span className="category-badge">
@@ -150,37 +141,51 @@ function CompanyPaper() {
                   </div>
                 </div>
 
-                <h3 className="company-question-text">
-                  {question.question}
-                </h3>
+                <h3 className="company-question-text">{question.question}</h3>
 
                 {question.options?.length > 0 && (
                   <div className="company-question-options">
-                    {question.options.map(
-                      (option, optionIndex) => (
-                        <div
-                          className="company-option"
+                    {question.options.map((option, optionIndex) => {
+                      const selected = selectedAnswers[question.questionId];
+
+                      const isAnswered = selected !== undefined;
+
+                      const isSelected = selected === option;
+
+                      const isCorrect = option === question.answer;
+
+                      let optionClass = "company-option";
+
+                      if (isAnswered) {
+                        if (isCorrect) {
+                          optionClass += " correct-option";
+                        } else if (isSelected) {
+                          optionClass += " wrong-option";
+                        }
+                      }
+
+                      return (
+                        <button
+                          type="button"
+                          className={optionClass}
                           key={optionIndex}
+                          onClick={() => handleOptionClick(question, option)}
+                          disabled={isAnswered}
                         >
-                          <span>
-                            {String.fromCharCode(
-                              65 + optionIndex
-                            )}
-                          </span>
+                          <span>{String.fromCharCode(65 + optionIndex)}</span>
 
                           <p>{option}</p>
-                        </div>
-                      )
-                    )}
-                  </div>
-                )}
 
-                {question.programmingLanguage && (
-                  <div className="programming-language">
-                    Language:{" "}
-                    <strong>
-                      {question.programmingLanguage}
-                    </strong>
+                          {isAnswered && isCorrect && (
+                            <strong className="option-result">✓</strong>
+                          )}
+
+                          {isAnswered && isSelected && !isCorrect && (
+                            <strong className="option-result">✕</strong>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
 
@@ -190,7 +195,7 @@ function CompanyPaper() {
                     setOpenSolution(
                       openSolution === question.questionId
                         ? null
-                        : question.questionId
+                        : question.questionId,
                     )
                   }
                 >
@@ -211,8 +216,7 @@ function CompanyPaper() {
 
                     {question.sourceName && (
                       <div className="question-source">
-                        <strong>Source:</strong>{" "}
-                        {question.sourceName}
+                        <strong>Source:</strong> {question.sourceName}
                       </div>
                     )}
                   </div>

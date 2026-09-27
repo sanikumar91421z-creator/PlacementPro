@@ -31,7 +31,7 @@ const companies = [
       "Prepare core CS subjects for technical interviews"
     ],
 
-    availableYears: [2025]
+    availableYears: [2023, 2024, 2025]
   }
 ];
 
