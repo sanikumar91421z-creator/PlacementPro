@@ -105,6 +105,9 @@ app.get(
           "aptitude",
           "reasoning",
           "comprehension",
+          "pseudocode",
+          "puzzle",
+          "grammar",
         ];
 
         const category = req.query.category.toLowerCase();

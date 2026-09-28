@@ -12,13 +12,10 @@ function CompanyPaper() {
   const [error, setError] = useState("");
   const [openSolution, setOpenSolution] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const categories = [
-    "all",
-    "programming",
-    "aptitude",
-    "reasoning",
-    "comprehension",
-  ];
+ const categories = [
+  "all",
+  ...new Set(questions.map((question) => question.category)),
+];
 
   useEffect(() => {
     const fetchQuestions = async () => {

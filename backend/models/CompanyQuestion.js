@@ -20,12 +20,15 @@ const companyQuestionSchema = new mongoose.Schema(
 
     category: {
       type: String,
-      enum: ["programming", "aptitude", "reasoning", "comprehension"],
-      required: true,
-    },
-
-    question: {
-      type: String,
+      enum: [
+        "programming",
+        "aptitude",
+        "reasoning",
+        "comprehension",
+        "pseudocode",
+        "puzzle",
+        "grammar",
+      ],
       required: true,
     },
 
