@@ -12,10 +12,10 @@ function CompanyPaper() {
   const [error, setError] = useState("");
   const [openSolution, setOpenSolution] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState({});
- const categories = [
-  "all",
-  ...new Set(questions.map((question) => question.category)),
-];
+  const categories = [
+    "all",
+    ...new Set(questions.map((question) => question.category)),
+  ];
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -38,7 +38,7 @@ function CompanyPaper() {
         });
 
         const data = await response.json();
-
+        
         if (!response.ok) {
           throw new Error(data.message || "Unable to load questions.");
         }

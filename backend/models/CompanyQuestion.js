@@ -28,10 +28,19 @@ const companyQuestionSchema = new mongoose.Schema(
         "pseudocode",
         "puzzle",
         "grammar",
+        "sql",
+        "java",
+        "dbms",
+        "debugging",
+        "web",
+        "cloud",
       ],
       required: true,
     },
-
+    question: {
+      type: String,
+      required: true,
+    },
     options: {
       type: [String],
       default: [],

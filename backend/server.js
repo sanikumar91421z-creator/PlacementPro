@@ -108,8 +108,13 @@ app.get(
           "pseudocode",
           "puzzle",
           "grammar",
+          "sql",
+          "java",
+          "dbms",
+          "debugging",
+          "web",
+          "cloud",
         ];
-
         const category = req.query.category.toLowerCase();
 
         if (!allowedCategories.includes(category)) {
