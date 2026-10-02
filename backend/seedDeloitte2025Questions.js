@@ -1,10 +1,10 @@
-require("dotenv").config();
+ require("dotenv").config();
 const mongoose = require("mongoose");
 const CompanyQuestion = require("./models/CompanyQuestion");
 
-const questions = [
+const companyQuestions = [
 
-  // =========================================================
+ // =========================================================
   // DELOITTE 2025 — CANDIDATE-REPORTED QUESTIONS ONLY
   // =========================================================
 
@@ -104,8 +104,7 @@ O(n)`,
     year: 2025,
     category: "dbms",
 
-    question:
-      "What is the difference between SQL and NoSQL databases?",
+    question: "What is the difference between SQL and NoSQL databases?",
 
     options: [],
 
@@ -321,8 +320,7 @@ salary values exist.`,
     year: 2025,
     category: "programming",
 
-    question:
-      "Implement Binary Search.",
+    question: "Implement Binary Search.",
 
     options: [],
 
@@ -614,8 +612,7 @@ O(1)`,
     year: 2025,
     category: "web",
 
-    question:
-      "Explain the basics of full-stack development.",
+    question: "Explain the basics of full-stack development.",
 
     options: [],
 
@@ -743,8 +740,7 @@ to the frontend.`,
     year: 2025,
     category: "programming",
 
-    question:
-      "Swap two numbers without using an extra variable.",
+    question: "Swap two numbers without using an extra variable.",
 
     options: [],
 
@@ -829,8 +825,7 @@ constraint specifically prohibits it.`,
     programmingLanguage: "Java",
 
     sourceType: "previous-year",
-    sourceName:
-      "Candidate-reported Deloitte USI Technology Analyst Interview",
+    sourceName: "Candidate-reported Deloitte USI Technology Analyst Interview",
 
     sourceUrl:
       "https://www.linkedin.com/posts/pursottamsah_potd-professional-bekar-activity-7242994996906246144-N_dA",
@@ -846,8 +841,7 @@ constraint specifically prohibits it.`,
     year: 2025,
     category: "pseudocode",
 
-    question:
-      "Explain the algorithm of Quick Sort.",
+    question: "Explain the algorithm of Quick Sort.",
 
     options: [],
 
@@ -945,8 +939,7 @@ O(n)`,
     year: 2025,
     category: "java",
 
-    question:
-      "What is the difference between a class and an object?",
+    question: "What is the difference between a class and an object?",
 
     options: [],
 
@@ -1020,8 +1013,7 @@ created from the same Student class.`,
     year: 2025,
     category: "java",
 
-    question:
-      "Explain multithreading in Java.",
+    question: "Explain multithreading in Java.",
 
     options: [],
 
@@ -1124,8 +1116,7 @@ Multithreading introduces important concerns such as:
     year: 2025,
     category: "java",
 
-    question:
-      "What is an interface in Java?",
+    question: "What is an interface in Java?",
 
     options: [],
 
@@ -1205,8 +1196,7 @@ subject to Java version rules.`,
     year: 2025,
     category: "java",
 
-    question:
-      "Explain the try-catch block in Java.",
+    question: "Explain the try-catch block in Java.",
 
     options: [],
 
@@ -1294,8 +1284,7 @@ meaningfully handle.`,
     year: 2025,
     category: "sql",
 
-    question:
-      "Explain SQL joins.",
+    question: "Explain SQL joins.",
 
     options: [],
 
@@ -1385,8 +1374,7 @@ aliases.`,
     year: 2025,
     category: "cloud",
 
-    question:
-      "Why do organizations use cloud computing?",
+    question: "Why do organizations use cloud computing?",
 
     options: [],
 
@@ -1473,8 +1461,7 @@ application's technical and business requirements.`,
     year: 2025,
     category: "dbms",
 
-    question:
-      "What is database sharding?",
+    question: "What is database sharding?",
 
     options: [],
 
@@ -1556,8 +1543,7 @@ actual application access patterns.`,
     year: 2025,
     category: "cloud",
 
-    question:
-      "What is fault tolerance in a distributed or cloud system?",
+    question: "What is fault tolerance in a distributed or cloud system?",
 
     options: [],
 
@@ -1627,8 +1613,7 @@ availability and recovery objectives.`,
     year: 2025,
     category: "cloud",
 
-    question:
-      "What is GKE?",
+    question: "What is GKE?",
 
     options: [],
 
@@ -1689,15 +1674,2469 @@ with managing every Kubernetes component manually.`,
     sourceUrl:
       "https://www.linkedin.com/posts/pursottamsah_potd-professional-bekar-activity-7242994996906246144-N_dA",
   },
+  {
+    questionId: 1517,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Given an array containing numbers from 1 to N with exactly
+one number missing, find the missing number.`,
+
+    options: [],
+
+    answer:
+      "Use the sum formula or XOR to find the missing number in O(n) time and O(1) extra space.",
+
+    solution: `Example:
+
+N = 5
+arr = [1, 2, 4, 5]
+
+The complete sequence should be:
+
+1, 2, 3, 4, 5
+
+Therefore:
+
+Missing number = 3
+
+
+APPROACH 1: SUM FORMULA
+
+Sum of numbers from 1 to N:
+
+N * (N + 1) / 2
+
+For N = 5:
+
+5 * 6 / 2 = 15
+
+Actual array sum:
+
+1 + 2 + 4 + 5 = 12
+
+Missing number:
+
+15 - 12 = 3
+
+
+Java Solution:
+
+class Solution {
+
+    public int findMissing(int[] arr, int n) {
+
+        long expected =
+            (long) n * (n + 1) / 2;
+
+        long actual = 0;
+
+        for (int value : arr) {
+            actual += value;
+        }
+
+        return (int) (expected - actual);
+    }
+}
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+
+Why use long?
+
+The expression:
+
+n * (n + 1)
+
+can overflow an int for large values of n.
+
+Casting n to long before multiplication reduces
+that risk.
+
+
+APPROACH 2: XOR
+
+The same problem can be solved using XOR.
+
+Properties:
+
+x ^ x = 0
+x ^ 0 = x
+
+
+Java:
+
+class Solution {
+
+    public int findMissing(int[] arr, int n) {
+
+        int xor = 0;
+
+        for (int i = 1; i <= n; i++) {
+            xor ^= i;
+        }
+
+        for (int value : arr) {
+            xor ^= value;
+        }
+
+        return xor;
+    }
+}
+
+
+Every number that appears in both the complete
+sequence and the input array cancels.
+
+Only the missing number remains.
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)`,
+
+    difficulty: "Easy",
+    programmingLanguage: "Java",
+
+    sourceType: "previous-year",
+
+    sourceName: "Deloitte NLA Analyst/Associate Interview - 10 Feb 2025",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1518,
+    companyId: 9,
+    year: 2025,
+    category: "java",
+
+    question: "Explain inheritance in Object-Oriented Programming.",
+
+    options: [],
+
+    answer:
+      "Inheritance allows a child class to acquire accessible properties and behavior from a parent class.",
+
+    solution: `Inheritance establishes an IS-A relationship.
+
+Example:
+
+class Employee {
+
+    void work() {
+        System.out.println("Employee working");
+    }
+}
+
+
+class Developer extends Employee {
+
+    void code() {
+        System.out.println("Writing code");
+    }
+}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Developer developer =
+            new Developer();
+
+        developer.work();
+
+        developer.code();
+    }
+}
+
+
+Developer inherits the accessible work()
+method from Employee.
+
+
+Parent class:
+
+Employee
+
+
+Child class:
+
+Developer
+
+
+Benefits:
+
+1. Code reuse
+2. Extensibility
+3. Method overriding
+4. Runtime polymorphism
+
+
+Example of overriding:
+
+class Animal {
+
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+
+class Dog extends Animal {
+
+    @Override
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+
+
+Animal animal = new Dog();
+
+animal.sound();
+
+
+Output:
+
+Bark
+
+
+Java supports single inheritance of classes.
+
+A class cannot extend two classes directly.
+
+However, Java supports implementing multiple
+interfaces.`,
+
+    difficulty: "Easy",
+    programmingLanguage: "Java",
+
+    sourceType: "previous-year",
+
+    sourceName: "Deloitte NLA 2025 Candidate Interview - OOP Inheritance",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1519,
+    companyId: 9,
+    year: 2025,
+    category: "java",
+
+    question: "Explain polymorphism in Object-Oriented Programming.",
+
+    options: [],
+
+    answer:
+      "Polymorphism allows the same method name, interface or operation to exhibit different behavior depending on its context or runtime object.",
+
+    solution: `Polymorphism means:
+
+"many forms"
+
+
+Two common forms in Java are:
+
+
+1. COMPILE-TIME POLYMORPHISM
+
+Usually demonstrated using method overloading.
+
+Example:
+
+class Calculator {
+
+    int add(int a, int b) {
+
+        return a + b;
+    }
+
+    double add(double a, double b) {
+
+        return a + b;
+    }
+}
+
+
+Both methods are named:
+
+add()
+
+but have different parameter types.
+
+
+The compiler determines which method should
+be called.
+
+
+2. RUNTIME POLYMORPHISM
+
+Usually demonstrated using method overriding.
+
+Example:
+
+class Animal {
+
+    void sound() {
+
+        System.out.println(
+            "Animal sound"
+        );
+    }
+}
+
+
+class Dog extends Animal {
+
+    @Override
+    void sound() {
+
+        System.out.println(
+            "Dog barks"
+        );
+    }
+}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Animal animal =
+            new Dog();
+
+        animal.sound();
+    }
+}
+
+
+Output:
+
+Dog barks
+
+
+Reference type:
+
+Animal
+
+Actual runtime object:
+
+Dog
+
+
+Therefore the overridden Dog method executes.
+
+This is dynamic method dispatch.`,
+
+    difficulty: "Medium",
+    programmingLanguage: "Java",
+
+    sourceType: "previous-year",
+
+    sourceName: "Deloitte NLA 2025 Candidate Interview - OOP Polymorphism",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1520,
+    companyId: 9,
+    year: 2025,
+    category: "java",
+
+    question: "Explain encapsulation in Object-Oriented Programming.",
+
+    options: [],
+
+    answer:
+      "Encapsulation bundles data and related methods inside a class and controls access to the object's internal state.",
+
+    solution: `Consider a bank account.
+
+class BankAccount {
+
+    private double balance;
+
+    public void deposit(double amount) {
+
+        if (amount > 0) {
+
+            balance += amount;
+        }
+    }
+
+    public double getBalance() {
+
+        return balance;
+    }
+}
+
+
+The balance variable is:
+
+private
+
+
+External code cannot directly write:
+
+account.balance = -5000;
+
+
+Instead, modification goes through:
+
+deposit()
+
+
+The class can therefore validate the operation.
+
+
+Benefits of encapsulation:
+
+1. Protect internal state
+
+2. Prevent uncontrolled modification
+
+3. Hide implementation details
+
+4. Improve maintainability
+
+5. Maintain valid object state
+
+
+Important:
+
+Encapsulation does not simply mean:
+
+"Create getters and setters."
+
+
+The main idea is that an object should control
+access to its internal state.`,
+
+    difficulty: "Easy",
+    programmingLanguage: "Java",
+
+    sourceType: "previous-year",
+
+    sourceName: "Deloitte NLA 2025 Candidate Interview - OOP Encapsulation",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1521,
+    companyId: 9,
+    year: 2025,
+    category: "java",
+
+    question: "Explain abstraction in Object-Oriented Programming.",
+
+    options: [],
+
+    answer:
+      "Abstraction exposes essential operations while hiding unnecessary implementation details.",
+
+    solution: `Consider a payment system.
+
+The user only needs to know:
+
+payment.pay(1000);
+
+
+The user does not need to understand every
+internal operation such as:
+
+network communication
+payment gateway APIs
+encryption
+bank communication
+transaction processing
+
+
+Java example:
+
+interface Payment {
+
+    void pay(double amount);
+}
+
+
+class CardPayment
+    implements Payment {
+
+    @Override
+    public void pay(double amount) {
+
+        System.out.println(
+            "Processing card payment"
+        );
+    }
+}
+
+
+The interface describes:
+
+WHAT operation is available.
+
+
+CardPayment determines:
+
+HOW the operation is performed.
+
+
+Java commonly provides abstraction through:
+
+1. Interfaces
+
+2. Abstract classes
+
+
+ABSTRACTION VS ENCAPSULATION
+
+
+Abstraction:
+
+Focuses on hiding unnecessary implementation
+complexity.
+
+
+Encapsulation:
+
+Focuses on controlling access to an object's
+internal state.
+
+
+They are related concepts but they are not
+the same thing.`,
+
+    difficulty: "Easy",
+    programmingLanguage: "Java",
+
+    sourceType: "previous-year",
+
+    sourceName: "Deloitte NLA 2025 Candidate Interview - OOP Abstraction",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1522,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question:
+      "What is the time and space complexity of your solution for finding the missing number from 1 to N?",
+
+    options: [
+      "O(n) time and O(1) extra space",
+      "O(n²) time and O(1) extra space",
+      "O(log n) time and O(n) extra space",
+      "O(1) time and O(n) extra space",
+    ],
+
+    answer: "O(n) time and O(1) extra space",
+
+    solution: `For either the sum-based or XOR-based solution,
+we traverse the array once.
+
+If there are n elements:
+
+Time Complexity:
+
+O(n)
+
+
+Only a constant number of variables are used.
+
+For example:
+
+expected
+actual
+
+or:
+
+xor
+
+
+The amount of additional memory does not
+increase with n.
+
+Therefore:
+
+Space Complexity:
+
+O(1)
+
+
+Correct answer:
+
+O(n) time and O(1) extra space
+
+
+The 2025 candidate specifically reported that
+the interviewer followed the missing-number
+coding problem with questions about time and
+space complexity.`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+
+    sourceType: "previous-year",
+
+    sourceName: "Deloitte NLA 2025 Missing Number Complexity Follow-up",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1523,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question:
+      "Can you solve the missing-number problem using a different approach?",
+
+    options: [],
+
+    answer:
+      "Yes. If the first solution uses the arithmetic sum, an alternative is XOR, which also provides O(n) time and O(1) extra space.",
+
+    solution: `Suppose:
+
+N = 5
+
+arr = [1, 2, 4, 5]
+
+
+We XOR the complete range:
+
+1 ^ 2 ^ 3 ^ 4 ^ 5
+
+
+Then XOR every element in the array:
+
+1 ^ 2 ^ 4 ^ 5
+
+
+Because:
+
+x ^ x = 0
+
+all numbers occurring in both groups cancel.
+
+
+1 cancels with 1
+
+2 cancels with 2
+
+4 cancels with 4
+
+5 cancels with 5
+
+
+Only:
+
+3
+
+remains.
+
+
+Java:
+
+class Solution {
+
+    public int findMissing(
+        int[] arr,
+        int n
+    ) {
+
+        int result = 0;
+
+        for (int i = 1; i <= n; i++) {
+
+            result ^= i;
+        }
+
+        for (int value : arr) {
+
+            result ^= value;
+        }
+
+        return result;
+    }
+}
+
+
+Time Complexity:
+
+O(n)
+
+
+Space Complexity:
+
+O(1)
+
+
+Compared with the arithmetic formula,
+XOR also avoids arithmetic-sum overflow.
+
+
+The candidate reported that the interviewer
+asked for different approaches to the live
+coding problem.`,
+
+    difficulty: "Easy",
+    programmingLanguage: "Java",
+
+    sourceType: "previous-year",
+
+    sourceName:
+      "Deloitte NLA 2025 Missing Number Alternative Approach Follow-up",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1524,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: "Give a brief self-introduction and explain your background.",
+
+    options: [],
+
+    answer:
+      "Cover your education, relevant technical strengths, important projects or experience, and your interest in the role.",
+
+    solution: `This is not a question with one fixed answer.
+
+A fresher can structure the response as follows:
+
+
+1. INTRODUCTION
+
+Name and current education.
+
+
+2. TECHNICAL STRENGTHS
+
+Mention only skills you can explain confidently.
+
+
+3. PROJECTS
+
+Briefly mention one or two important projects.
+
+
+4. CONTRIBUTION
+
+Explain what you personally implemented.
+
+
+5. CAREER OBJECTIVE
+
+Connect your background with the role.
+
+
+Example structure:
+
+"I am a Computer Science student with a strong
+interest in software development and
+problem-solving.
+
+I have worked on full-stack projects where I
+gained practical experience with frontend,
+backend APIs and databases.
+
+Along with development, I have been strengthening
+my fundamentals in DSA, OOP, DBMS and SQL.
+
+One of my main projects gave me experience in
+designing features, integrating APIs and working
+with persistent data.
+
+I am now looking for an opportunity where I can
+apply these skills in a professional environment
+and continue developing as a software engineer."
+
+
+Keep the introduction concise.
+
+Do not simply read every line of your resume.
+
+Be prepared for the interviewer to ask follow-up
+questions based on anything you mention.`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+
+    sourceType: "previous-year",
+
+    sourceName:
+      "Deloitte NLA Analyst/Associate Interview - 10 Feb 2025 - Self Introduction",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1525,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: "Explain one of your academic or personal projects in detail.",
+
+    options: [],
+
+    answer:
+      "Explain the problem, architecture, technologies, your contribution, challenges, solution and results.",
+
+    solution: `A strong project explanation should be structured.
+
+
+1. PROBLEM
+
+What problem does the application solve?
+
+
+2. USERS
+
+Who uses the application?
+
+
+3. TECHNOLOGY STACK
+
+Explain the technologies used.
+
+More importantly, explain WHY you chose them.
+
+
+4. ARCHITECTURE
+
+Example:
+
+Frontend
+    |
+    | HTTP
+    v
+REST API
+    |
+    v
+Backend
+    |
+    v
+Database
+
+
+5. YOUR CONTRIBUTION
+
+This is very important.
+
+Instead of only saying:
+
+"We created a website."
+
+say:
+
+"I implemented the authentication APIs and
+connected the frontend login system with the
+backend."
+
+
+6. CHALLENGE
+
+Explain a genuine technical challenge.
+
+
+7. SOLUTION
+
+Explain how you investigated and solved it.
+
+
+8. RESULT
+
+Explain the final outcome.
+
+
+9. FUTURE IMPROVEMENTS
+
+Explain what you would improve if you had
+more time.
+
+
+Be prepared for follow-up questions such as:
+
+Why did you choose this database?
+
+How does authentication work?
+
+How does the frontend communicate with the backend?
+
+What was the hardest bug?
+
+What exactly did you implement?
+
+How would the application scale?
+
+How would you improve security?
+
+
+The February 2025 Deloitte candidate explicitly
+reported detailed discussion of academic and
+personal projects.`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+
+    sourceType: "previous-year",
+
+    sourceName:
+      "Deloitte NLA Analyst/Associate Interview - Project Discussion - 10 Feb 2025",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1526,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Suppose a project you have been working on is cancelled
+close to its deadline. How would you handle the situation?`,
+
+    options: [],
+
+    answer:
+      "Understand the reason, communicate professionally, document useful work, complete any required handover, capture lessons learned and adapt to the team's new priority.",
+
+    solution: `This is a scenario-based behavioral question.
+
+A strong response demonstrates:
+
+professionalism
+adaptability
+communication
+ownership
+
+
+STEP 1: UNDERSTAND THE DECISION
+
+A project may be cancelled because of:
+
+business priorities
+budget changes
+client decisions
+technical feasibility
+regulatory issues
+
+
+STEP 2: CLARIFY EXPECTATIONS
+
+Ask your manager what needs to happen next.
+
+For example:
+
+documentation
+handover
+cleanup
+knowledge transfer
+
+
+STEP 3: PRESERVE USEFUL WORK
+
+Subject to company policies, document:
+
+architecture
+important decisions
+reusable components
+known issues
+lessons learned
+
+
+STEP 4: SUPPORT THE TEAM
+
+Help with the transition rather than immediately
+abandoning the work.
+
+
+STEP 5: ADAPT
+
+Move your attention to the organization's
+new priority.
+
+
+Example answer:
+
+"If a project I had worked on was cancelled close
+to the deadline, I would first understand the
+business reason and clarify what my manager needs
+from me during the transition.
+
+I would document the current state, important
+technical decisions and any reusable work according
+to company policy.
+
+I would complete any required handover and capture
+the lessons learned.
+
+Although cancellation after significant effort
+can be disappointing, I would treat it as a
+business decision and focus on the team's next
+priority."
+
+
+The February 2025 candidate specifically reported
+this project-cancellation scenario.`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+
+    sourceType: "previous-year",
+
+    sourceName:
+      "Deloitte NLA Analyst/Associate Scenario Question - 10 Feb 2025",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1527,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question:
+      "How do you handle working in a team when team members have different opinions about how to solve a problem?",
+
+    options: [],
+
+    answer:
+      "Listen to each viewpoint, compare options against objective requirements, communicate respectfully, agree on a decision and support the team once the decision is made.",
+
+    solution: `This is a teamwork and communication question.
+
+A good structure is:
+
+
+1. LISTEN
+
+Understand each person's reasoning before
+responding.
+
+
+2. IDENTIFY THE COMMON GOAL
+
+Bring the discussion back to:
+
+requirements
+deadline
+quality
+maintainability
+user needs
+
+
+3. COMPARE OPTIONS OBJECTIVELY
+
+For technical decisions, compare factors such as:
+
+complexity
+performance
+development time
+maintainability
+risk
+
+
+4. USE EVIDENCE
+
+When possible:
+
+build a prototype
+run a benchmark
+check documentation
+review requirements
+
+
+5. MAKE A DECISION
+
+The team should eventually commit to an approach.
+
+
+6. SUPPORT THE DECISION
+
+Once the decision is made, work toward the
+team's objective rather than continuing an
+unproductive disagreement.
+
+
+Example:
+
+"If my teammate and I preferred different technical
+approaches, I would first understand why they
+preferred their solution.
+
+We would compare both options against the actual
+requirements, complexity and maintainability.
+
+If necessary, we could create a small prototype
+or ask a senior team member for input.
+
+Once the team agrees on a decision, I would fully
+support that approach."
+
+
+The 2025 Deloitte NLA candidate reports that
+teamwork, adaptability and communication were
+explicitly evaluated during the interview.`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+
+    sourceType: "previous-year",
+
+    sourceName: "Deloitte NLA 2025 - Teamwork and Communication Evaluation",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+
+  {
+    questionId: 1528,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question:
+      "How would you adapt if you were assigned to work with a technology that you had never used before?",
+
+    options: [],
+
+    answer:
+      "Understand the required scope, learn the fundamentals from reliable resources, build a small prototype, seek guidance when necessary and progressively apply the technology to the real task.",
+
+    solution: `This question evaluates adaptability.
+
+A structured answer:
+
+
+1. UNDERSTAND THE REQUIREMENT
+
+First determine exactly what part of the
+technology the project requires.
+
+
+2. LEARN FUNDAMENTALS
+
+Use:
+
+official documentation
+internal documentation
+trusted technical resources
+
+
+3. BUILD A SMALL PROTOTYPE
+
+Instead of immediately changing production code,
+create a small experiment.
+
+
+4. ASK TARGETED QUESTIONS
+
+If blocked, ask experienced teammates specific
+questions rather than waiting indefinitely.
+
+
+5. APPLY THE KNOWLEDGE
+
+Start with a small project task and gradually
+take on more responsibility.
+
+
+6. DOCUMENT LEARNING
+
+Record important setup steps, decisions and
+problems for yourself and the team.
+
+
+Example answer:
+
+"If I were assigned a technology I had not used
+before, I would first understand exactly what the
+project requires.
+
+I would learn the fundamentals from the official
+documentation and build a small prototype so I
+could understand the technology practically.
+
+If I encountered blockers, I would ask experienced
+team members targeted questions.
+
+Then I would begin applying what I learned to
+smaller project tasks before taking on more
+complex work."
+
+
+This reflects the adaptability component explicitly
+reported in the Deloitte NLA 2025 interview.`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+
+    sourceType: "previous-year",
+
+    sourceName: "Deloitte NLA 2025 - Adaptability and Soft Skills Evaluation",
+
+    sourceUrl:
+      "https://www.geeksforgeeks.org/interview-experiences/deloitte-interview-experience-through-nla/",
+  },
+  {
+    questionId: 1529,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Given an integer array, rotate the array to the left by k positions.
+
+Example:
+
+Input:
+arr = [1, 2, 3, 4, 5]
+k = 2
+
+Output:
+[3, 4, 5, 1, 2]`,
+
+    options: [],
+
+    answer:
+      "Use the reversal algorithm to rotate the array in O(n) time and O(1) extra space.",
+
+    solution: `Example:
+
+arr = [1, 2, 3, 4, 5]
+k = 2
+
+Step 1:
+Reverse first k elements.
+
+[2, 1, 3, 4, 5]
+
+Step 2:
+Reverse remaining elements.
+
+[2, 1, 5, 4, 3]
+
+Step 3:
+Reverse the entire array.
+
+[3, 4, 5, 1, 2]
+
+
+Java Solution:
+
+class Solution {
+
+    public void rotateLeft(int[] arr, int k) {
+
+        int n = arr.length;
+
+        if (n == 0) {
+            return;
+        }
+
+        k = k % n;
+
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, n - 1);
+        reverse(arr, 0, n - 1);
+    }
+
+    private void reverse(
+        int[] arr,
+        int left,
+        int right
+    ) {
+
+        while (left < right) {
+
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
+}
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)`,
+
+    difficulty: "Medium",
+    programmingLanguage: "Java",
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1530,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Given a string containing only '(', ')', '{', '}',
+'[' and ']', determine whether the brackets are valid.
+
+Example:
+
+Input:
+"{[()]}"
+
+Output:
+true`,
+
+    options: [],
+
+    answer:
+      "Use a stack to store opening brackets and match each closing bracket with the most recent opening bracket.",
+
+    solution: `A stack works because brackets must close
+in reverse order.
+
+Example:
+
+{ [ ( ) ] }
+
+Push {
+Push [
+Push (
+
+When ) appears:
+pop (
+
+When ] appears:
+pop [
+
+When } appears:
+pop {
+
+Stack becomes empty.
+
+Therefore the expression is valid.
+
+
+Java Solution:
+
+import java.util.*;
+
+class Solution {
+
+    public boolean isValid(String s) {
+
+        Stack<Character> stack =
+            new Stack<>();
+
+        for (char ch : s.toCharArray()) {
+
+            if (
+                ch == '(' ||
+                ch == '{' ||
+                ch == '['
+            ) {
+
+                stack.push(ch);
+
+            } else {
+
+                if (stack.isEmpty()) {
+                    return false;
+                }
+
+                char top = stack.pop();
+
+                if (
+                    (ch == ')' && top != '(') ||
+                    (ch == '}' && top != '{') ||
+                    (ch == ']' && top != '[')
+                ) {
+
+                    return false;
+                }
+            }
+        }
+
+        return stack.isEmpty();
+    }
+}
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(n)`,
+
+    difficulty: "Easy",
+    programmingLanguage: "Java",
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1531,
+    companyId: 9,
+    year: 2025,
+    category: "sql",
+
+    question:
+      "Which SQL JOIN returns all rows from the left table and matching rows from the right table?",
+
+    options: ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "CROSS JOIN"],
+
+    answer: "LEFT JOIN",
+
+    solution: `LEFT JOIN returns every row from the
+left table.
+
+If a matching row exists in the right table,
+its values are included.
+
+If no match exists, columns from the right
+table contain NULL.
+
+Example:
+
+SELECT
+    e.name,
+    d.department_name
+FROM Employee e
+LEFT JOIN Department d
+ON e.department_id = d.id;
+
+
+Correct Answer:
+
+LEFT JOIN`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style SQL Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1532,
+    companyId: 9,
+    year: 2025,
+    category: "sql",
+
+    question: `Which SQL clause is used to filter groups created
+using GROUP BY?`,
+
+    options: ["WHERE", "HAVING", "ORDER BY", "DISTINCT"],
+
+    answer: "HAVING",
+
+    solution: `WHERE filters individual rows before grouping.
+
+HAVING filters groups after GROUP BY.
+
+
+Example:
+
+SELECT
+    department,
+    COUNT(*) AS employees
+FROM Employee
+GROUP BY department
+HAVING COUNT(*) > 5;
+
+
+This returns only departments containing
+more than five employees.
+
+
+Correct Answer:
+
+HAVING`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style SQL Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1533,
+    companyId: 9,
+    year: 2025,
+    category: "dbms",
+
+    question:
+      "Which ACID property ensures that a transaction is completed entirely or not performed at all?",
+
+    options: ["Atomicity", "Consistency", "Isolation", "Durability"],
+
+    answer: "Atomicity",
+
+    solution: `ACID stands for:
+
+A - Atomicity
+C - Consistency
+I - Isolation
+D - Durability
+
+
+Atomicity means a transaction behaves as
+one logical unit.
+
+Either:
+
+all operations succeed
+
+or:
+
+all operations are rolled back.
+
+
+Example:
+
+Bank transfer:
+
+1. Deduct ₹1000 from Account A
+2. Add ₹1000 to Account B
+
+
+If step 2 fails, step 1 should also be
+rolled back.
+
+Otherwise money would disappear.
+
+
+Correct Answer:
+
+Atomicity`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DBMS Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1534,
+    companyId: 9,
+    year: 2025,
+    category: "dbms",
+
+    question:
+      "What is the primary purpose of normalization in a relational database?",
+
+    options: [
+      "Increase duplicate data",
+      "Reduce redundancy and undesirable data anomalies",
+      "Encrypt database tables",
+      "Increase the number of columns",
+    ],
+
+    answer: "Reduce redundancy and undesirable data anomalies",
+
+    solution: `Normalization organizes relational data
+to reduce unnecessary duplication and
+undesirable modification anomalies.
+
+It can help prevent:
+
+Insertion anomalies
+
+Update anomalies
+
+Deletion anomalies
+
+
+For example, storing department information
+repeatedly for every employee can create
+unnecessary duplication.
+
+Separating related entities into appropriate
+tables can reduce that redundancy.
+
+
+Common normal forms include:
+
+1NF
+2NF
+3NF
+BCNF
+
+
+Correct Answer:
+
+Reduce redundancy and undesirable data anomalies`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DBMS Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1535,
+    companyId: 9,
+    year: 2025,
+    category: "java",
+
+    question:
+      "Which Java keyword prevents a method from being overridden by a subclass?",
+
+    options: ["static", "final", "private", "abstract"],
+
+    answer: "final",
+
+    solution: `A method declared final cannot be
+overridden by a subclass.
+
+Example:
+
+class Parent {
+
+    final void display() {
+
+        System.out.println("Parent");
+    }
+}
+
+
+A child class cannot override display().
+
+
+The final keyword can also be used with:
+
+variables
+methods
+classes
+
+
+Final variable:
+
+cannot be reassigned after initialization.
+
+
+Final method:
+
+cannot be overridden.
+
+
+Final class:
+
+cannot be extended.
+
+
+Correct Answer:
+
+final`,
+
+    difficulty: "Easy",
+    programmingLanguage: "Java",
+    sourceType: "company-style",
+    sourceName: "Deloitte-style Java/OOP Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1536,
+    companyId: 9,
+    year: 2025,
+    category: "java",
+
+    question:
+      "What happens when a subclass defines a method with the same signature as a non-final instance method in its parent class?",
+
+    options: [
+      "Method overloading",
+      "Method overriding",
+      "Constructor chaining",
+      "Compilation always fails",
+    ],
+
+    answer: "Method overriding",
+
+    solution: `When a subclass provides its own implementation
+of an inherited instance method with the same
+signature, this is method overriding.
+
+Example:
+
+class Animal {
+
+    void sound() {
+        System.out.println("Animal");
+    }
+}
+
+
+class Dog extends Animal {
+
+    @Override
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+
+
+Animal obj = new Dog();
+
+obj.sound();
+
+
+Output:
+
+Bark
+
+
+The runtime object determines which overridden
+method executes.
+
+This supports runtime polymorphism.
+
+
+Correct Answer:
+
+Method overriding`,
+
+    difficulty: "Easy",
+    programmingLanguage: "Java",
+    sourceType: "company-style",
+    sourceName: "Deloitte-style Java/OOP Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1537,
+    companyId: 9,
+    year: 2025,
+    category: "reasoning",
+
+    question: `Find the next number in the sequence:
+
+3, 8, 15, 24, 35, ?`,
+
+    options: ["46", "48", "50", "52"],
+
+    answer: "48",
+
+    solution: `Sequence:
+
+3, 8, 15, 24, 35
+
+
+Differences:
+
+8 - 3 = 5
+
+15 - 8 = 7
+
+24 - 15 = 9
+
+35 - 24 = 11
+
+
+The differences are consecutive odd numbers:
+
+5, 7, 9, 11
+
+
+Next difference:
+
+13
+
+
+Therefore:
+
+35 + 13 = 48
+
+
+Correct Answer:
+
+48`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style Logical Reasoning Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1538,
+    companyId: 9,
+    year: 2025,
+    category: "aptitude",
+
+    question: `A product is marked 25% above its cost price and
+sold at a discount of 10% on the marked price.
+
+What is the profit percentage?`,
+
+    options: ["10%", "12.5%", "15%", "17.5%"],
+
+    answer: "12.5%",
+
+    solution: `Assume:
+
+Cost Price = ₹100
+
+
+Marked 25% above cost:
+
+Marked Price = ₹125
+
+
+Discount:
+
+10% of ₹125
+
+= ₹12.50
+
+
+Selling Price:
+
+₹125 - ₹12.50
+
+= ₹112.50
+
+
+Profit:
+
+₹112.50 - ₹100
+
+= ₹12.50
+
+
+Profit Percentage:
+
+(12.50 / 100) × 100
+
+= 12.5%
+
+
+Correct Answer:
+
+12.5%`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style Quantitative Aptitude Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1539,
+    companyId: 9,
+    year: 2025,
+    category: "aptitude",
+
+    question: `A can complete a piece of work in 12 days and
+B can complete the same work in 18 days.
+
+How many days will they take if they work together?`,
+
+    options: ["6 days", "7.2 days", "8 days", "9 days"],
+
+    answer: "7.2 days",
+
+    solution: `A's one-day work:
+
+1 / 12
+
+
+B's one-day work:
+
+1 / 18
+
+
+Together:
+
+1/12 + 1/18
+
+
+LCM = 36
+
+
+= 3/36 + 2/36
+
+= 5/36
+
+
+Therefore time required:
+
+36/5
+
+= 7.2 days
+
+
+Correct Answer:
+
+7.2 days`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style Quantitative Aptitude Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1540,
+    companyId: 9,
+    year: 2025,
+    category: "reasoning",
+
+    question: `Statements:
+
+All developers are problem solvers.
+Some problem solvers are managers.
+
+Which conclusion definitely follows?`,
+
+    options: [
+      "All managers are developers",
+      "Some developers are managers",
+      "All developers are problem solvers",
+      "No manager is a developer",
+    ],
+
+    answer: "All developers are problem solvers",
+
+    solution: `The first statement directly says:
+
+All developers are problem solvers.
+
+
+The second statement says:
+
+Some problem solvers are managers.
+
+
+It does NOT establish that those managers
+are developers.
+
+Therefore we cannot conclude:
+
+Some developers are managers.
+
+
+We also cannot conclude:
+
+All managers are developers.
+
+
+The only conclusion guaranteed by the
+given statements is:
+
+All developers are problem solvers.
+
+
+Correct Answer:
+
+All developers are problem solvers`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style Logical Reasoning Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1541,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `What is the time complexity of binary search
+on a sorted array?`,
+
+    options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+
+    answer: "O(log n)",
+
+    solution: `Binary search repeatedly divides the
+search space approximately in half.
+
+For n elements:
+
+n
+n/2
+n/4
+n/8
+...
+
+After k operations:
+
+n / 2^k ≈ 1
+
+
+Therefore:
+
+2^k ≈ n
+
+Taking logarithm:
+
+k ≈ log₂(n)
+
+
+Hence:
+
+Time Complexity = O(log n)
+
+
+Correct Answer:
+
+O(log n)`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Assessment Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1542,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Which data structure follows the FIFO principle?`,
+
+    options: ["Stack", "Queue", "Binary Search Tree", "Heap"],
+
+    answer: "Queue",
+
+    solution: `FIFO means:
+
+First In, First Out.
+
+
+Suppose we insert:
+
+10
+20
+30
+
+
+A queue removes them in the order:
+
+10
+20
+30
+
+
+The first element inserted is the first
+element removed.
+
+
+Stack instead follows:
+
+LIFO
+
+Last In, First Out.
+
+
+Correct Answer:
+
+Queue`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Assessment Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1543,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Which traversal of a Binary Search Tree produces
+the keys in sorted order?`,
+
+    options: ["Preorder", "Inorder", "Postorder", "Level Order"],
+
+    answer: "Inorder",
+
+    solution: `For a Binary Search Tree:
+
+Left subtree contains smaller keys.
+
+Right subtree contains larger keys.
+
+
+Inorder traversal follows:
+
+Left
+Root
+Right
+
+
+Example:
+
+        4
+       / \\
+      2   6
+     / \\ / \\
+    1  3 5  7
+
+
+Inorder traversal:
+
+1, 2, 3, 4, 5, 6, 7
+
+
+Therefore the values appear in ascending
+sorted order when the BST ordering property
+is satisfied.
+
+
+Correct Answer:
+
+Inorder`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Assessment Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1544,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Which algorithm is commonly used to find the
+shortest path from a source vertex in a graph
+whose edge weights are non-negative?`,
+
+    options: [
+      "Dijkstra's Algorithm",
+      "Kruskal's Algorithm",
+      "Prim's Algorithm",
+      "DFS only",
+    ],
+
+    answer: "Dijkstra's Algorithm",
+
+    solution: `Dijkstra's algorithm computes shortest paths
+from a source when edge weights are
+non-negative.
+
+It repeatedly chooses the currently known
+unprocessed vertex with the smallest distance
+and relaxes its outgoing edges.
+
+
+Kruskal's Algorithm:
+
+Used for Minimum Spanning Tree.
+
+
+Prim's Algorithm:
+
+Also used for Minimum Spanning Tree.
+
+
+DFS:
+
+Does not generally compute shortest weighted
+paths.
+
+
+Therefore:
+
+Correct Answer:
+
+Dijkstra's Algorithm
+
+
+Important:
+
+Standard Dijkstra should not be used when
+negative edge weights are present.`,
+
+    difficulty: "Medium",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Assessment Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1545,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Which data structure is commonly used by
+Breadth-First Search (BFS)?`,
+
+    options: ["Stack", "Queue", "Heap only", "HashSet only"],
+
+    answer: "Queue",
+
+    solution: `BFS explores vertices level by level.
+
+A queue naturally supports this behavior.
+
+
+Process:
+
+1. Add starting vertex to queue.
+
+2. Remove the front vertex.
+
+3. Visit its unvisited neighbors.
+
+4. Add those neighbors to the queue.
+
+5. Continue until the queue is empty.
+
+
+Therefore BFS primarily uses:
+
+Queue
+
+
+DFS commonly uses:
+
+Stack
+
+or recursion.
+
+
+Correct Answer:
+
+Queue`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Assessment Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1546,
+    companyId: 9,
+    year: 2025,
+    category: "dbms",
+
+    question: "Which database key uniquely identifies each record in a table?",
+
+    options: [
+      "Foreign Key",
+      "Primary Key",
+      "Composite Attribute",
+      "Derived Attribute",
+    ],
+
+    answer: "Primary Key",
+
+    solution: `A primary key uniquely identifies each
+row in a relational table.
+
+Example:
+
+Student
+
+student_id | name
+-----------------
+101        | Amit
+102        | Neha
+
+
+student_id can serve as the primary key.
+
+
+A primary key must satisfy the database
+system's uniqueness and non-null requirements.
+
+
+A foreign key is used to reference a key
+in another table and establish relationships.
+
+
+Correct Answer:
+
+Primary Key`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DBMS Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1547,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `What is the worst-case time complexity of
+Merge Sort?`,
+
+    options: ["O(n)", "O(log n)", "O(n log n)", "O(n²)"],
+
+    answer: "O(n log n)",
+
+    solution: `Merge Sort repeatedly divides the array
+into halves.
+
+Number of division levels:
+
+O(log n)
+
+
+At each level, merging processes a total
+of approximately n elements.
+
+Therefore:
+
+O(n) × O(log n)
+
+=
+
+O(n log n)
+
+
+Merge Sort maintains this complexity in:
+
+best case
+average case
+worst case
+
+
+Correct Answer:
+
+O(n log n)`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Assessment Practice",
+    sourceUrl: null,
+  },
+
+  {
+    questionId: 1548,
+    companyId: 9,
+    year: 2025,
+    category: "programming",
+
+    question: `Which technique stores results of overlapping
+subproblems so they do not need to be computed repeatedly?`,
+
+    options: [
+      "Dynamic Programming",
+      "Binary Search",
+      "Hash collision",
+      "Round Robin",
+    ],
+
+    answer: "Dynamic Programming",
+
+    solution: `Dynamic Programming is useful when a problem has
+properties such as:
+
+overlapping subproblems
+
+and often:
+
+optimal substructure
+
+
+Instead of repeatedly solving the same
+subproblem, its result is stored.
+
+
+Two common approaches are:
+
+1. Memoization
+
+Top-down recursion + caching.
+
+
+2. Tabulation
+
+Bottom-up computation.
+
+
+Example:
+
+Fibonacci numbers.
+
+
+Naive recursion repeatedly calculates the
+same Fibonacci values.
+
+Dynamic programming stores previously
+calculated results.
+
+
+Correct Answer:
+
+Dynamic Programming`,
+
+    difficulty: "Easy",
+    programmingLanguage: null,
+    sourceType: "company-style",
+    sourceName: "Deloitte-style DSA Assessment Practice",
+    sourceUrl: null,
+  },
 ];
 
 async function seedDeloitte2025Questions() {
-
   try {
-
-    await mongoose.connect(
-      process.env.MONGO_URI
-    );
+    await mongoose.connect(process.env.MONGO_URI);
 
     console.log("MongoDB connected");
 
@@ -1706,32 +4145,19 @@ async function seedDeloitte2025Questions() {
       year: 2025,
     });
 
-    console.log(
-      "Old Deloitte 2025 questions deleted"
-    );
+    console.log("Old Deloitte 2025 questions deleted");
 
-    await CompanyQuestion.insertMany(
-      questions
-    );
+    await CompanyQuestion.insertMany(questions);
 
     console.log(
-      `${questions.length} Deloitte 2025 candidate-reported questions seeded successfully`
+      `${questions.length} Deloitte 2025 candidate-reported questions seeded successfully`,
     );
-
   } catch (error) {
-
-    console.error(
-      "Error seeding Deloitte 2025 questions:",
-      error
-    );
-
+    console.error("Error seeding Deloitte 2025 questions:", error);
   } finally {
-
     await mongoose.disconnect();
 
-    console.log(
-      "MongoDB disconnected"
-    );
+    console.log("MongoDB disconnected");
   }
 }
 
