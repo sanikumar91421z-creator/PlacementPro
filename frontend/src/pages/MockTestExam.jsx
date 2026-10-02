@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -115,7 +115,7 @@ function MockTestExam() {
     ).padStart(2, "0")}`;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = useCallback(async () => {
     if (!test || submitting || autoSubmitTriggered.current) {
       return;
     }
@@ -168,7 +168,7 @@ function MockTestExam() {
     } finally {
       setSubmitting(false);
     }
-  };
+  }, [test, submitting, timeLeft, answers, navigate]);
   useEffect(() => {
     if (
       test &&
@@ -179,7 +179,7 @@ function MockTestExam() {
     ) {
       handleSubmit();
     }
-  }, [timeLeft, test, loading, submitting]);
+  }, [timeLeft, test, loading, submitting, handleSubmit]);
 
   if (loading) {
     return (

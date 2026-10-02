@@ -20,12 +20,13 @@ import Practice from "./pages/Practice";
 import DSA from "./pages/DSA";
 import Aptitude from "./pages/Aptitude";
 import MockTests from "./pages/MockTests";
-import Arrays from "./pages/Arrays";
+
 import Question from "./pages/Question";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AptitudeQuestions from "./pages/AptitudeQuestions";
 import MockTestResult from "./pages/MockTestResult";
+import Dashboard from "./pages/Dashboard";
 // ==========================================
 // NAVBAR
 // ==========================================
@@ -79,10 +80,7 @@ function Navbar() {
     };
 
     verifyUser();
-
-    setMenuOpen(false);
   }, [location]);
-
   // About section
   const handleAboutClick = () => {
     setMenuOpen(false);
@@ -136,11 +134,23 @@ function Navbar() {
       {/* NAV LINKS */}
 
       <div className={`nav-links ${menuOpen ? "nav-active" : ""}`}>
-        <Link to="/">Home</Link>
+        <Link to="/" onClick={() => setMenuOpen(false)}>
+          Home
+        </Link>
 
-        <Link to="/practice">Practice</Link>
+        {user && (
+          <Link to="/dashboard" onClick={() => setMenuOpen(false)}>
+            Dashboard
+          </Link>
+        )}
 
-        <Link to="/companies">Companies</Link>
+        <Link to="/practice" onClick={() => setMenuOpen(false)}>
+          Practice
+        </Link>
+
+        <Link to="/companies" onClick={() => setMenuOpen(false)}>
+          Companies
+        </Link>
 
         <Link to="/#about" onClick={handleAboutClick}>
           About
@@ -150,11 +160,19 @@ function Navbar() {
 
         {!user && (
           <>
-            <Link to="/login" className="btn login-btn">
+            <Link
+              to="/login"
+              className="btn login-btn"
+              onClick={() => setMenuOpen(false)}
+            >
               Login
             </Link>
 
-            <Link to="/signup" className="btn signup-btn">
+            <Link
+              to="/signup"
+              className="btn signup-btn"
+              onClick={() => setMenuOpen(false)}
+            >
               Sign Up
             </Link>
           </>
@@ -196,6 +214,17 @@ function App() {
 
         <Route path="/signup" element={<Signup />} />
 
+        {/* DASHBOARD */}
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
         {/* PRACTICE */}
 
         <Route
@@ -234,14 +263,6 @@ function App() {
           }
         />
 
-        <Route
-          path="/practice/aptitude"
-          element={
-            <ProtectedRoute>
-              <Aptitude />
-            </ProtectedRoute>
-          }
-        />
         <Route
           path="/practice/aptitude"
           element={

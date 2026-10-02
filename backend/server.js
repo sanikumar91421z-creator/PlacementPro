@@ -1504,5 +1504,5 @@ app.use("/api", (req, res) => {
 // ==========================================
 
 app.listen(PORT, () => {
-  console.log(`Backend running at http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

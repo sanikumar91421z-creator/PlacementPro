@@ -38,7 +38,7 @@ function CompanyPaper() {
         });
 
         const data = await response.json();
-        
+
         if (!response.ok) {
           throw new Error(data.message || "Unable to load questions.");
         }
@@ -46,6 +46,7 @@ function CompanyPaper() {
         setQuestions(data.questions || []);
         setCompany(data.company);
         setOpenSolution(null);
+        setSelectedAnswers({});
       } catch (error) {
         console.error("Company paper error:", error);
         setError(error.message);
@@ -81,15 +82,15 @@ function CompanyPaper() {
       </button>
 
       <div className="company-paper-header">
-        <span className="companies-label">REPORTED PREVIOUS-YEAR PAPER</span>
+        <span className="companies-label">COMPANY PRACTICE PAPER</span>
 
         <h1>
           {company?.name || slug.toUpperCase()} {year}
         </h1>
 
         <p>
-          A merged collection of reported and memory-based questions from {year}
-          .
+          A merged collection of reported previous-year and company-style
+          practice questions for {year}.
         </p>
       </div>
 
@@ -134,6 +135,18 @@ function CompanyPaper() {
 
                     <span className="difficulty-badge">
                       {question.difficulty}
+                    </span>
+
+                    <span
+                      className={
+                        question.sourceType === "previous-year"
+                          ? "source-type-badge previous-year"
+                          : "source-type-badge company-style"
+                      }
+                    >
+                      {question.sourceType === "previous-year"
+                        ? "Reported PYQ"
+                        : "Company-Style"}
                     </span>
                   </div>
                 </div>
@@ -213,7 +226,18 @@ function CompanyPaper() {
 
                     {question.sourceName && (
                       <div className="question-source">
-                        <strong>Source:</strong> {question.sourceName}
+                        <strong>Source:</strong>{" "}
+                        {question.sourceUrl ? (
+                          <a
+                            href={question.sourceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {question.sourceName}
+                          </a>
+                        ) : (
+                          <span>{question.sourceName}</span>
+                        )}
                       </div>
                     )}
                   </div>

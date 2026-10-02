@@ -133,7 +133,7 @@ function DSATopic() {
     };
 
     fetchData();
-  }, [topic]);
+ }, [topic, currentTopic]);
 
   if (!currentTopic && !loading) {
     return (
